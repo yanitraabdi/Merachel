@@ -1,0 +1,202 @@
+﻿
+@{
+    ViewBag.Title = "Collection";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Collection</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index", "Admin")">Home</a>
+            </li>
+            <li class="active">
+                <strong>Collection</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+<div id="panelSummary" class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Search Form</h5>
+                </div>
+                <div class="ibox-content">
+                    <form action="#" id="formSearch">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <div class="radio radio-primary">
+                                        <input type="radio" name="status" id="rbSearchStatusAll" value="0" checked="">
+                                        <label for="rbSearchStatusAll">
+                                            All
+                                        </label>
+                                    </div>
+                                    <div class="radio radio-primary">
+                                        <input type="radio" name="status" id="rbSearchStatusActive" value="1">
+                                        <label for="rbSearchStatusActive">
+                                            Active
+                                        </label>
+                                    </div>
+                                    <div class="radio radio-primary">
+                                        <input type="radio" name="status" id="rbSearchStatusInactive" value="2">
+                                        <label for="rbSearchStatusInactive">
+                                            Inactive
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Collection Title</label>
+                                    <input type="text" class="form-control" id="tbTitle">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <button id="btSearch" class="btn btn-w-m btn-success ladda-button search" type="button" data-style="slide-down"><i class="fa fa-search"></i> Search</button>
+                                    <button class="btn btn-w-m btn-default reset" type="button"><i class="fa fa-refresh"></i> Clear</button>
+                                    <button class="btn btn-w-m btn-primary create" type="button"><i class="fa fa-plus"></i> Add New Testimonial</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        @Html.Partial("_PanelSearchBegin")
+        @Html.Partial("_PanelSearchInfo")
+
+        <div class="panel-search-result">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <table class="table table-striped table-bordered table-hover dataTables-example" id="tblSummaryData" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="panelTransaction" class="wrapper wrapper-content animated fadeInRight">
+    <form action="#" id="formTransaction">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><span id="spTitle"></span></h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Tutor Name</label>
+                                    <input type="text" class="form-control" id="tbTutorName">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Tutor Speciality</label>
+                                    <input type="text" class="form-control" id="tbTutorSpecial">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea cols="1" rows="5" id="tbNewTemplateContent" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Photo</label>
+                                </div>
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div>
+                                        <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                    </div>
+                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 300px; height: 300px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <button class="btn btn-w-m btn-success" type="submit"><i class="fa fa-floppy-o"></i> Submit</button>
+                                    <button class="btn btn-w-m btn-default back" type="button"><i class="fa fa-times"></i> Dismiss</button>
+                                    <button class="btn btn-w-m btn-danger delete" type="button"><i class="fa fa-trash"></i> Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="panelConfirmed" class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>SUCCESS!</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p>Your data has been saved successfully.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <button class="btn btn-w-m btn-default back" type="button"><i class="fa fa-times"></i> Back to Blog Category</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @Styles.Render("~/plugins/awesomeCheckboxStyles")
+    @Styles.Render("~/plugins/jasnyBootstrapStyles")
+}
+
+@section scripts {
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/jasnyBootstrap")
+
+    <script type="text/javascript" src="~/Scripts/merachel/admin/collection.js?v=@Model.JavaScriptAndCssVersion"></script>
+}
+
+
+
+

@@ -1,0 +1,109 @@
+﻿@model Merachel.WebUI.Models.EmailFormModel
+
+@{
+    ViewBag.Title = "Kontak Kami";
+}
+
+<div class="container">
+    <img src="~/Content/images/tutorall-1.jpg" style="width: 100%" />
+    
+    <div class="row">
+        <div class="col-md-6">
+            <h2>@ViewBag.Title</h2>
+            <p>Merachel Art and Fashion Course adalah Art and Fashion Studio yang berlokasi di kota Malang. Misi kami di Merachel adalah untuk mengembalikan makna fashion design, art, dan kreatifitas yang sesungguhnya dengan berbagai variasi program yang menarik. Meskipun belum berpengalaman mendesain dan menjahit, ataupun sudah pernah belajar namun ingin meningkatkan kemampuan dan skill, kamu dapat memilih program yang sesuai dengan kemampuan dan minatmu.</p>
+            <p>Untuk fashion, kami memiliki berbagai macam dan jenis pola, namun untuk saat ini favorit kami adalah pola Jepang yang terkenal dengan tingkat kenyamanan pemakaiannya, dan Merachel adalah satu-satunya fashion course di kota Malang yang memiliki pola Jepang ini. Ke depannya kami akan menyediakan pola Eropa yang anggun dan elegan. Kalian bebas memilih jenis pola yang kalian sukai!</p>
+
+            <h2>Visi dan Misi Merachel</h2>
+            <p>Visi: Menjadi Fashion Design School dengan International Standart & Curriculum of Fashion </p>
+            <p>Misi: </p>
+            <ul>
+                <li>Memberikan makna fashion design, art & kreatifitas yang sesungguhnya</li>
+                <li>Mengembangkan kurikulum & pengajar fashion yang semakin baik dari waktu ke waktu</li>
+                <li>Mengembangkan program dan workshop yang bermanfaat & menarik bagi masyarakat</li>
+            </ul>
+
+            <h2>Contact Person</h2>
+            <p>Jalan Laksda Adi Sucipto 190 Malang, East Java.</p>
+            <p>Rahma : 085 755 882 195 </p>
+            <p>Email : merachelfashion@gmail.com </p>
+
+            <div class="form-horizontal">
+                @using (Html.BeginForm())
+            {
+                    @Html.AntiForgeryToken()
+                    <h3>Inquiry Form</h3>
+                    <hr />
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FromName)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FromEmail)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FromPhone, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FromPhone, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FromPhone)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Subject, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Subject)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Message)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-default" value="Send" />
+                        </div>
+                    </div>
+                }
+               
+            </div>
+            </div>
+
+        <div class="col-md-6">
+            <h2>Siapa Kami</h2>
+            <img src="~/Content/images/foto-profil.jpg" class="img-responsive"/>
+            <h3>Meriza Rachelin</h3>
+            <h4>Founder, Creative Director, Fashion Design Tutor</h4>
+            <p>Saya adalah seorang Fashion & Textile Designer, dengan passion untuk berbagi skill dan pengetahuan Fashion Design serta seni art dan craft. Saya mencintai dunia art, craft, dan design sejak masih sangat muda. Saya juga seorang pribadi unik yang suka berpakaian dengan cara berbeda dan berkarakter. Kecintaan pada seni membawa saya berkuliah di jurusan Visual Communication Design di UK Petra. Setelah itu saya melanjutkan belajar membuat pola pakaian dan menjahit di Pison Art and Fashion Foundation. Saat ini saya melanjutkan pendidikan Fashion Stylist Diploma.</p> 
+            <p>Saya mendirikan Merachel Art and Fashion Course sejak tahun 2014, membawa budaya Fashion Design yang benar di kota Malang yang tercinta. Saya berharap ke depannya masyarakat makin sadar dan mau belajar untuk mendalami Fashion Design secara benar dan tepat.</p> 
+            
+            <p>Latar Belakang Pendidikan :</p>
+            <ul>
+                <li>Visual Communication Design – Petra Christian University, Surabaya</li>
+                <li>Basic Patternmaking – Pison Art and Fashion Foundation, Surabaya</li>
+                <li>Diploma Fashion Stylist</li>
+            </ul>
+
+            <p>Latar Belakang Pengajaran : </p>
+            <ul>
+                <li>Fashion Design Tutor – Pison Art and Fashion Foundation</li>
+                <li>Fashion Design Tutor – Mawar Sharon Christian School</li>
+                <li>Fashion Design Tutor – Merachel Art and Fashion Course</li>
+            </ul>
+        </div>
+    </div>
+</div>

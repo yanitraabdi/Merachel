@@ -1,0 +1,73 @@
+@model Merachel.WebUI.Models.EventModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="event-top">
+        <div class="row">
+            <div class="col-md-5">
+                <img src="~/Content/images/event-top.jpg" />
+            </div>
+            <div class="col-md-2">
+                <h1>Event</h1>
+                </div>
+            <div class="col-md-5">
+                <img src="~/Content/images/event-top.jpg" />
+            </div>
+            </div>
+    </div>
+    <div class="event-content">
+        <div class="container">
+            <ul>
+                @foreach (var item in Model.eventlist)
+                {
+                    <li class="event-list">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                @foreach (var pic in Model.picturelist.Where(p => p.EventID == item.EventID))
+                                {
+                                    Html.RenderPartial("_PictureList", pic);
+                                }
+                                @*<img src="~/Content/images/home-teen.jpg" alt="nama event" class="img-responsive" />*@
+                            </div>
+                            <div class="col-xs-8">
+                                <h1>@item.EventName</h1>
+                                <div class="event-info">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h4><i class="fa fa-map-marker"></i>&ensp;Lokasi : @item.EventLocation</h4>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <h4><i class="fa fa-calendar"></i>&ensp;Tanggal : 
+                                                @Html.DisplayFor(modelItem => item.EventBeginDate)</h4>
+                                            <h4>
+                                                <i class="fa fa-clock-o"></i>&ensp;Tanggal :
+                                                @Html.DisplayFor(modelItem => item.EventTimeStart) - @Html.DisplayFor(modelItem => item.EventTimeEnd)
+                                            </h4>
+                                            @*<h4><i class="fa fa-users"></i>&ensp;Kuota : 30 orang</h4>*@
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <h4><i class="fa fa-smile-o"></i>&ensp;Hosts : @item.EventHost</h4>
+                                            @*<h4><i class="fa fa-tag"></i>&ensp;Harga : Rp 350.000</h4>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="event-detail">
+                                    <p>
+                                        @Html.Raw(System.Web.HttpUtility.HtmlDecode(item.EventDescription))
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+

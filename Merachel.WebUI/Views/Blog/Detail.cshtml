@@ -1,0 +1,27 @@
+﻿@model Merachel.Domain.Entities.Blog
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="blog-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="blog-menu">
+                        <h1>Blog</h1>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <h2>@Model.BlogTitle</h2>
+                    @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.BlogContent))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

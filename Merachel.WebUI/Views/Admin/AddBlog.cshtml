@@ -1,0 +1,67 @@
+﻿@model Merachel.Domain.Entities.Blog
+
+@{
+    ViewBag.Title = "AddBlog";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section scripts {
+    <script>
+        CKEDITOR.config.allowedContent = true; // don't filter my data
+        CKEDITOR_BASEPATH = "@Url.Content("~/Scripts/ckeditor/")";
+    </script>
+}
+
+<h2>Add Blog</h2>
+
+@using (Html.BeginForm("AddBlog", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Blog</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.BlogTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BlogTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BlogTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BlogCategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.BlogCategoryID, new SelectList(ViewBag.Category, "BlogCategoryID", "BlogCategoryName"), "--- Pilih Kategori ---")
+                @Html.ValidationMessageFor(model => model.BlogCategoryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BlogContent, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BlogContent, new { htmlAttributes = new { @class = "ckeditor" } })
+                @Html.ValidationMessageFor(model => model.BlogContent, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BlogPictureMimeType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="Image" />
+                @Html.ValidationMessageFor(model => model.BlogPictureMimeType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

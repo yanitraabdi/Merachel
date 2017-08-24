@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Merachel.Domain.Entities.BlogCategory>
+
+@{
+    ViewBag.Title = "BlogCategory";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Blog Category</h1>
+
+<p>
+    <a href="@Url.Action("AddBlogCategory", "Admin")" class="btn btn-primary">Tambah Blog Category Baru</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogCategoryName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogCategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditBlogCategory", new { blogcategoryid = item.BlogCategoryID }) |
+            @using (Html.BeginForm("DeleteBlogCategory", "Admin"))
+            {
+                @Html.Hidden("blogcategoryid", item.BlogCategoryID)
+                <input type="submit"
+                       class="btn btn-default btn-xs"
+                       value="Delete" />
+            }
+        </td>
+    </tr>
+}
+
+</table>

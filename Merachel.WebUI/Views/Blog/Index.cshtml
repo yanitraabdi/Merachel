@@ -1,0 +1,53 @@
+﻿@model Merachel.WebUI.Models.BlogModel
+
+@{
+    ViewBag.Title = "Merachel | Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="blog-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="blog-menu">
+                        <h1>Blog</h1>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Blog")">Semua</a></li>
+                            @foreach (var c in Model.categorylist)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Index", "Blog", new { categoryid = c.BlogCategoryID })">@c.BlogCategoryName</a>
+                                </li>
+                            }
+                            @*<li><a href="#">Semua</a></li>
+                            <li><a href="#">Event</a></li>
+                            <li><a href="#">Kursus</a></li>
+                            <li><a href="#">Fashion</a></li>*@
+                        </ul>
+                    </div>
+                </div>
+                <div class="blog-list">
+                    <ul>
+                        @foreach (var item in Model.bloglist)
+                        {
+                            <li>
+                                <div class="col-md-4">
+                                    <div class="blog-item">
+                                        <a href="@Url.Action("Detail", "Blog", new { blogid = item.BlogID })">
+                                            <img src="@Url.Action("GetBlogImage", "Blog", new { blogid = item.BlogID })" alt="@item.BlogTitle" />
+                                            <h3>@item.BlogTitle</h3>
+                                            <h4>@item.BlogCategory.BlogCategoryName</h4>
+                                            <h5>@item.BlogDate</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

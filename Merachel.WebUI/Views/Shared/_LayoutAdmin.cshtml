@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noarchive">
+    <title>@ViewBag.Title</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    @Styles.Render("~/Content/admin")
+    @Styles.Render("~/Content/asset")
+
+    <script type="text/javascript">
+        CKEDITOR_BASEPATH = "@Url.Content("~/Scripts/ckeditor/")";
+    </script>
+</head>
+<body>
+
+    <!-- Wrapper-->
+    <!-- PageClass give you ability to specify custom style for specific view based on action -->
+    <div id="wrapper" class="@Html.PageClass()">
+
+        <!-- Navigation -->
+        @Html.Partial("_Navbar")
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg @ViewBag.SpecialClass">
+
+            <!-- Top Navbar -->
+            @Html.Partial("_TopNavbar")
+
+            <!-- Main view  -->
+            @RenderBody()
+
+            <!-- Footer -->
+            @Html.Partial("_Footer")
+
+        </div>
+        <!-- End page wrapper-->
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/ckeditor")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/scripts")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $('body.canvas-menu .sidebar-collapse').slimScroll({
+            height: '100%',
+            railOpacity: 0.9
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Merachel.Domain.Entities.Testimonial>
+
+@{
+    ViewBag.Title = "Testimonial";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Testimonial</h2>
+
+<p>
+    <a href="@Url.Action("AddTestimonial", "Admin")" class="btn btn-primary">Tambah Testimonial Baru</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TestimonialContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestimonialUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TestimonialDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestimonialContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestimonialUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestimonialDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditTestimonial", new { testimonialid = item.TestimonialID }) |
+            @using (Html.BeginForm("DeleteTestimonial", "Admin"))
+            {
+                @Html.Hidden("testimonialid", item.TestimonialID)
+                <input type="submit"
+                       class="btn btn-default btn-xs"
+                       value="Delete" />
+            }
+        </td>
+    </tr>
+}
+
+</table>

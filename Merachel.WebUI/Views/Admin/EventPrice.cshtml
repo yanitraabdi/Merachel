@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Merachel.Domain.Entities.EventPrice>
+
+@{
+    ViewBag.Title = "EventPrice";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>EventPrice</h2>
+
+<p>
+    <a href="@Url.Action("AddEventPrice", "Admin", new { eventid = Request.QueryString["eventid"] })" class="btn btn-primary">Tambah Harga Baru</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventPriceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventPriceTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventPriceQuota)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventPriceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventPriceTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventPriceQuota)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditEventPrice", new { eventpriceid = item.EventPriceID, eventid = Request.QueryString["eventid"] }) |
+            @using (Html.BeginForm("DeleteEventPrice", "Admin"))
+            {
+                @Html.Hidden("eventpriceid", item.EventPriceID)
+                <input type="submit"
+                       class="btn btn-default btn-xs"
+                       value="Delete" />
+            }
+        </td>
+    </tr>
+}
+
+</table>

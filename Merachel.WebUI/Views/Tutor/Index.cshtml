@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Merachel.Domain.Entities.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tutor-content">
+
+    <h1>Tutor Kami</h1>
+
+    <div class="container">
+        <img src="~/Content/images/tutorall-2.jpg" style="width: 100%"/>
+
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <div class="tutor-item">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img src="@Url.Action("GetTutorImage", "Tutor", new { employeeid = item.EmployeeID })" alt="@item.EmployeeName" class="img-rounded" />
+                            </div>
+                            <div class="col-xs-10">
+                                <h2>@item.EmployeeName</h2>
+                                <h3>
+                                    @item.EmployeeSpecial
+                                </h3>
+                                <p>
+                                    @item.EmployeeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+

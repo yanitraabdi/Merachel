@@ -1,0 +1,54 @@
+﻿@model Merachel.Domain.Entities.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <meta name="robots" content="noarchive">
+
+    <link href="~/Content/Assets/Inspinia/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/Assets/Inspinia/animate.css" rel="stylesheet" />
+    <link href="~/Content/Assets/Inspinia/style.css" rel="stylesheet" />
+
+</head>
+<body class="gray-bg">
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+                <h1 class="logo-name">M</h1>
+            </div>
+            <h3>Welcome to Merachel Admin</h3>
+            @using (Html.BeginForm("Login", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true, "Login Failed, check details", new { @class = "text-danger" });
+                <div class="form-group">
+                    <div class="editor-field">
+                        @Html.TextBoxFor(u => u.UserEmail, new { @class = "form-control", placeholder = "Email" })
+                        @Html.ValidationMessageFor(u => u.UserEmail)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="editor-field">
+                        @Html.PasswordFor(u => u.UserPassword, new { @class = "form-control", placeholder = "Password" })
+                        @Html.ValidationMessageFor(u => u.UserPassword)
+                    </div>
+                </div>
+                <button type="submit" value="Login" class="btn btn-primary block full-width m-b">Login</button>
+            }
+        </div>
+    </div>
+
+    @*Main Scripts*@
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Merachel.Domain.Entities.Event>
+
+@{
+    ViewBag.Title = "Event";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Event</h2>
+
+<p>
+    <a href="@Url.Action("AddEvent", "Admin")" class="btn btn-primary">Tambah Event Baru</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventHost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventTimeStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventTimeEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventBeginDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventEndDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.Raw(System.Web.HttpUtility.HtmlDecode(item.EventDescription))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventHost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventTimeStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventTimeEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventBeginDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventEndDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditEvent", new { eventid = item.EventID }) |
+                @Html.ActionLink("Picture", "EventPicture", new { eventid = item.EventID }) |
+                @Html.ActionLink("Price", "EventPrice", new { eventid = item.EventID }) |
+                @using (Html.BeginForm("DeleteEvent", "Admin"))
+                {
+                    @Html.Hidden("eventid", item.EventID)
+                    <input type="submit"
+                           class="btn btn-default btn-xs"
+                           value="Delete" />
+                }
+            </td>
+        </tr>
+    }
+
+</table>

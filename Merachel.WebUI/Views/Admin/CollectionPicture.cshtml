@@ -1,0 +1,38 @@
+﻿@model Merachel.WebUI.Models.AdminPictureModel
+
+@{
+    ViewBag.Title = "CollectionPicture";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="top-head">
+    <h2>Collection Picture</h2>
+    <a href="@Url.Action("Collection", "Admin")" class="btn-addhome">< Back to Collection</a>
+</div>
+
+<div class="content">
+    <div class="container-1">
+        <h3>Add Picture</h3>
+
+        <div class="wrap">
+            @Html.Partial("_CreateCollectionPicture", new Merachel.Domain.Entities.CollectionPicture() { CollectionID = 1 })
+        </div>
+
+        <table class="Grid">
+            <tr>
+                <th>Picture ID</th>
+                <th>Picture</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.collectionpicturelist)
+            {
+                Html.RenderPartial("_PartialCollectionPicture", item);
+            }
+        </table>
+
+    </div>
+</div>
+
+
+

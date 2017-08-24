@@ -1,0 +1,11 @@
+﻿@model Merachel.Domain.Entities.EventPicture
+
+@{
+    var base64 = Convert.ToBase64String(Model.EventPictureImageData);
+    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+}
+
+<div style="margin-bottom: 20px;">
+    <img src="@imgSrc" class="img-responsive"/>
+</div>
+

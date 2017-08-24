@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Merachel Fashion Course</title>
+
+    @Styles.Render("~/Content/css")
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Catamaran:400,300,500' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <div class="row">
+                    <ul class="nav">
+                        <li class="col-md-3"><a class="navbar-brand" href="@Url.Action("Index", "Home")"><img src="~/Content/images/logo-small2.png" alt="Merachel" /></a></li>
+                        <li class="col-md-9">
+                            <ul class="nav">
+                                <li class="col-md-2"><a href="@Url.Action("Index", "Event")">Event</a></li>
+                                <li class="col-md-2"><a href="@Url.Action("Index", "Course")#tab_1">Kursus</a></li>
+                                <li class="col-md-2"><a href="@Url.Action("Index", "Blog")">Blog</a></li>
+                                <li class="col-md-2"><a href="@Url.Action("Index", "Collection")">Galeri</a></li>
+                                <li class="col-md-2"><a href="@Url.Action("Index", "Tutor")">Tutor</a></li>
+                                <li class="col-md-2"><a href="@Url.Action("Contact", "Home")">Profil</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-content">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-social">
+                <div class="row">
+                    <div class="col-md-3 col-xs-6 col-md-offset-4 col-xs-offset-3">
+                        <div class="col-xs-15">
+                            <a href="https://www.facebook.com/merachelfashion/">
+                                <img src="~/Content/images/icon-facebook.png" />
+                            </a>
+                        </div>
+                        <div class="col-xs-15">
+                            <img src="~/Content/images/icon-twitter.png" />
+                        </div>
+                        <div class="col-xs-15">
+                            <a href="https://www.instagram.com/merizarachelin">
+                                <img src="~/Content/images/icon-instagram.png" />
+                            </a>
+                        </div>
+                        <div class="col-xs-15">
+                            <a href="https://www.instagram.com/merizarachelin">
+                                <img src="~/Content/images/icon-email.png" />
+                            </a>
+                        </div>
+                        <div class="col-xs-15">
+                            <a href="https://www.youtube.com/channel/UCNZaB6EWPGVj3-XIAXGxxig">
+                                <img src="~/Content/images/icon-youtube.png" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="~/Content/images/logo-small2.png" alt="Merachel" />
+                </div>
+                <div class="col-md-7 col-xs-12 col-md-offset-2 col-xs-offset-0">
+                    <ul class="nav">
+                        <li class="col-md-15"><a href="@Url.Action("Index", "Course")">Kursus</a></li>
+                        <li class="col-md-15"><a href="@Url.Action("Index", "Blog")">Blog</a></li>
+                        <li class="col-md-15"><a href="@Url.Action("Index", "Collection")">Galeri</a></li>
+                        <li class="col-md-15"><a href="@Url.Action("Index", "Tutor")">Tutor</a></li>
+                        <li class="col-md-15"><a href="@Url.Action("Contact", "Home")">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="col-xs-6">
+                    <p>&copy; @DateTime.Now.Year - Merachel Fashion Course</p>
+                </div>
+                <div class="col-xs-6">
+                    <p class="text-right">Jalan Laksda Adi Sucipto 190 Malang, East Java.</p>
+                    <p>Rahma : 085 755 882 195 </p>
+                    <p>Email : merachelfashion@gmail.com </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/owlcarousel")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Merachel.Domain.Entities.Course>
+
+@{
+    ViewBag.Title = "Course";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Kursus</h1>
+
+<p>
+    <a href="@Url.Action("AddCourse", "Admin")" class="btn btn-primary">Tambah Course Baru</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.CourseDescription)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.CourseCategoryID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            @*<td>
+                    @Html.Raw(System.Web.HttpUtility.HtmlDecode(item.CourseDescription))
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseCategory.CourseCategoryName)
+            </td>
+            <td class="maintenance">
+                @Html.ActionLink("Edit", "EditCourse", new { courseid = item.CourseID }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Price", "CoursePrice", new { courseid = item.CourseID }, new { @class = "btn btn-primary btn-sm" })
+                @using (Html.BeginForm("DeleteCourse", "Admin"))
+                {
+                    @Html.Hidden("courseid", item.CourseID)
+                    <input type="submit"
+                           class="btn btn-danger btn-sm"
+                           value="Delete" />
+                }
+            </td>
+        </tr>
+    }
+
+</table>

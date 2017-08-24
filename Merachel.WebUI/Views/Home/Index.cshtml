@@ -1,0 +1,190 @@
+﻿@model Merachel.WebUI.Models.HomeModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                autoPlay: 3000,
+                items: 4,
+                itemsDesktop: [1199, 3],
+                itemsDesktopSmall: [979, 3]
+            });
+
+        });
+    </script>
+}
+
+<div class="home-event">
+    <div class="container-fluid">
+        <h1>Featured Event</h1>
+        <div id="owl-demo" class="owl-carousel">
+            @foreach (var eve in Model.eventlist)
+            {
+                <div class="item">
+                    <a href="@Url.Action("Index", "Event")">
+                        <img src="@Url.Action("GetEventImage", "Home", new { eve.EventID })" alt="@eve.EventName" class="img-responsive">
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="home-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/Content/images/home-info.jpg" />
+                </div>
+                <div class="col-md-6">
+                    <h2>Tentang Merachel</h2>
+                    <p>Merachel menawarkan kepada anda jasa kursus dengan pelayanan terbaik dengan harga yang terjangkau untuk semua kalangan. Merachel juga menyediakan workshop - workshop yang memenuhi kebutuhan masyarakat akan ilmu mengenai dunia fashion terbaru.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home-content">
+    <div class="home-box">
+        <h1><span>Kursus  Merachel</span></h1>
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (var item in Model.categorylist)
+                {
+                    <div class="col-md-3 col-xs-6">
+                        <div class="item-box">
+                            <img src="@Url.Action("GetCourseImage", "Home", new { courseid = item.Course.Where(c => c.CourseStatus == true).Select(c => c.CourseID).FirstOrDefault() })" class="img-circle" />
+                            <h2>@item.CourseCategoryName</h2>
+                            <ul>
+                                @foreach (var course in Model.courselist.Where(c => c.CourseCategoryID == item.CourseCategoryID))
+                                {
+                                    <li>@course.CourseName</li>
+                                }
+                            </ul>
+                            <div class="text-center">
+                                <a href="@Url.Action("Index", "Course")" class="btn btn-danger">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="home-testimonial">
+            <div id="text-carousel" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="row">
+                    <div class="col-xs-offset-3 col-xs-6">
+                        <div class="carousel-inner">
+                            @{var isFirst = true; foreach (var tes in Model.testimoniallist)
+                                {
+                                    <div class="item @(isFirst ? "active" : "")">
+                                        <div class="hidden">
+                                            @(isFirst = false)
+                                        </div>
+                                        <div class="col-md-2 col-md-offset-1">
+                                            <img src="@Url.Action("GetTestimonialImage", "Home", new { tes.TestimonialID })" class="img-circle img-responsive" />
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h4>“ @tes.TestimonialContent “</h4>
+                                            <p>@tes.TestimonialUser</p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Controls --> <a class="left carousel-control" href="#text-carousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#text-carousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+
+            </div>
+            @*<div class="container">
+                    <div class="col-md-2 col-md-offset-1">
+                        <img src="~/Content/images/testi-1.jpg" class="img-circle img-responsive" />
+                    </div>
+                    <div class="col-md-9">
+                        <h3>“ Pengajarnya telaten, sabar, dan siap membantu kapan saja “</h3>
+                        <p>Hermina Andreyani – Founder Quinna</p>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<div class="home-blog">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1 col-xs-offset-0">
+                <h1>Video</h1>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fbf8hY60V98"></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1>Blog</h1>
+                <h2>@Model.blog.BlogTitle</h2>
+                <p>@Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.blog.BlogContent.Substring(0, 800)))...</p>
+                <a href="@Url.Action("Detail", "Blog", new { blogid = Model.blog.BlogID })" class="btn btn-primary">Lihat Detail</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Galeri</h1>
+                @foreach (var item in Model.collectionlist)
+                {
+                    <div class="col-md-4 thumb">
+                        <div class="thumbnail">
+                            <a href="@Url.Action("Detail", "Collection", new { collectionid = item.CollectionID })">
+                                <img src="@Url.Action("GetCollectionImage", "Home", new { item.CollectionID })" class="img-responsive" alt="@item.CollectionTitle" />
+                            </a>
+                            <div class="caption"><h3>@item.CollectionTitle</h3></div>
+                        </div>
+                    </div>
+                }
+                @*<div class="col-md-4">
+                        <h1>Galeri</h1>
+                        <a href="@Url.Action("Detail", "Collection", new { collectionid = Model.collection.CollectionID })">
+                            <img src="@Url.Action("GetCollectionImage2", "Home", new { Model.collection.CollectionID  })" class="img-responsive" alt="@Model.collection.CollectionTitle" />
+                            <h2 class="blog-absolute">@Model.collection.CollectionTitle</h2>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <h1>Galeri</h1>
+                        <a href="@Url.Action("Detail", "Collection", new { collectionid = Model.collection.CollectionID })">
+                            <img src="@Url.Action("GetCollectionImage", "Home", new { Model.collection.CollectionID })" class="img-responsive" alt="@Model.collection.CollectionTitle" />
+                            <h2 class="blog-absolute">@Model.collection.CollectionTitle</h2>
+                        </a>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="home-newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Dapatkan Info Terbaru Kami</h1>
+                    <p>Mari bergabung dengan daftar email kami agar mendapatkan informasi event dan promo terbaru dari Merachel</p>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Masukkan Email Disini" />
+                </div>
+            </div>
+        </div>
+    </div>*@

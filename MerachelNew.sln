@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merachel.WebUI", "Merachel.WebUI\Merachel.WebUI.csproj", "{1F9AE9A1-35EA-4ABB-8E72-DC2FDAA0AC3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merachel.Domain", "Merachel.Domain\Merachel.Domain.csproj", "{81D989F6-2844-49F3-A389-DE925D600D33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merachel.Libraries", "Libraries\Merachel.Libraries.csproj", "{7F441D69-5C52-4B82-B646-D801A1D93605}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merachel.BusinessProcess", "Merachel.BusinessProcess\Merachel.BusinessProcess.csproj", "{54067FFC-8951-48EC-A639-F543B11E3A79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merachel.Models", "Merachel.Models\Merachel.Models.csproj", "{9B3578E0-FB92-4027-828F-501585E0B4FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merachel", "Merachel\Merachel.csproj", "{0D27176E-4E50-4271-B1FC-6BEFE7A9D368}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F9AE9A1-35EA-4ABB-8E72-DC2FDAA0AC3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9AE9A1-35EA-4ABB-8E72-DC2FDAA0AC3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F9AE9A1-35EA-4ABB-8E72-DC2FDAA0AC3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F9AE9A1-35EA-4ABB-8E72-DC2FDAA0AC3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D989F6-2844-49F3-A389-DE925D600D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D989F6-2844-49F3-A389-DE925D600D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D989F6-2844-49F3-A389-DE925D600D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D989F6-2844-49F3-A389-DE925D600D33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F441D69-5C52-4B82-B646-D801A1D93605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F441D69-5C52-4B82-B646-D801A1D93605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F441D69-5C52-4B82-B646-D801A1D93605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F441D69-5C52-4B82-B646-D801A1D93605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54067FFC-8951-48EC-A639-F543B11E3A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54067FFC-8951-48EC-A639-F543B11E3A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54067FFC-8951-48EC-A639-F543B11E3A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54067FFC-8951-48EC-A639-F543B11E3A79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B3578E0-FB92-4027-828F-501585E0B4FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B3578E0-FB92-4027-828F-501585E0B4FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B3578E0-FB92-4027-828F-501585E0B4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B3578E0-FB92-4027-828F-501585E0B4FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D27176E-4E50-4271-B1FC-6BEFE7A9D368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D27176E-4E50-4271-B1FC-6BEFE7A9D368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D27176E-4E50-4271-B1FC-6BEFE7A9D368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D27176E-4E50-4271-B1FC-6BEFE7A9D368}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

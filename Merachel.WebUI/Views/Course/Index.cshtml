@@ -1,0 +1,102 @@
+﻿@model Merachel.WebUI.Models.CourseModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script type='text/javascript'>
+        $(function () {
+            // Javascript to enable link to tab
+            var hash = document.location.hash;
+            var prefix = "tab_";
+            if (hash) {
+                $('.nav-tabs a[href=' + hash.replace(prefix, "") + ']').tab('show');
+            }
+
+            // Change hash for page-reload
+            $('.nav-tabs a').on('shown.bs.tab', function (e) {
+                window.location.hash = e.target.hash.replace("#", "#" + prefix);
+            });
+        });
+    </script>
+}
+
+<div class="container-fluid">
+    <div class="course-content">
+        <img src="~/Content/images/course-top.jpg" />
+        <div class="container">
+            <div class="course-top">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <img src="~/Content/images/home-teen.jpg" class="img-circle" />
+                    </div>
+                    <div class="col-xs-9">
+                        <h1>Kursus Merachel</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="course-menu">
+                <div class="row">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        @foreach (var c in Model.categorylist)
+                        {
+                            <li role="presentation" class="col-md-3">
+                                <a href="#tab_@c.CourseCategoryID" aria-controls="tab_@c.CourseCategoryID" role="tab" data-toggle="tab">@c.CourseCategoryName</a>
+                            </li>
+                        }
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        @foreach (var item in Model.categorylist)
+                        {
+                            <div role="tabpanel" class="tab-pane" id="tab_@item.CourseCategoryID">
+                                <p>@item.CourseCategoryDescription</p>
+                                <h2>Kategori</h2>
+                                <ul>
+                                    @foreach (var c in Model.courselist.Where(cat => cat.CourseCategoryID == item.CourseCategoryID))
+                                    {
+                                        <li>@c.CourseName</li>
+                                    }
+                                </ul>
+                                <h2>Kurikulum</h2>
+                                <div class="course-item">
+                                    <div class="row">
+                                        @foreach (var c in Model.courselist.Where(cat => cat.CourseCategoryID == item.CourseCategoryID))
+                                        {
+                                            <div class="col-xs-2">
+                                                <img src="@Url.Action("GetCourseImage", "Course", new { courseid = c.CourseID })" alt="@c.CourseName" class="img-circle"/>
+                                            </div>
+                                            <div class="col-xs-10">
+                                                <h3>@c.CourseName</h3>
+                                                @Html.Raw(System.Web.HttpUtility.HtmlDecode(c.CourseDescription))
+                                                <div class="course-price">
+                                                    <div class="row">
+                                                        @foreach (var p in Model.pricelist.Where(p => p.CourseID == c.CourseID && p.CoursePriceStatus == true))
+                                                        {
+                                                            <div class="col-xs-8">
+                                                                <h3>@p.CoursePriceName</h3> <h4>@p.CoursePriceDescription</h4>
+                                                            </div>
+                                                            <div class="col-xs-4">
+                                                                <h3>Rp @Convert.ToDecimal(p.CoursePriceTotal).ToString("#,##0") / orang</h3>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

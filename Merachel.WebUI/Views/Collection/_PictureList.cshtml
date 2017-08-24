@@ -1,0 +1,14 @@
+﻿@model Merachel.Domain.Entities.CollectionPicture
+
+@{
+    var base64 = Convert.ToBase64String(Model.CollectionPictureImageData);
+    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+}
+
+<li>
+    <div class="col-xs-6">
+        <div class="collection-item">
+            <img src="@imgSrc" />
+        </div>
+    </div>
+</li>

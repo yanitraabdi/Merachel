@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Merachel.Domain.Entities.CoursePrice>
+
+@{
+    ViewBag.Title = "CoursePrice";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>CoursePrice</h2>
+
+<p>
+    <a href="@Url.Action("AddCoursePrice", "Admin", new { courseid = Request.QueryString["courseid"] })" class="btn btn-primary">Tambah Harga Baru</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CoursePriceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoursePriceTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoursePriceDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoursePriceName)
+        </td>
+        <td>
+            Rp @Convert.ToDecimal(item.CoursePriceTotal).ToString("#,##0") / orang
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoursePriceDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditCoursePrice", new { priceid = item.CoursePriceID, courseid = Request.QueryString["courseid"] }) |
+            @using (Html.BeginForm("DeleteCoursePrice", "Admin"))
+            {
+                @Html.Hidden("priceid", item.CoursePriceID)
+                <input type="submit"
+                       class="btn btn-default btn-xs"
+                       value="Delete" />
+            }
+        </td>
+    </tr>
+}
+
+</table>

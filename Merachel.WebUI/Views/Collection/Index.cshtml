@@ -1,0 +1,49 @@
+﻿@model Merachel.WebUI.Models.CollectionModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="collection-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="collection-top">
+                    <a href="@Url.Action("Detail", "Collection", new { collectionid = Model.collection.CollectionID })">
+                        <h1>Latest Update</h1>
+                        <h2>@Model.collection.CollectionTitle <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></h2>
+                        <h3>@Model.collection.CollectionDate</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("Detail", "Collection", new { collectionid = Model.collection.CollectionID })">
+                    <img src="@Url.Action("GetCollectionImage", "Collection", new { Model.collection.CollectionID })" alt="@Model.collection.CollectionTitle" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="collection-list">
+        <div class="container">
+            <div class="row">
+                <ul>
+                    @foreach (var col in Model.collectionlist)
+                    {
+                        <li>
+                            <div class="col-xs-6">
+                                <div class="collection-item">
+                                    <a href="@Url.Action("Detail", "Collection", new { collectionid = col.CollectionID })">
+                                        <img src="@Url.Action("GetCollectionImage", "Collection", new { col.CollectionID })" alt="@Model.collection.CollectionTitle" />
+                                        <h3>@col.CollectionTitle</h3>
+                                        <h4>@col.CollectionDate</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
