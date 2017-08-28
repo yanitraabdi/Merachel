@@ -572,10 +572,13 @@
     <Content Include="Scripts\merachel\admin\coursecategory.js" />
     <Content Include="Scripts\merachel\admin\event.js" />
     <Content Include="Scripts\merachel\admin\lookup.js" />
+    <Content Include="Scripts\merachel\admin\setting.js" />
     <Content Include="Scripts\merachel\admin\testimonial.js" />
     <Content Include="Scripts\merachel\admin\tutor.js" />
     <Content Include="Scripts\merachel\common.js" />
     <Content Include="Scripts\merachel\spinner.js" />
+    <Content Include="Scripts\merachel\web\course.js" />
+    <Content Include="Scripts\merachel\web\home.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\plugins\blueimp\jquery.blueimp-gallery.min.js" />
     <Content Include="Scripts\plugins\bootstrap-markdown\bootstrap-markdown.js" />
