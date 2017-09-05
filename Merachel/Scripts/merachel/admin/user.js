@@ -9,8 +9,6 @@ $(document).ready(function () {
     $('.panel-search-info').hide();
     $('.panel-search-result').hide();
 
-    //merachel.Utility.rangeDatepicker('tbSearchStartDate', 'tbSearchEndDate');
-
     $('.search').unbind().click(function () {
         Tables.Refresh();
     });
@@ -55,10 +53,10 @@ var Tables = {
             "data": [],
             "scrollX": true,
             "columns": [
-                { data: "EmployeeName" },
-                { data: "EmployeeDescription" },
-                { data: "EmployeeSpecial" },
-                { data: "Status" }
+                { data: "UserEmail" },
+                { data: "FullName" },
+                { data: "Phone" },
+                { data: "StatusDescription" }
             ]
         });
 
@@ -77,14 +75,13 @@ var Tables = {
     },
     Refresh: function () {
         var params = {
-            employeename: $('#tbSearchTutorName').val(),
-            employeedescription: $('#tbSearchTutorDescription').val(),
-            employeespecial: $('#tbSearchTutorSpecial').val(),
+            useremail: $('#tbSearchUserEmail').val(),
+            userfullname: $('#tbSearchUserFullName').val(),
             status: ($('#rbSearchStatusActive').is(':checked') ? 1 : ($('#rbSearchStatusInactive').is(':checked') ? 0 : null))
         };
 
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/tutor',
+            url: merachel.Configuration.merachelUrl + '/api/v1/user',
             data: params,
             type: 'GET',
             beforeSend: function (xhr) {
@@ -112,9 +109,8 @@ var Tables = {
 
 var Filter = {
     Reset: function () {
-        $('#tbSearchTutorName').val('');
-        $('#tbSearchTutorDescription').val('');
-        $('#tbSearchTutorSpecial').val('');
+        $('#tbSearchUserEmail').val('');
+        $('#tbSearchUserFullName').val('');
         $('#rbSearchStatusAll').prop('checked', true);
     }
 }
@@ -138,11 +134,7 @@ var Form = {
             $('#panelTransaction').show('slow');
             $('#spTitle').text('Edit');
 
-            console.log(Current.Selected);
-
-            $('#tbCategoryName').val(Current.Selected.BlogCategoryName);
             (Current.Selected.status == 1) ? $('#chIsActive').prop('checked', true) : $('#chIsActive').prop('checked', false)
-            $('.select2').attr('style', 'width:100%;');
 
             $('#btDelete').show();
 
@@ -181,7 +173,7 @@ var BlogCategories = {
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/tutors',
+            url: merachel.Configuration.merachelUrl + '/api/v1/users',
             type: 'POST',
             dataType: "json",
             contentType: "application/json",
@@ -203,7 +195,7 @@ var BlogCategories = {
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/tutors/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/users/' + Current.Selected.roleId,
             type: 'PUT',
             dataType: "json",
             contentType: "application/json",
@@ -224,7 +216,7 @@ var BlogCategories = {
     Delete: function () {
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/tutors/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/users/' + Current.Selected.roleId,
             type: 'DELETE',
             dataType: "json",
             contentType: "application/json",
@@ -245,7 +237,7 @@ var BlogCategories = {
 var Data = {
     Init: function () {
         merachel.Utility.DataAjax({
-            uri: '/api/v1/shared/tutors',
+            uri: '/api/v1/shared/users',
             done: function (data) {
                 Data.Collection.BlogCategory = data;
                 Select2.Refresh.BlogCategory(data.items);
@@ -286,13 +278,12 @@ var Data = {
     },
     PostParams: function () {
         var params = {
-            code: $('#tbNewTemplateCode').val(),
-            description: $('#tbNewTemplateDesc').val(),
-            contentHeader: $('#tbNewTemplateHeader').val(),
-            contents: $('#tbNewTemplateContent').val(),
-            type: $('#slTemplateType').val(),
+            useremail: $('#tbUserEmail').val(),
+            userfullname: $('#tbUserFullName').val(),
+            userpassword: $('#tbUserPassword').val(),
+            userphone: $('#tbUserPhone').val(),
+            useraddress: $('#tbUserAddress').val(),
             status: $('#chIsActive').is(':checked') ? 1 : 0,
-            LstTemplateDetail: []
         };
 
         return params;

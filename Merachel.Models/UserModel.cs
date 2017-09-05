@@ -13,20 +13,14 @@ namespace Merachel.Models
             //this.UserDependents = new List<UserDependentModel>();
         }
         public int UserId { get; set; }
-        public int UserKey { get; set; }
-        public string UserName { get; set; }
         public string UserFullName { get; set; }
-        public int LookupCodeStatus { get; set; }
-        public string Status { get; set; }
-        public string StatusDescription { get; set; }
-        public string Email { get; set; }
+        public bool UserStatus { get; set; }
+        public string UserEmail { get; set; }
+        public string UserDescription { get; set; }
+        public string UserAddress { get; set; }
+        public string UserPhone { get; set; }
         public string UserPassword { get; set; }
-        public string Salt { get; set; }
-        public int? TotalFailedAttempt { get; set; }
-        public DateTime? LastFailedAttempt { get; set; }
-        public DateTime? LastSuccessAttempt { get; set; }
-        public string UserPasswordEncryted { get; set; }
-        public string Photo { get; set; }
+        public string StatusDescription { get; set; }
 
     }
 }

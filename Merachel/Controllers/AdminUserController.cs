@@ -6,8 +6,7 @@ using System.Web.Mvc;
 
 namespace Merachel.Controllers
 {
-    [CustomAuthorize]
-    public class AdminBlogController : BaseController
+    public class AdminUserController : BaseController
     {
         private ActionResult CustomView(string pageName)
         {
@@ -16,15 +15,10 @@ namespace Merachel.Controllers
             config.MenuName = pageName;
             return View(config);
         }
-
-        public ActionResult Blog()
+        // GET: AdminUser
+        public ActionResult Users()
         {
-            return CustomView("Blog");
-        }
-
-        public ActionResult BlogCategory()
-        {
-            return CustomView("Blog Category");
+            return CustomView("Users");
         }
     }
 }

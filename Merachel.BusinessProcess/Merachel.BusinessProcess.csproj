@@ -79,6 +79,7 @@
     <Compile Include="Services\LookupServices.cs" />
     <Compile Include="Services\TestimonialServices.cs" />
     <Compile Include="Services\TutorServices.cs" />
+    <Compile Include="Services\UserServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
