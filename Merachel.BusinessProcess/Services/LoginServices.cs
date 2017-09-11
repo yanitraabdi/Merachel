@@ -14,7 +14,7 @@ using EnumStringValues;
 using Merachel.Models;
 using Merachel.Libraries;
 
-namespace Merachel.BusinessProcess.Services
+namespace Merachel.BusinessProcess
 {
     public class LoginServices : GeneralServices
     {
@@ -24,7 +24,7 @@ namespace Merachel.BusinessProcess.Services
 
             try
             {
-                UserModel oUserInfo = GetValidateUser(userName);
+                UserInformationModel oUserInfo = GetValidateUser(userName);
             }
             catch (Exception ex)
             {
@@ -33,8 +33,9 @@ namespace Merachel.BusinessProcess.Services
             return oResult;
         }
 
-        private UserModel GetValidateUser(string userName)
+        private UserInformationModel GetValidateUser(string userName)
         {
+            UserInformationModel oResponse = new UserInformationModel();
             UserModel rdUser = new UserModel();
 
             db = new SQLContext();
@@ -56,9 +57,6 @@ namespace Merachel.BusinessProcess.Services
             {
                 oResponse.User = rdUser;
 
-                if (rdRole != null && rdRole.Count() > 0)
-                    oResponse.UserRoles = rdRole.ToList();
-
                 oResponse.Exception = new ExceptionModel()
                 {
                     ErrorCode = Convert.ToInt16(LoginMessage.SUCCESS),
@@ -79,105 +77,105 @@ namespace Merachel.BusinessProcess.Services
 
         private bool CheckPassword(UserInformationModel oUser, string inputPassword)
         {
-            string hashedPass = GetHashPassword(oUser.User.NomorInduk, inputPassword, oUser.User.Salt);
+            //string hashedPass = GetHashPassword(oUser.User.NomorInduk, inputPassword, oUser.User.Salt);
 
-            if (oUser.User.UserPassword.Equals(hashedPass, StringComparison.OrdinalIgnoreCase))
+            if (oUser.User.UserPassword.Equals(inputPassword))
                 return true;
             else
                 return false;
         }
 
-        private string GetHashPassword(string nomorInduk, string password, string salt)
-        {
-            string tobeHash = string.Concat(nomorInduk.ToLower(), password, salt);
-            SHA512Managed hashTool = new SHA512Managed();
-            byte[] passAsByte = Encoding.UTF8.GetBytes(tobeHash);
-            byte[] hashed = hashTool.ComputeHash(passAsByte);
-            hashTool.Clear();
+        //private string GetHashPassword(string nomorInduk, string password, string salt)
+        //{
+        //    string tobeHash = string.Concat(nomorInduk.ToLower(), password, salt);
+        //    SHA512Managed hashTool = new SHA512Managed();
+        //    byte[] passAsByte = Encoding.UTF8.GetBytes(tobeHash);
+        //    byte[] hashed = hashTool.ComputeHash(passAsByte);
+        //    hashTool.Clear();
 
-            string hashedPass = Convert.ToBase64String(hashed);
-            return hashedPass;
-        }
+        //    string hashedPass = Convert.ToBase64String(hashed);
+        //    return hashedPass;
+        //}
 
-        private void GetEncryptedPassword(string nomorInduk, string password, out string encryptedPassword)
-        {
-            encryptedPassword = string.Empty;
+        //private void GetEncryptedPassword(string nomorInduk, string password, out string encryptedPassword)
+        //{
+        //    encryptedPassword = string.Empty;
 
-            using (var item = new CryptographyConfiguration())
-            {
-                encryptedPassword = item.EncryptText(nomorInduk + "!@#" + password);
-            }
-        }
+        //    using (var item = new CryptographyConfiguration())
+        //    {
+        //        encryptedPassword = item.EncryptText(nomorInduk + "!@#" + password);
+        //    }
+        //}
 
-        private ExceptionModel GetPasswordRequirement(string newPassword, int userId)
-        {
-            PasswordPolicyModel oPassPolicy = new PasswordPolicyModel();
-            ExceptionModel oResult = new ExceptionModel();
+        //private ExceptionModel GetPasswordRequirement(string newPassword, int userId)
+        //{
+        //    PasswordPolicyModel oPassPolicy = new PasswordPolicyModel();
+        //    ExceptionModel oResult = new ExceptionModel();
 
-            try
-            {
-                using (var svc = new LookupServices())
-                {
-                    //IEnumerable<LookupSetting> lookupData = svc.GetLookupSetting("PASSWORD_POLICY");
-                    //if (lookupData != null && lookupData.Count() > 0)
-                    //{
-                    //    oPassPolicy.LengthPolicy = Convert.ToInt16(lookupData.Where(x => x.Code.Equals("LENGTH_POLICY")).FirstOrDefault().Value);
-                    //    oPassPolicy.ChangePolicy = Convert.ToInt16(lookupData.Where(x => x.Code.Equals("CHANGE_POLICY")).FirstOrDefault().Value);
-                    //}
+        //    try
+        //    {
+        //        using (var svc = new LookupServices())
+        //        {
+        //            //IEnumerable<LookupSetting> lookupData = svc.GetLookupSetting("PASSWORD_POLICY");
+        //            //if (lookupData != null && lookupData.Count() > 0)
+        //            //{
+        //            //    oPassPolicy.LengthPolicy = Convert.ToInt16(lookupData.Where(x => x.Code.Equals("LENGTH_POLICY")).FirstOrDefault().Value);
+        //            //    oPassPolicy.ChangePolicy = Convert.ToInt16(lookupData.Where(x => x.Code.Equals("CHANGE_POLICY")).FirstOrDefault().Value);
+        //            //}
 
-                    oPassPolicy.MaxAttempt = 9999;
-                    oPassPolicy.LockedTime = 9999;
-                }
+        //            oPassPolicy.MaxAttempt = 9999;
+        //            oPassPolicy.LockedTime = 9999;
+        //        }
 
-                if (newPassword.Trim().Length < oPassPolicy.LengthPolicy)
-                {
-                    oResult.ErrorCode = Convert.ToInt16(LoginMessage.PASSWORD_MIN_LENGTH);
-                    oResult.ErrorDesc = LoginMessage.PASSWORD_MIN_LENGTH.GetStringValue() + oPassPolicy.LengthPolicy + " character(s)";
-                    return oResult;
-                }
+        //        if (newPassword.Trim().Length < oPassPolicy.LengthPolicy)
+        //        {
+        //            oResult.ErrorCode = Convert.ToInt16(LoginMessage.PASSWORD_MIN_LENGTH);
+        //            oResult.ErrorDesc = LoginMessage.PASSWORD_MIN_LENGTH.GetStringValue() + oPassPolicy.LengthPolicy + " character(s)";
+        //            return oResult;
+        //        }
 
-                IEnumerable<PasswordHistoryModel> rdHistory = null;
+        //        IEnumerable<PasswordHistoryModel> rdHistory = null;
 
-                db = new SQLContext();
-                using (var conn = db.Database.Connection)
-                {
-                    using (var reader = conn.QueryMultiple("dbo.s_get_password_history",
-                    new
-                    {
-                        userid = userId,
-                        count = oPassPolicy.ChangePolicy
-                    },
-                    commandType: CommandType.StoredProcedure))
-                    {
-                        rdHistory = reader.Read<PasswordHistoryModel>();
-                    }
-                }
-                if (rdHistory != null)
-                {
-                    foreach (var item in rdHistory)
-                    {
-                        string pass = string.Empty;
-                        using (var crypto = new CryptographyConfiguration())
-                        {
-                            pass = crypto.DecryptText(item.PasswordEncrypted.Trim());
-                        }
-                        string[] str = pass.Split(new[] { "!@#" }, StringSplitOptions.RemoveEmptyEntries);
-                        if (newPassword.Equals(str[1], StringComparison.OrdinalIgnoreCase))
-                        {
-                            oResult.ErrorCode = Convert.ToInt16(LoginMessage.PASSWORD_CHANGE_SAME);
-                            oResult.ErrorDesc = LoginMessage.PASSWORD_CHANGE_SAME.GetStringValue() + oPassPolicy.ChangePolicy + " password(s) before.";
-                            return oResult;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                oResult = oException.Set(ex);
-            }
+        //        db = new SQLContext();
+        //        using (var conn = db.Database.Connection)
+        //        {
+        //            using (var reader = conn.QueryMultiple("dbo.s_get_password_history",
+        //            new
+        //            {
+        //                userid = userId,
+        //                count = oPassPolicy.ChangePolicy
+        //            },
+        //            commandType: CommandType.StoredProcedure))
+        //            {
+        //                rdHistory = reader.Read<PasswordHistoryModel>();
+        //            }
+        //        }
+        //        if (rdHistory != null)
+        //        {
+        //            foreach (var item in rdHistory)
+        //            {
+        //                string pass = string.Empty;
+        //                using (var crypto = new CryptographyConfiguration())
+        //                {
+        //                    pass = crypto.DecryptText(item.PasswordEncrypted.Trim());
+        //                }
+        //                string[] str = pass.Split(new[] { "!@#" }, StringSplitOptions.RemoveEmptyEntries);
+        //                if (newPassword.Equals(str[1], StringComparison.OrdinalIgnoreCase))
+        //                {
+        //                    oResult.ErrorCode = Convert.ToInt16(LoginMessage.PASSWORD_CHANGE_SAME);
+        //                    oResult.ErrorDesc = LoginMessage.PASSWORD_CHANGE_SAME.GetStringValue() + oPassPolicy.ChangePolicy + " password(s) before.";
+        //                    return oResult;
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        oResult = oException.Set(ex);
+        //    }
 
-            return oResult;
-        }
+        //    return oResult;
+        //}
 
         //private ExceptionModel PostUserStatus(UserModel oParam)
         //{
