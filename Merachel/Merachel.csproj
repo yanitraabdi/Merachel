@@ -190,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CustomAuthorize.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Controllers\AdminLookupController.cs" />
     <Compile Include="Controllers\AdminTestimonialController.cs" />
     <Compile Include="Controllers\AdminTutorController.cs" />
+    <Compile Include="Controllers\AdminUserController.cs" />
     <Compile Include="Controllers\ApiBaseController.cs" />
     <Compile Include="Controllers\ApiBlogCategoryController.cs" />
     <Compile Include="Controllers\ApiBlogController.cs" />
@@ -214,6 +216,7 @@
     <Compile Include="Controllers\ApiLookupController.cs" />
     <Compile Include="Controllers\ApiTestimonialController.cs" />
     <Compile Include="Controllers\ApiTutorController.cs" />
+    <Compile Include="Controllers\ApiUserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -575,6 +578,7 @@
     <Content Include="Scripts\merachel\admin\setting.js" />
     <Content Include="Scripts\merachel\admin\testimonial.js" />
     <Content Include="Scripts\merachel\admin\tutor.js" />
+    <Content Include="Scripts\merachel\admin\user.js" />
     <Content Include="Scripts\merachel\common.js" />
     <Content Include="Scripts\merachel\spinner.js" />
     <Content Include="Scripts\merachel\web\course.js" />
@@ -984,6 +988,7 @@
     <Content Include="Views\AdminCourse\CourseCategory.cshtml" />
     <Content Include="Views\AdminEvent\Event.cshtml" />
     <Content Include="Views\AdminLookup\Lookup.cshtml" />
+    <Content Include="Views\AdminUser\Users.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1029,7 +1034,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>21545</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:21545/</IISUrl>
+          <IISUrl>http://localhost/Merachel</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

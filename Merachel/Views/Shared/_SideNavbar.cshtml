@@ -55,8 +55,8 @@
             <li class="@Html.IsSelected(controller: "AdminLookup")">
                 <a href="@Url.Action("Lookup", "AdminLookup")"><i class="fa fa-cogs"></i> <span class="nav-label" data-i18n="nav.lookups">Settings </span></a>
             </li>
-            <li class="@Html.IsSelected(controller: "User")">
-                <a href="@Url.Action("User", "Admin")"><i class="fa fa-user"></i> <span class="nav-label" data-i18n="nav.users">User </span></a>
+            <li class="@Html.IsSelected(controller: "AdminUser")">
+                <a href="@Url.Action("Users", "AdminUser")"><i class="fa fa-user"></i> <span class="nav-label" data-i18n="nav.users">User </span></a>
             </li>
         </ul>
     </div>

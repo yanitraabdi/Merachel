@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Merachel.Controllers
 {
-    [Authorize]
+    [CustomAuthorize]
     public class AdminCourseController : BaseController
     {
         private ActionResult CustomView(string pageName)
