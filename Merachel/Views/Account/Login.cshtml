@@ -50,7 +50,12 @@
                         @Html.ValidationMessageFor(u => u.Password)
                     </div>
                 </div>
-                <button type="submit" value="Login" class="btn btn-primary block full-width m-b">Login</button>
+                <div class="col-md-12 ladda-btn">
+                    <button type="button" id="btLogin" class="btn-u btn-block rounded ladda-button pull-right" data-style="slide-down">
+                        <span class="ladda-label">Login</span>
+                        <span class="ladda-spinner"></span>
+                    </button>
+                </div>
             }
         </div>
     </div>

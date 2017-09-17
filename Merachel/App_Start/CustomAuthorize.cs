@@ -60,8 +60,8 @@ namespace Merachel
                 filterContext.Result = new RedirectToRouteResult(
                 new RouteValueDictionary
                 {
-                    { "action", "Index" },
-                    { "controller", "Home" }
+                    { "action", "Login" },
+                    { "controller", "Admin" }
                 });
             }
             else

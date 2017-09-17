@@ -37,8 +37,7 @@ namespace Merachel.Controllers
             }
             return View(config);
         }
-
-        #region LOGIN
+        
         [AcceptVerbs(HttpVerbs.Post)]
         [AllowAnonymous]
         public JsonResult Logon(string username, string password, bool rememberMe)

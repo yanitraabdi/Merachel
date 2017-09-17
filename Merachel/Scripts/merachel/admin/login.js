@@ -1,6 +1,4 @@
 ﻿$(document).ready(function () {
-    $('#PageFirstLogin').removeClass('hidden');
-    $('#PageFirstLogin').hide();
 
     User.Init();
 
@@ -92,17 +90,17 @@ var User = {
                 else
                     merachel.Utility.resetAutofillData("PageLogin");
 
-                var str = userName + '!@#' + userPassword;
-                var key = CryptoJS.enc.Utf8.parse('8080808080808080');
-                var iv = CryptoJS.enc.Utf8.parse('8080808080808080');
+                //var str = userName + '!@#' + userPassword;
+                //var key = CryptoJS.enc.Utf8.parse('8080808080808080');
+                //var iv = CryptoJS.enc.Utf8.parse('8080808080808080');
 
-                var encrypted = CryptoJS.AES.encrypt(str, key,
-                {
-                    keySize: 128 / 8,
-                    iv: iv,
-                    mode: CryptoJS.mode.CBC,
-                    padding: CryptoJS.pad.Pkcs7
-                });
+                //var encrypted = CryptoJS.AES.encrypt(str, key,
+                //{
+                //    keySize: 128 / 8,
+                //    iv: iv,
+                //    mode: CryptoJS.mode.CBC,
+                //    padding: CryptoJS.pad.Pkcs7
+                //});
 
                 var token = $("[name='__RequestVerificationToken']").val();
                 var send = {
@@ -168,17 +166,17 @@ var User = {
                 var newPassword = $.trim($('#textNewPassword').val());
                 var confirmPassword = $.trim($('#textConfirmPassword').val());
 
-                var str = newPassword + '!@#' + confirmPassword;
-                var key = CryptoJS.enc.Utf8.parse('8080808080808080');
-                var iv = CryptoJS.enc.Utf8.parse('8080808080808080');
+                //var str = newPassword + '!@#' + confirmPassword;
+                //var key = CryptoJS.enc.Utf8.parse('8080808080808080');
+                //var iv = CryptoJS.enc.Utf8.parse('8080808080808080');
 
-                var encrypted = CryptoJS.AES.encrypt(str, key,
-                {
-                    keySize: 128 / 8,
-                    iv: iv,
-                    mode: CryptoJS.mode.CBC,
-                    padding: CryptoJS.pad.Pkcs7
-                });
+                //var encrypted = CryptoJS.AES.encrypt(str, key,
+                //{
+                //    keySize: 128 / 8,
+                //    iv: iv,
+                //    mode: CryptoJS.mode.CBC,
+                //    padding: CryptoJS.pad.Pkcs7
+                //});
 
                 var send = {
                     userId: ods.Configuration.tokenRegister,
