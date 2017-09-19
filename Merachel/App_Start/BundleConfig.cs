@@ -10,18 +10,29 @@ namespace Merachel
         {
             // CSS for front page
             bundles.Add(new StyleBundle("~/Content/frontpage-css").Include(
-                      "~/Content/frontpage/css/bootstrap.css",
-                      "~/Content/frontpage/css/theme.css"));
+                      "~/Content/frontpage/css/bootstrap.min.css",
+                      "~/Content/frontpage/css/style.css",
+                      "~/Content/frontpage/css/animate.min.css",
+                      "~/Content/frontpage/css/icons-fonts.css"));
 
             // Jquery for front page
             bundles.Add(new ScriptBundle("~/bundles/frontpage-js").Include(
-                      "~/Content/frontpage/js/vendor/bootstrap.min.js",
-                      "~/Content/frontpage/js/vendor/jquery-1.11.2.min.js",
-                      "~/Content/frontpage/js/vendor/wow.js",
-                      "~/Content/frontpage/js/vendor/swiper.min.js",
-                      "~/Content/frontpage/js/vendor/jquery.countTo.js",
-                      "~/Content/frontpage/js/vendor/jquery.inview.js",
-                      "~/Content/frontpage/js/main.js"));
+                      "~/Content/frontpage/js/jquery.min.js",
+                      "~/Content/frontpage/js/bootstrap.min.js",
+                      "~/Content/frontpage/js/jquery.magnific-popup.min.js",
+                      "~/Content/frontpage/js/isotope.pkgd.min.js",
+                      "~/Content/frontpage/js/masonry.pkgd.min.js",
+                      "~/Content/frontpage/js/imagesloaded.pkgd.min.js",
+                      "~/Content/frontpage/js/jquery.appear.js",
+                      "~/Content/frontpage/js/main.js",
+                      "~/Content/frontpage/js/contact-form-validation.js",
+                      "~/Content/frontpage/js/jquery.validate.min.js",
+                      "~/Content/frontpage/js/jquery.placeholder.js",
+                      "~/Content/frontpage/js/gmap3.min.js",
+                      "~/Content/frontpage/js/jquery.countdown.min.js",
+                      "~/Content/frontpage/js/jquery.easing.1.3.js",
+                      "~/Content/frontpage/js/jquery.nav.js",
+                      "~/Content/frontpage/js/wow.min.js"));
 
             // CSS style (bootstrap/inspinia)
             bundles.Add(new StyleBundle("~/Content/css").Include(

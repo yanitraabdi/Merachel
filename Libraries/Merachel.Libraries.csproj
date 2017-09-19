@@ -104,6 +104,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="CryptographyConfiguration.cs" />
     <Compile Include="DataAccessBase.cs" />
+    <Compile Include="Enumeration.cs" />
     <Compile Include="ExceptionManagement.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

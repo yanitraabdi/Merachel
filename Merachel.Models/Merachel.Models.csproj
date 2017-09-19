@@ -68,6 +68,7 @@
     <Compile Include="TestimonialModel.cs" />
     <Compile Include="TutorModel.cs" />
     <Compile Include="UploadFileModel.cs" />
+    <Compile Include="UserInformationModel.cs" />
     <Compile Include="UserModel.cs" />
   </ItemGroup>
   <ItemGroup>

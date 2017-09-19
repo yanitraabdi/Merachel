@@ -1,0 +1,62 @@
+﻿@model Merachel.Libraries.Configurations
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <meta name="robots" content="noarchive">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <!-- Add local styles, mostly for plugins css file -->
+    <!-- Add jQuery Style direct - used for jQGrid plugin -->
+    <link href="@Url.Content("~/Scripts/plugins/jquery-ui/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+
+    <!-- Primary Inspinia style -->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/font-awesome/css")
+    @Styles.Render("~/plugins/select2Styles")
+    @Styles.Render("~/plugins/laddaStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+</head>
+<body>
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+                <h1 class="logo-name">M</h1>
+            </div>
+            <h3>Welcome to Merachel Admin</h3>
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formLogon" }))
+            {
+                <div class="form-group">
+                    <div class="editor-field">
+                        <input id="tbUsername" name="tbUsername" type="text" placeholder="Username" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="editor-field">
+                        <input id="tbPassword" name="tbPassword" type="password" placeholder="Password" class="form-control">
+                    </div>
+                </div>
+                <button type="submit" value="Login" class="btn btn-primary block full-width m-b">Login</button>
+            }
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/plugins/slimScroll")
+    @Scripts.Render("~/plugins/validate")
+    @Scripts.Render("~/plugins/ladda")
+    @Scripts.Render("~/bundles/inspinia")
+    @Scripts.Render("~/bundles/common")
+
+
+</body>
+</html>
