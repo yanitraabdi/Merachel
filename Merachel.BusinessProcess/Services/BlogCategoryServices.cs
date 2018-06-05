@@ -42,7 +42,7 @@ namespace Merachel.BusinessProcess
                 param[0] = new SqlParameter("@data", SqlDbType.Xml);
                 param[0].Value = xml;
                 param[1] = new SqlParameter("@userid", SqlDbType.Int);
-                param[1].Value = SessionInfo.User.UserId;
+                param[1].Value = 4;
 
                 var insert = context.Database.SqlQuery<BlogCategoryModel>("s_post_blog_category @data, @userid", param);
 

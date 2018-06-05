@@ -17,6 +17,7 @@ using Merachel.Models;
 
 namespace Merachel.Controllers
 {
+    [AllowAnonymous]
     public class BaseController : Controller
     {
         public Configurations config;

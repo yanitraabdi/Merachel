@@ -15,7 +15,7 @@ namespace Merachel.Controllers
     {
         EventServices oSvc = new EventServices();
 
-        [HttpGet, Route("coursecategory")]
+        [HttpGet, Route("")]
         public IHttpActionResult GetEvent(int? status = null, string title = "")
         {
             try
@@ -31,7 +31,7 @@ namespace Merachel.Controllers
 
         }
 
-        [HttpPost, Route("event")]
+        [HttpPost, Route("")]
         public IHttpActionResult PostEvent(EventModel data)
         {
             try
@@ -46,7 +46,7 @@ namespace Merachel.Controllers
             }
         }
 
-        [HttpPut, Route("event/{id}")]
+        [HttpPut, Route("{id}")]
         public IHttpActionResult PutEvent(int? id, EventModel data)
         {
             try
@@ -64,7 +64,7 @@ namespace Merachel.Controllers
             }
         }
 
-        [HttpDelete, Route("coursecategory/{id:int}")]
+        [HttpDelete, Route("{id:int}")]
         public IHttpActionResult DeleteEvent(int? id)
         {
             try

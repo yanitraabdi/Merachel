@@ -42,6 +42,36 @@ $(document).ready(function () {
             return false;
         }
     });
+
+    $('#fileupload').fileupload({
+        maxFileSize: 4000,
+        dataType: 'json',
+        url: merachel.Configuration.merachelUrl + '/Shared/UploadCourse',
+        autoUpload: true,
+        maxNumberOfFiles: 1,
+        done: function (e, data) {
+            attachments = {
+                id: merachel.Utility.GuidGenerator(),
+                FileName: data.result.name,
+                FileOriginalName: data.result.name,
+                FilePath: merachel.Configuration.merachelUrl + '/Upload/' + data.result.name,
+                FileSize: data.result.size,
+                Description: ''
+            };
+            console.log(attachments);
+            $('#pnlUploadAttachment').append(Form.Attachment(attachments));
+            //$('#hdAttachment' + attachments.id).val(JSON.stringify(attachments));
+
+            //setTimeout(function () {
+            //    $('.progress .progress-bar').css('width', '0%');
+            //}, 1000);
+
+            //$('#pnlListAttachment-error').hide();
+        }
+    }).bind('fileuploadprogressall', function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        $('.progress .progress-bar').css('width', progress + '%');
+    });
 });
 
 var Tables = {
@@ -196,6 +226,16 @@ var Form = {
         $('#panelTransaction').hide('slow');
         $('#panelSummary').show('slow');
     },
+    Attachment: function (data) {
+        return '<div id="pnlAttachment-' + data.id + '" class="comment"> ' +
+                    '<img src="' + data.FilePath + '" alt="" class="img-error"> ' +
+                    '<div class="overflow-h"> ' +
+                        '<strong><a id="${id}" href=' + data.FilePath + ' target="_blank">' + data.FileOriginalName + '</a><small class="pull-right pointer" onclick="removeAttachment(\'' + data.id + '\');"><i class="fa fa-times"></i></small></strong> ' +
+                        '<p>Size: ' + data.FileSize + '</p> ' +
+                    '</div> ' +
+                    '<input type="hidden" id="hdAttachment' + data.id + '" class="attachment-hidden-data" /> ' +
+                '</div>';
+    }
 }
 
 var BlogCategories = {
@@ -309,41 +349,19 @@ var Data = {
     },
     PostParams: function () {
         var params = {
-            code: $('#tbNewTemplateCode').val(),
-            description: $('#tbNewTemplateDesc').val(),
-            contentHeader: $('#tbNewTemplateHeader').val(),
-            contents: $('#tbNewTemplateContent').val(),
+            CourseCode: $('#tbNewTemplateCode').val(),
+            CourseName: $('#tbNewTemplateDesc').val(),
+            CoursePicturePatch: $('#tbNewTemplateHeader').val(),
+            CoursePictureName: $('#tbNewTemplateContent').val(),
             type: $('#slTemplateType').val(),
             status: $('#chIsActive').is(':checked') ? 1 : 0,
             LstTemplateDetail: []
         };
 
-        $('#tblTemplateDetail tr').each(function () {
-            var i = 1;
-
-            var tblTemplateDetailId = $(this).find('input.vTemplateDetailId').val()
-            var tblViolationGroup = $(this).find('select.vViolationGroup').val();
-            var tblViolationCategory = $(this).find('select.vViolationCategory').val();
-            var tblViolationType = $(this).find('select.vViolationType').val();
-
-            //this is for your header row
-            if (tblViolationGroup !== undefined && tblViolationCategory !== undefined && tblViolationType !== undefined) {
-
-                var ItemTemplateDetail = {
-                    No: i,
-                    submitCaseTemplateDetailId: tblTemplateDetailId,
-                    ViolationGroupId: tblViolationGroup,
-                    ViolationCategoryId: tblViolationCategory,
-                    ViolationTypeId: tblViolationType
-                }
-
-                params.LstTemplateDetail.push(ItemTemplateDetail);
-
-                i++;
-            }
-
-        });
-
         return params;
     }
+}
+
+function removeAttachment(id) {
+    $('#pnlAttachment-' + id).remove();
 }

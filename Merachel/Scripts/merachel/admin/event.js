@@ -55,7 +55,7 @@ var Tables = {
             "data": [],
             "scrollX": true,
             "columns": [
-                { data: "TestimonialUser" },
+                { data: "Event" },
                 { data: "TestimonialContent" },
                 { data: "Status" }
             ]

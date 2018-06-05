@@ -2,14 +2,11 @@
 
 $(document).ready(function () {
     Tables.Init();
-    Select2.Init();
 
     $('#panelTransaction').hide();
     $('#panelConfirmed').hide();
     $('.panel-search-info').hide();
     $('.panel-search-result').hide();
-
-    //merachel.Utility.rangeDatepicker('tbSearchStartDate', 'tbSearchEndDate');
 
     $('.search').unbind().click(function () {
         Tables.Refresh();
@@ -41,6 +38,36 @@ $(document).ready(function () {
             Tables.Refresh();
             return false;
         }
+    });
+
+    $('#fileupload').fileupload({
+        maxFileSize: 2500,
+        dataType: 'json',
+        url: merachel.Configuration.merachelUrl + '/Upload/UploadTutor',
+        autoUpload: true,
+        maxNumberOfFiles: 1,
+        done: function (e, data) {
+            attachments = {
+                id: merachel.Utility.GuidGenerator(),
+                FileName: data.result.name,
+                FileOriginalName: data.result.name,
+                FilePath: merachel.Configuration.merachelUrl + '/Upload/' + data.result.name,
+                FileSize: data.result.size,
+                Description: ''
+            };
+            console.log(attachments);
+            $('#pnlUploadAttachment').append(Form.Attachment(attachments));
+            //$('#hdAttachment' + attachments.id).val(JSON.stringify(attachments));
+
+            //setTimeout(function () {
+            //    $('.progress .progress-bar').css('width', '0%');
+            //}, 1000);
+
+            //$('#pnlListAttachment-error').hide();
+        }
+    }).bind('fileuploadprogressall', function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        $('.progress .progress-bar').css('width', progress + '%');
     });
 });
 
@@ -127,9 +154,9 @@ var Form = {
             $('#spTitle').text('Create');
 
             merachel.Utility.ClearForm("formTransaction");
-            $('#chIsActive').prop('checked', true);
+            $('#rbStatusActive').prop('checked', true);
             $('.select2').attr('style', 'width:100%;');
-            $('#btDelete').hide('slow');
+            $('.delete').hide();            
 
             Current.IsNew = true;
         },
@@ -137,23 +164,24 @@ var Form = {
             $('#panelSummary').hide('slow');
             $('#panelTransaction').show('slow');
             $('#spTitle').text('Edit');
+            $('.delete').show();
 
             console.log(Current.Selected);
 
-            $('#tbCategoryName').val(Current.Selected.BlogCategoryName);
+            $('#tbTutorName').val(Current.Selected.EmployeeName);
+            $('#tbTutorSpecial').val(Current.Selected.EmployeeSpecial);
+            $('#tbNewTemplateContent').val(Current.Selected.EmployeeDescription);
             (Current.Selected.status == 1) ? $('#chIsActive').prop('checked', true) : $('#chIsActive').prop('checked', false)
             $('.select2').attr('style', 'width:100%;');
-
-            $('#btDelete').show();
 
             Current.IsNew = false;
         }
     },
     Submit: function () {
         if (Current.IsNew) {
-            BlogCategories.Post();
+            Tutors.Post();
         } else {
-            BlogCategories.Put();
+            Tutors.Put();
         }
     },
     Back: function () {
@@ -167,21 +195,31 @@ var Form = {
         $('.panel-search-result').hide('slow');
     },
     Delete: function () {
-        BlogCategories.Delete();
+        Tutors.Delete();
     },
     Back: function () {
         $('#panelTransaction').hide('slow');
         $('#panelSummary').show('slow');
     },
+    Attachment: function (data) {
+        return '<div id="pnlAttachment-' + data.id + '" class="comment"> ' +
+                    '<img src="' + data.FilePath + '" alt="" class="img-error"> ' +
+                    '<div class="overflow-h"> ' +
+                        '<strong><a id="${id}" href=' + data.FilePath + ' target="_blank">' + data.FileOriginalName + '</a><small class="pull-right pointer" onclick="removeAttachment(\'' + data.id + '\');"><i class="fa fa-times"></i></small></strong> ' +
+                        '<p>Size: ' + data.FileSize + '</p> ' +
+                    '</div> ' +
+                    '<input type="hidden" id="hdAttachment' + data.id + '" class="attachment-hidden-data" /> ' +
+                '</div>';
+    }
 }
 
-var BlogCategories = {
+var Tutors = {
     Post: function () {
         var params = Data.PostParams();
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/tutors',
+            url: merachel.Configuration.merachelUrl + '/api/v1/tutor',
             type: 'POST',
             dataType: "json",
             contentType: "application/json",
@@ -203,7 +241,7 @@ var BlogCategories = {
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/tutors/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/tutor/' + Current.Selected.employeeId,
             type: 'PUT',
             dataType: "json",
             contentType: "application/json",
@@ -224,7 +262,7 @@ var BlogCategories = {
     Delete: function () {
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/tutors/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/tutor/' + Current.Selected.employeeId,
             type: 'DELETE',
             dataType: "json",
             contentType: "application/json",
@@ -243,58 +281,20 @@ var BlogCategories = {
 }
 
 var Data = {
-    Init: function () {
-        merachel.Utility.DataAjax({
-            uri: '/api/v1/shared/tutors',
-            done: function (data) {
-                Data.Collection.BlogCategory = data;
-                Select2.Refresh.BlogCategory(data.items);
-            }
-        });
-    },
-    Collection: {
-        templateId: [],
-        templateCode: [],
-        description: [],
-        ViolationGroup: [],
-        ViolationCategory: [],
-        ViolationType: [],
-        //Submit: {
-        //    New: {
-        //        code: $('#tbAddTemplateCode').val(),
-        //        description: $('#tbAddDescription').val(),
-        //        status: 1,
-        //        exception: {
-        //            errorCode: 0,
-        //            errorDesc: null
-        //        },
-        //        createdBy: merachel.Configuration.sessionInfo.user.userId,
-        //        utcCreatedDate: utcDate
-        //    },
-        //    Update: {
-        //        code: $('#tbAddTemplateCode').val(),
-        //        description: $('#tbAddDescription').val(),
-        //        status: ($("#chIsActive").prop('checked') == true ? 1 : 0),
-        //        exception: {
-        //            errorCode: 0,
-        //            errorDesc: null
-        //        },
-        //        modifiedBy: merachel.Configuration.sessionInfo.user.userId,
-        //        utcModifiedDate: utcDate
-        //    }
-        //}
-    },
     PostParams: function () {
         var params = {
-            code: $('#tbNewTemplateCode').val(),
-            description: $('#tbNewTemplateDesc').val(),
-            contentHeader: $('#tbNewTemplateHeader').val(),
-            contents: $('#tbNewTemplateContent').val(),
-            type: $('#slTemplateType').val(),
+            employeename: $('#tbTutorName').val(),
+            employeespecial: $('#tbTutorSpecial').val(),
+            employeedescription: $('#tbNewTemplateContent').val(),
             status: $('#chIsActive').is(':checked') ? 1 : 0,
-            LstTemplateDetail: []
+            employeefilename: attachments.FileName,
+            employeefilepath: "Tutor"
         };
 
         return params;
     }
+}
+
+function removeAttachment(id) {
+    $('#pnlAttachment' + id).remove();
 }

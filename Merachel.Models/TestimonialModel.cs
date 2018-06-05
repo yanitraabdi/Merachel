@@ -11,8 +11,8 @@ namespace Merachel.Models
         public int TestimonialID { get; set; }
         public string TestimonialUser { get; set; }
         public string TestimonialContent { get; set; }
-        public string TestimonialFileName { get; set; }
-        public string TestimonialFilePath { get; set; }
+        public string TestimonialImageName { get; set; }
+        public string TestimonialImagePath { get; set; }
         public int? Status { get; set; }
     }
 }

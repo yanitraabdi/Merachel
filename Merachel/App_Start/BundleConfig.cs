@@ -10,28 +10,30 @@ namespace Merachel
         {
             // CSS for front page
             bundles.Add(new StyleBundle("~/Content/frontpage-css").Include(
-                      "~/Content/frontpage/css/bootstrap.min.css",
                       "~/Content/frontpage/css/style.css",
+                      "~/Content/frontpage/css/bootstrap.min.css",
                       "~/Content/frontpage/css/animate.min.css",
-                      "~/Content/frontpage/css/icons-fonts.css"));
+                      "~/Content/frontpage/css/icons-fonts.css",
+                      "~/Content/frontpage/css/ie-warning.css",
+                      "~/Content/frontpage/css/ie8-fix.css",
+                      "~/Content/frontpage/css/text-rotator.css"));
 
             // Jquery for front page
             bundles.Add(new ScriptBundle("~/bundles/frontpage-js").Include(
-                      "~/Content/frontpage/js/jquery.min.js",
-                      "~/Content/frontpage/js/bootstrap.min.js",
-                      "~/Content/frontpage/js/jquery.magnific-popup.min.js",
-                      "~/Content/frontpage/js/isotope.pkgd.min.js",
-                      "~/Content/frontpage/js/masonry.pkgd.min.js",
-                      "~/Content/frontpage/js/imagesloaded.pkgd.min.js",
-                      "~/Content/frontpage/js/jquery.appear.js",
                       "~/Content/frontpage/js/main.js",
+                      "~/Content/frontpage/js/bootstrap.min.js",
                       "~/Content/frontpage/js/contact-form-validation.js",
                       "~/Content/frontpage/js/jquery.validate.min.js",
                       "~/Content/frontpage/js/jquery.placeholder.js",
                       "~/Content/frontpage/js/gmap3.min.js",
                       "~/Content/frontpage/js/jquery.countdown.min.js",
                       "~/Content/frontpage/js/jquery.easing.1.3.js",
+                      "~/Content/frontpage/js/jquery.magnific-popup.min.js",
                       "~/Content/frontpage/js/jquery.nav.js",
+                      "~/Content/frontpage/js/isotope.pkgd.min.js",
+                      "~/Content/frontpage/js/masonry.pkgd.min.js",
+                      "~/Content/frontpage/js/imagesloaded.pkgd.min.js",
+                      "~/Content/frontpage/js/jquery.appear.js",
                       "~/Content/frontpage/js/wow.min.js"));
 
             // CSS style (bootstrap/inspinia)
@@ -39,6 +41,42 @@ namespace Merachel
                       "~/Content/bootstrap.min.css",
                       "~/Content/animate.css",
                       "~/Content/style.css"));
+
+            // CSS style Template : assan
+            bundles.Add(new StyleBundle("~/Content/assan-css").Include(
+                      "~/Content/assan/bootstrap/css/bootstrap.min.css",
+                      "~/Content/assan/font-awesome/css/font-awesome.min.css",
+                      "~/Content/assan/font-awesome/css/font-awesome.min.css",
+                      "~/Content/assan/css/flexslider.css",
+                      "~/Content/assan/css/animate.css",
+                      "~/Content/assan/css/animate.css",
+                      "~/Content/assan/rs-plugin/css/settings.css",
+                      "~/Content/assan/css/rev-style.css",
+                      "~/Content/assan/owl-carousel/assets/owl.carousel.css",
+                      "~/Content/assan/owl-carousel/assets/owl.theme.default.css",
+                      "~/Content/assan/css/yamm.css",
+                      "~/Content/assan/cubeportfolio/css/cubeportfolio.min.css",
+                      "~/Content/assan/css/style.css",
+                      "~/Content/Site.css"));
+
+            // jQuery for assan
+            bundles.Add(new ScriptBundle("~/bundles/assan-jquery").Include(
+                        "~/Content/assan/js/jquery.min.js"));
+
+            // JS library for assan
+            bundles.Add(new StyleBundle("~/bundles/assan-js").Include(
+                      "~/Content/assan/js/jquery-migrate.min.js",
+                      "~/Content/assan/bootstrap/js/bootstrap.min.js",
+                      "~/Content/assan/js/jquery.easing.1.3.min.js",
+                      "~/Content/assan/js/jquery.sticky.js",
+                      "~/Content/assan/js/jquery.flexslider-min.js",
+                      "~/Content/assan/js/jquery.stellar.min.js",
+                      "~/Content/assan/js/waypoints.min.js",
+                      "~/Content/assan/js/jquery.counterup.min.js",
+                      "~/Content/assan/js/wow.min.js",
+                      "~/Content/assan/owl-carousel/owl.carousel.min.js",
+                      "~/Content/assan/js/jquery.magnific-popup.min.js",
+                      "~/Content/assan/js/custom.js"));
 
             // Font Awesome icons
             bundles.Add(new StyleBundle("~/font-awesome/css").Include(
@@ -48,6 +86,10 @@ namespace Merachel
             bundles.Add(new ScriptBundle("~/bundles/common").Include(
                         "~/Scripts/merachel/spinner.js",
                         "~/Scripts/merachel/common.js"));
+
+            // Vue
+            bundles.Add(new ScriptBundle("~/bundles/vue").Include(
+                        "~/Scripts/vue.js"));
 
             // jQuery
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -256,6 +298,16 @@ namespace Merachel
             // dropZone 
             bundles.Add(new ScriptBundle("~/plugins/dropZone").Include(
                       "~/Scripts/plugins/dropzone/dropzone.js"));
+
+
+            // dropZone styles
+            bundles.Add(new StyleBundle("~/Content/dropzone-style-npm").Include(
+                      "~/Scripts/dropzone/basic.min.css",
+                      "~/Scripts/dropzone/dropzone.min.css"));
+
+            // dropZone 
+            bundles.Add(new ScriptBundle("~/plugins/dropzone-npm").Include(
+                      "~/Scripts/dropzone/dropzone.min.js"));
 
             // summernote styles
             bundles.Add(new StyleBundle("~/plugins/summernoteStyles").Include(
@@ -489,6 +541,14 @@ namespace Merachel
             bundles.Add(new StyleBundle("~/plugins/passwordMeter").Include(
                         "~/Scripts/plugins/pwstrength/pwstrength-bootstrap.min.js",
                         "~/Scripts/plugins/pwstrength/zxcvbn.js"));
+
+            // Jquery Upload Styless
+            bundles.Add(new StyleBundle("~/plugins/jqueryuploadstyle").Include(
+                      "~/Content/jquery-upload/css/jquery.fileupload.css"));
+
+            // Jquery Upload script
+            bundles.Add(new ScriptBundle("~/plugins/jqueryupload").Include(
+                      "~/Content/jquery-upload/js/jquery.fileupload.js"));
         }
     }
 }

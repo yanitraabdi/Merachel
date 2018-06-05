@@ -16,7 +16,7 @@ namespace Merachel.BusinessProcess
 {
     public class BlogServices : GeneralServices
     {
-        public ICollection<BlogModel> GetBlogs(string title, int? status, int? categoryId, DateTime? startDate, DateTime? endDate)
+        public ICollection<BlogModel> GetBlogs(string title, int? status, int? categoryId, DateTime? startDate, DateTime? endDate, int? blogid, int? limit)
         {
             using (var conn = db.Database.Connection)
             {
@@ -26,7 +26,9 @@ namespace Merachel.BusinessProcess
                     title = title,
                     categoryId = categoryId,
                     startDate = startDate,
-                    endDate = endDate
+                    endDate = endDate,
+                    blogid = blogid,
+                    limit = limit
                 },
                     commandType: CommandType.StoredProcedure))
                 {

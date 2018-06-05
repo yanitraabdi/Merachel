@@ -2,6 +2,7 @@
 
 $(document).ready(function () {
     Tables.Init();
+    Data.Init();
     Select2.Init();
 
     $('#panelTransaction').hide();
@@ -114,25 +115,18 @@ var Tables = {
 
 var Select2 = {
     Init: function () {
-
+        merachel.Utility.Select2Ajax({
+            id: 'slSearchCategory',
+            placeholderName: 'Select Blog Category',
+            data: Data.Collection.BlogCategory
+        });
     },
     Refresh: {
-        ViolationGroup: function (data) {
+        BlogCategory: function (data) {
             merachel.Utility.Select2Ajax({
-                id: 'slViolationGroup',
-                placeholderName: 'Select Violation Group',
-                data: data,
-                onSelect: function () {
-                    $('#slViolationCategory').val(null).trigger('change');
-                    $('#slViolationType').val(null).trigger('change');
-
-                    $("#slViolationCategory").select2().empty();
-                    $("#slViolationType").select2().empty();
-
-                    var idx = $('#slViolationGroup').val();
-                    var data = Enumerable.from(Data.Collection.ViolationCategory.items).where(i => i.parentId == idx).select().toArray();
-                    Select2.Refresh.ViolationCategory(data);
-                }
+                id: 'slBlogCategory',
+                placeholderName: 'Select Blog Category',
+                data: Data.Collection.BlogCategory
             });
         }
     }
@@ -178,9 +172,9 @@ var Form = {
     },
     Submit: function () {
         if (Current.IsNew) {
-            BlogCategories.Post();
+            Blogs.Post();
         } else {
-            BlogCategories.Put();
+            Blogs.Put();
         }
     },
     Back: function () {
@@ -194,15 +188,11 @@ var Form = {
         $('.panel-search-result').hide('slow');
     },
     Delete: function () {
-        BlogCategories.Delete();
-    },
-    Back: function () {
-        $('#panelTransaction').hide('slow');
-        $('#panelSummary').show('slow');
-    },
+        Blogs.Delete();
+    }
 }
 
-var BlogCategories = {
+var Blogs = {
     Post: function () {
         var params = Data.PostParams();
 
@@ -230,7 +220,7 @@ var BlogCategories = {
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/blogs/' + Current.Selected.blogId,
             type: 'PUT',
             dataType: "json",
             contentType: "application/json",
@@ -251,7 +241,7 @@ var BlogCategories = {
     Delete: function () {
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/blogs/' + Current.Selected.blogId,
             type: 'DELETE',
             dataType: "json",
             contentType: "application/json",
@@ -272,10 +262,12 @@ var BlogCategories = {
 var Data = {
     Init: function () {
         merachel.Utility.DataAjax({
-            uri: '/api/v1/shared/blogcategories',
+            uri: '/api/v1/blogcategories',
             done: function (data) {
+                console.log(data);
                 Data.Collection.BlogCategory = data;
-                Select2.Refresh.BlogCategory(data.items);
+                Select2.Refresh.BlogCategory(data);
+                Select2.Init(data);
             }
         });
     },
@@ -283,9 +275,7 @@ var Data = {
         templateId: [],
         templateCode: [],
         description: [],
-        ViolationGroup: [],
-        ViolationCategory: [],
-        ViolationType: [],
+        BlogCategory: [],
         //Submit: {
         //    New: {
         //        code: $('#tbAddTemplateCode').val(),

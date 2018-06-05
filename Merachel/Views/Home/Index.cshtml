@@ -1,848 +1,727 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="home image-slider">
-    <div class="home-slider text-center">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background: url(../../Merachel/Content/frontpage/img/home2.jpg)">
-                <h1 class="main-heading inverse">
-                    Welcome<span>Italia is here</span>
-                    <span class="main-heading-decor">
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                    </span>
-                </h1>
-                <h2 class="home-slider-title-main">100% authentic</h2>
-                <div class="home-slider-title-small">Lorem ipsum dolor sit amet, consectetur adipisicing</div>
-                <a class="arrow bounce text-center" href="#about">
-                    <span class="ti-mouse"></span>
-                    scroll down
-                    <span class="ti-angle-double-down"></span>
-                </a>
-            </div>
-            <div class="swiper-slide" style="background: url(../../Merachel/Content/frontpage/img/home3.jpg)">
-                <h1 class="main-heading inverse">
-                    Welcome<span>Italia is here</span>
-                    <span class="main-heading-decor">
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                    </span>
-                </h1>
-                <h2 class="home-slider-title-main">100% authentic</h2>
-                <div class="home-slider-title-small">Lorem ipsum dolor sit amet, consectetur adipisicing</div>
-                <a class="arrow bounce text-center" href="#about">
-                    <span class="ti-mouse"></span>
-                    scroll down
-                    <span class="ti-angle-double-down"></span>
-                </a>
-            </div>
-        </div>
-        <div class="home-pagination"></div>
-        <div class="home-slider-next right-arrow-negative">
-            <span class="ti-arrow-right"></span>
-        </div>
-        <div class="home-slider-prev left-arrow-negative">
-            <span class="ti-arrow-left"></span>
-        </div>
+<div class="fullwidthbanner">
+    <div class="tp-banner">
+        <ul>
+            <!-- SLIDE -->
+            <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Powerful Theme">
+                <!-- MAIN IMAGE -->
+                <img src="~/Content/assan/img/bg-3.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                <div class="caption title-2 sft"
+                     data-x="50"
+                     data-y="160"
+                     data-speed="1000"
+                     data-start="1000"
+                     data-easing="easeOutExpo">
+                    Powerful multipurpose <br>
+                    Business Template
+                </div>
+
+                <div class="caption text sfl"
+                     data-x="50"
+                     data-y="290"
+                     data-speed="1000"
+                     data-start="1800"
+                     data-easing="easeOutExpo">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.  <br>
+                    lectus. Cras porta nisl at tincidunt tincidunt.
+                </div>
+                <div class="caption sfb rev-buttons tp-resizeme"
+                     data-x="50"
+                     data-y="360"
+                     data-speed="500"
+                     data-start="1800"
+                     data-easing="Sine.easeOut">
+                    <a href="#" class="btn btn-theme-bg btn-lg">Purchase Now</a>
+                </div>
+
+                <div class="caption sfb rev-buttons tp-resizeme"
+                     data-x="250"
+                     data-y="360"
+                     data-speed="500"
+                     data-start="2100"
+                     data-easing="Sine.easeOut">
+                    <a href="#" class="btn border-white btn-lg">View features</a>
+                </div>
+
+            </li>
+            <!-- SLIDE -->
+            <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Unique Theme">
+                <!-- MAIN IMAGE -->
+                <img src="~/Content/assan/img/showcase-4.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+
+
+
+
+                <div class="caption text-center-top sft"
+                     data-x="center"
+                     data-y="210"
+                     data-speed="1000"
+                     data-start="1400"
+                     data-easing="easeOutExpo">
+                    Perfect for startup
+                </div>
+
+                <div class="caption text-center-btm sfr text-center"
+                     data-x="center"
+                     data-y="265"
+                     data-speed="1000"
+                     data-start="1600"
+                     data-easing="easeOutExpo">
+
+                    Assan is a creative multipurpose theme, you can use it for<br>  business, corporate, portfolio, shop events, personal and more...
+
+                </div>
+                <div class="caption sfb rev-buttons tp-resizeme"
+                     data-x="center"
+                     data-y="350"
+                     data-speed="500"
+                     data-start="1800"
+                     data-easing="Sine.easeOut">
+                    <a href="#" class="btn border-white btn-lg">View features</a>
+                </div>
+            </li>
+            <!-- SLIDE -->
+            <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Multipurpose">
+                <!-- MAIN IMAGE -->
+                <img src="~/Content/assan/img/bg-1.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                <!-- LAYER NR. 1 -->
+                <div class="caption left-tile-text sfr tp-resizeme"
+                     data-x="40"
+                     data-y="110"
+                     data-speed="600"
+                     data-start="1200"
+                     data-end="9400"
+                     data-endspeed="600">
+                    Unlimited layouts
+                </div>
+
+                <!-- LAYER NR. 2 -->
+                <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
+                     data-x="40"
+                     data-y="170"
+                     data-speed="600"
+                     data-start="1600"
+                     data-end="9400"
+                     data-endspeed="600">
+                    <i class="fa fa-check"></i>
+                </div>
+
+                <!-- LAYER NR. 3 -->
+                <div class="caption modern_big_redbg sfb medium tp-resizeme"
+                     data-x="90"
+                     data-y="170"
+                     data-speed="600"
+                     data-start="1600"
+                     data-end="9400"
+                     data-endspeed="600">
+                    Fully Responsive
+                </div>
+
+                <!-- LAYER NR. 4 -->
+                <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
+                     data-x="40"
+                     data-y="220"
+                     data-speed="600"
+                     data-start="1800"
+                     data-end="9400"
+                     data-endspeed="600">
+                    <i class="fa fa-check"></i>
+                </div>
+
+                <!-- LAYER NR. 5 -->
+                <div class="caption modern_big_redbg sfb medium tp-resizeme"
+                     data-x="90"
+                     data-y="220"
+                     data-speed="600"
+                     data-start="1800"
+                     data-end="9400"
+                     data-endspeed="600">
+                    210+ HTML5 Valid Pages
+                </div>
+
+                <!-- LAYER NR. 6 -->
+                <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
+                     data-x="40"
+                     data-y="270"
+                     data-speed="600"
+                     data-start="2000"
+                     data-end="9400"
+                     data-endspeed="600">
+                    <i class="fa fa-check"></i>
+                </div>
+
+                <!-- LAYER NR. 7 -->
+                <div class="caption modern_big_redbg sfb medium tp-resizeme"
+                     data-x="90"
+                     data-y="270"
+                     data-speed="600"
+                     data-start="2000"
+                     data-end="9400"
+                     data-endspeed="600">
+                    Slider revolution
+                </div>
+
+                <!-- LAYER NR. 8 -->
+                <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
+                     data-x="40"
+                     data-y="320"
+                     data-speed="600"
+                     data-start="2200"
+                     data-end="9400"
+                     data-endspeed="600">
+                    <i class="fa fa-check"></i>
+                </div>
+
+                <!-- LAYER NR. 9 -->
+                <div class="caption modern_big_redbg sfb medium tp-resizeme"
+                     data-x="90"
+                     data-y="320"
+                     data-speed="600"
+                     data-start="2200"
+                     data-end="9400"
+                     data-endspeed="600">
+                    Clean & Commented Code
+                </div>
+
+                <!-- LAYER NR. 10 -->
+                <div class="caption modern_big_redbg sfb medium tp-resizeme"
+                     data-x="40"
+                     data-y="370"
+                     data-speed="600"
+                     data-start="2400"
+                     data-end="9400"
+                     data-endspeed="600">
+                    And Much More...
+                </div>
+
+            </li>
+        </ul>
     </div>
-</section>
-<section class="about" id="about">
+</div><!--full width banner-->
+<!--revolution end-->
+
+<div class="red-bg">
     <div class="container">
         <div class="row">
-            <div class="about-row section">
-                <div class="col-md-6 text-center">
-                    <h2 class="main-heading ">
-                        Tentang Merachel<span> </span>
-                        <span class="main-heading-decor">
-                            <span class=""><img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20"></span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                            <span class=""><img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20"></span>
-                        </span>
-                    </h2>
-                    <p>
-                        Merachel menawarkan kepada anda jasa kursus dengan pelayanan terbaik dengan harga yang terjangkau untuk semua kalangan. Merachel juga menyediakan workshop - workshop yang memenuhi kebutuhan masyarakat akan ilmu mengenai dunia fashion terbaru.
-                    </p>
-                    <a class="btn btn-primary btn-lg" href="#menu">About Us</a>
-                </div>
-                <div class="col-md-6 col-xs-12 about-photo">
-                    <img class="col-md-6 col-sm-6 col-xs-6 wow fadeInUp" data-wow-delay="0.2s" alt="about photo" src="~/Content/images/home-about-1.jpg">
-                    <img class="col-md-6 col-sm-6 col-xs-6 wow fadeInDown" data-wow-delay="0.4s" alt="about photo" src="~/Content/images/home-about-2.jpg">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="about-chef section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <h2 class="main-heading inverse">
-                        Chef<span>de cuisine</span>
-                        <span class="main-heading-decor">
-                            <span class=""><img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20"></span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                            <span class=""><img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20"></span>
-                        </span>
-                    </h2>
-                    <h3 class="wow fadeInDown">Thomas Example</h3>
-                    <p class="wow fadeInUp">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <a class="btn btn-default btn-lg" href="#" data-toggle="modal" data-target="#about-01">more about Thomas</a>
-                </div>
-            </div>
-            <!-- ABOUT MODAL -->
-            <div id="about-01" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content shadow">
-                        <a class="close" data-dismiss="modal"><span class="ti-close"></span></a>
-                        <div class="modal-body">
-                            <div class="post-entry post-entry-modal">
-                                <h2>Meet our chef de cuisine -<br> Thomas Example</h2>
-                                <span class="post-entry-cover" style="background-image:url(~/Content/frontpage/img/home4.jpg); ">
-                                </span>
-
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                </p>
-                                <p>
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                            </div>
-                        </div>
+            <div class="col-sm-6 margin30">
+                <div class="services-box wow animated fadeInDown">
+                    <div class="services-box-info">
+                        <iframe width="480" height="300" src="https://www.youtube.com/embed/fbf8hY60V98" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
-                </div>
+                </div><!--service box-->
             </div>
-            <!-- / ABOUT MODAL -->
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="about-row section">
-                <div class="col-md-6 about-photo">
-                    <img class="col-md-6 col-sm-4 col-xs-6 wow fadeInUp" alt="about photo" src="~/Content/images/home-whyus-1.jpg" data-wow-delay=".2s">
-                    <img class="col-md-6 col-sm-4 col-xs-6 wow fadeInUp" alt="about photo" src="~/Content/images/home-whyus-2.jpg" data-wow-delay=".4s">
-                    <img class="col-md-6 col-sm-4 col-xs-6 wow fadeInUp" alt="about photo" src="~/Content/images/home-whyus-3.jpg" data-wow-delay=".6s">
-                    <img class="col-md-6 col-sm-4 col-xs-6 wow fadeInUp" alt="about photo" src="~/Content/images/home-whyus-4.jpg" data-wow-delay=".8s">
-                    <img class="col-md-6 col-sm-4 col-xs-6 wow fadeInUp" alt="about photo" src="~/Content/images/home-whyus-5.jpg" data-wow-delay="1s">
-                    <img class="col-md-6 col-sm-4 col-xs-6 wow fadeInUp" alt="about photo" src="~/Content/images/home-whyus-6.jpg" data-wow-delay="1.2s">
-                </div>
-                <div class="col-md-6 text-center">
-                    <h2 class="main-heading ">
-                        Why Us <span> </span>
-                        <span class="main-heading-decor">
-                            <span class=""><img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20"></span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                            <span class=""><img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20"></span>
-                        </span>
-                    </h2>
-                    @*<h3>Duis aute irure dolor in reprehenderit</h3>*@
-                    <p>
-                        Merachel menjadi kursus fashion dan design satu-satunya di kota Malang yang menyediakan pola Jepang dan Eropa dengan kurikulum yang terpercaya berstandar nasional dan internasional.
-                    </p>
-                    <p>
-                        <br>Pola Jepang sangat terkenal sudah sejak puluhan tahun lalu sebagai pola Asia yang baik dan cocok untuk tubuh Asia. Sementara pola Eropa khususnya corset sangat elegan dan jatuh menawan di tubuh penggunanya. Pola Eropa merupakan basic hampir semua pola pakaian yang ada saat ini.
-                    </p>
-                    <p>
-                        <br>Proses pembelajaran didampingi oleh tutor yang berpengalaman dan dengan sistem private. Tutor akan fokus menggali potensi murid sehingga manfaat dari pembelajaran tersebut bisa diterima baik oleh murid.
-                    </p>
-                </div>
+            <div class="col-sm-6 ">
+                <h3 class="wow animated fadeInDownfadeInRight">Tentang Merachel</h3>
+                <div class="services-box wow animated fadeInUp">
+                    <div class="services-box no-padding">
+                        <p>
+                            Merachel menawarkan kepada anda jasa kursus dengan pelayanan terbaik dengan harga yang terjangkau untuk semua kalangan. Merachel juga menyediakan workshop - workshop yang memenuhi kebutuhan masyarakat akan ilmu mengenai dunia fashion terbaru.
+                        </p>
+                    </div>
+                    <p><a href="@Url.Action("Why", "Home")" class="btn btn-theme-dark btn-lg">Why Us ?</a></p>
+                </div><!--service box-->
             </div>
         </div>
     </div>
-    
-</section>
+</div><!--full wide 2 columns content end-->
 
+<div class="divide60"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="center-heading">
+                <h2><strong>Our Course</strong></h2>
+                <p>Kata mereka tentang Merachel</p>
+                <span class="center-line"></span>
 
-<section id="reviews" class="testimonials section">
+            </div>
+        </div>
+    </div><!--center heading end-->
+    <div class="divide50"></div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 margin30">
+            <div class="colored-boxed green">
+                <i class="pe-7s-magic-wand"></i>
+                <h3>Kids</h3>
+                <span class="center-line"></span>
+                <p>
+                    Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
+                </p>
+            </div>
+        </div><!--colored boxed col end-->
+        <div class="col-md-3 col-sm-6 margin30">
+            <div class="colored-boxed dark">
+                <i class="pe-7s-phone"></i>
+                <h3>Teen</h3>
+                <span class="center-line"></span>
+                <p>
+                    Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
+                </p>
+            </div>
+        </div><!--colored boxed col end-->
+        <div class="col-md-3 col-sm-6 margin30">
+            <div class="colored-boxed blue">
+                <i class="pe-7s-like"></i>
+                <h3>Adult</h3>
+                <span class="center-line"></span>
+                <p>
+                    Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
+                </p>
+            </div>
+        </div><!--colored boxed col end-->
+        <div class="col-md-3 col-sm-6 margin30">
+            <div class="colored-boxed red">
+                <i class="pe-7s-folder"></i>
+                <h3>Special</h3>
+                <span class="center-line"></span>
+                <p>
+                    Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
+                </p>
+            </div>
+        </div><!--colored boxed col end-->
+    </div>
+</div><!--services container-->
+
+<div class="divide50"></div>
+<div class="text-center">
+    <a href="@Url.Action("Course", "Home")" class="btn btn-theme-dark btn-lg">Check Our Course</a>
+</div>
+
+<div class="divide80"></div>
+<div class="testimonials-v-2 wow animated fadeInUp" data-wow-duration="700ms" data-wow-delay="100ms" style="background:#f5f5f5">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h2 class="main-heading inverse">
-                    Reviews<span> of our guests</span>
-                    <span class="main-heading-decor">
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                    </span>
-                </h2>
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="center-heading">
+                    <h2><strong>Testimonial</strong></h2>
+                    <p>Kata mereka tentang Merachel</p>
+                    <span class="center-line"></span>
+
+                </div>
             </div>
-            <div class="testimonials-slider text-center">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="testimonials-container shadow">
-                            <img class="wow fadeInUp" src="~/Content/frontpage/img/user.png" alt="user avatar">
-                            <h3 class="wow fadeInUp" data-wow-delay=".4s">
-                                Martin Johe, Co-Founder / CEO
-                                <span class="testimonials-rating">
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".2s"></span>
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".4s"></span>
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".6s"></span>
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".8s"></span>
-                                    <span class="icon ti-star wow fadeInUp" data-wow-delay="1s"></span>
-                                </span>
-                            </h3>
-                            <p class="wow fadeInUp" data-wow-delay=".6s">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div><!--center heading end-->
+
+        <div class="row">
+
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="testi-slide">
+                    <ul class="slides">
+                        <li>
+                            <img src="~/Content/assan/img/customer-1.jpg" alt="">
+                            <p>
+                                <i class="ion-quote"></i>
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
                             </p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonials-container shadow">
-                            <img class="wow fadeInUp" src="~/Content/frontpage/img/user.png" alt="user avatar">
-                            <h3 class="wow fadeInUp" data-wow-delay=".4s">
-                                Martin Johe, Co-Founder / CEO
-                                <span class="testimonials-rating">
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".2s"></span>
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".4s"></span>
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".6s"></span>
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".8s"></span>
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay="1s"></span>
-                                </span>
-                            </h3>
-                            <p class="wow fadeInUp" data-wow-delay=".6s">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <h4 class="test-author">
+                                Rick man - <em>rock inc</em>
+                            </h4>
+                        </li><!--testi item-->
+                        <li>
+                            <img src="~/Content/assan/img/customer-2.jpg" alt="">
+                            <p>
+                                <i class="ion-quote"></i>
+                                Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years
                             </p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonials-container shadow">
-                            <img class="wow fadeInUp" src="~/Content/frontpage/img/user.png" alt="user avatar">
-                            <h3 class="wow fadeInUp" data-wow-delay=".4s">
-                                Martin Johe, Co-Founder / CEO
-                                <span class="testimonials-rating">
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".2s"></span>
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".4s"></span>
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".6s"></span>
-                                    <span class="icon active ti-star wow fadeInUp" data-wow-delay=".8s"></span>
-                                    <span class="icon ti-star wow fadeInUp" data-wow-delay="1s"></span>
-                                </span>
-                            </h3>
-                            <p class="wow fadeInUp" data-wow-delay=".6s">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <h4 class="test-author">
+                                Jellia - <em>Founder of tinka inc</em>
+                            </h4>
+                        </li><!--testi item-->
+                        <li>
+                            <img src="~/Content/assan/img/customer-3.jpg" alt="">
+                            <p>
+                                <i class="ion-quote"></i>
+                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.
                             </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonials-pagination"></div>
-                <div class="testimonials-slider-next right-arrow-negative">
-                    <span class="ti-arrow-right"></span>
-                </div>
-                <div class="testimonials-slider-prev left-arrow-negative">
-                    <span class="ti-arrow-left"></span>
-                </div>
+                            <h4 class="test-author">
+                                Smith - <em>Ceo, company inc.</em>
+                            </h4>
+                        </li><!--testi item-->
+                    </ul>
+                </div><!--flex slider testimonials end here-->
             </div>
-        </div>
+        </div><!--testi slider row end-->
+
     </div>
-</section>
+</div><!--testimonials v-2 end-->
 
-<section class="services section" id="services">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="main-heading ">
-                    Services <span>lorem dolorem</span>
-                    <span class="main-heading-decor">
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                    </span>
-                </h2>
-            </div>
-            <ul>
-                <li class="col-md-3 col-sm-6 col-xs-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <a href="#" class="" data-toggle="modal" data-target="#service-01">
-                        <span class="services-name h3">weddings party</span>
-                        <span class="services-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veni
-                        </span>
-                        <span class="btn btn-default">read more</span>
-                    </a>
-                </li>
-                <li class="col-md-3 col-sm-6 col-xs-6 wow fadeInUp" data-wow-delay="0.4s">
-                    <a href="#" class="" data-toggle="modal" data-target="#service-01">
-                        <span class="services-name h3">weddings party</span>
-                        <span class="services-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veni
-                        </span>
-                        <span class="btn btn-default">read more</span>
-                    </a>
-                </li>
-                <li class="col-md-3 col-sm-6 col-xs-6 wow fadeInUp" data-wow-delay="0.6s">
-                    <a href="#" class="" data-toggle="modal" data-target="#service-01">
-                        <span class="services-name h3">weddings party</span>
-                        <span class="services-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veni
-                        </span>
-                        <span class="btn btn-default">read more</span>
-                    </a>
-                </li>
-                <li class="col-md-3 col-sm-6 col-xs-6 wow fadeInUp" data-wow-delay="0.8s">
-                    <a href="#" class="" data-toggle="modal" data-target="#service-01">
-                        <span class="services-name h3">weddings party</span>
-                        <span class="services-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veni
-                        </span>
-                        <span class="btn btn-default">read more</span>
-                    </a>
-                </li>
-            </ul>
-            <!-- SERVICES MODAL -->
-            <div id="service-01" class="modal fade services-modal" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content shadow">
-                        <a class="close" data-dismiss="modal"><span class="ti-close"></span></a>
-                        <div class="modal-body">
-                            <div class="modal-header">
-                                <div class="col-md-12 text-center">
-                                    <h2>Weddings party</h2>
-                                </div>
-                                <img src="~/Content/frontpage/img/wedding.jpg" alt="service photo" class="full-width">
-                            </div>
-                            <div class="modal-text-box">
-                                <h4>We offer:</h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-
-                                </p>
-                                <h4>We offer also:</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- / SERVICES MODAL -->
-        </div>
-    </div>
-</section>
-
-<div id="about-counter" class="about-counter section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="main-heading inverse">
-                    Italia<span>in numbers</span>
-                    <span class="main-heading-decor">
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                    </span>
-                </h2>
-            </div>
-            <div class="col-md-3 wow fadeInLeft about-counter-single" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
-                <div class="counter">
-                    <h2 class="timer"> 23</h2>
-                    <p>fugiat nulla</p>
-                </div>
-            </div>
-            <div class="col-md-3 wow fadeInLeft about-counter-single" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-                <div class="counter">
-                    <h2 class="timer">14006 </h2>
-                    <p>velit esse</p>
-                </div>
-            </div>
-            <div class="col-md-3 wow fadeInLeft about-counter-single" data-wow-duration="1s" data-wow-delay="0.4s" data-wow-offset="0">
-                <div class="counter">
-                    <h2 class="timer"> 65</h2>
-                    <p>tempor incididunt</p>
-                </div>
-            </div>
-            <div class="col-md-3 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-offset="0">
-                <div class="counter">
-                    <h2 class="timer">1180</h2>
-                    <p>adipisicing elit</p>
-                </div>
+<div class="divide80"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="center-heading">
+                <h2><strong>Gallery</strong></h2>
+                <span class="center-line"></span>
             </div>
         </div>
     </div>
 </div>
-<section class="reservation" id="reservation">
-    @*<div class="reservation-row reservation-row-contact section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="main-heading inverse">
-                        Reservation <span>lorem dolorem</span>
-                        <span class="main-heading-decor">
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                        </span>
-                    </h2>
-                </div>
-                <div class="col-md-6">
-                    <h3>Reserve by Phone or e-mail</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur.
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
+<div class="container">
+    <div class="cube-masonry">
 
-                    <ul class="reservation-contact row">
-                        <li class="col-md-12">
-                            <span class="ti-mobile icon"></span>
-                            +49  123 456 789
-                        </li>
-                        <li class="col-md-12">
-                            <span class="ti-email icon"></span>
-                            reservation@italia.com
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h3>Reserve form</h3>
-                    <div class="contact-form">
-                        <form>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="reserve-name" name="reserve-name" placeholder="Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="reserve-email" name="reserve-email" placeholder="Email" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="resrve-mobile" name="resrve-mobile" placeholder="Mobile Number" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="reserve-mobile" name="reserve-mobile" placeholder="day and hour" required>
-                            </div>
-                            <button type="button" id="reserve-submit" name="submit" class="btn btn-primary btn-lg text-center pull-right">reserve now</button>
-                        </form>
+        <div id="filters-container" class="cbp-l-filters-alignCenter">
+            <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
+                All <div class="cbp-filter-counter"></div>
+            </div>
+            <div data-filter=".identity" class="cbp-filter-item">
+                Identity <div class="cbp-filter-counter"></div>
+            </div>
+            <div data-filter=".web-design" class="cbp-filter-item">
+                Web Design <div class="cbp-filter-counter"></div>
+            </div>
+            <div data-filter=".graphic" class="cbp-filter-item">
+                Graphic <div class="cbp-filter-counter"></div>
+            </div>
+            <div data-filter=".graphic, .identity" class="cbp-filter-item">
+                Web Design & Identity <div class="cbp-filter-counter"></div>
+            </div>
+        </div>
+
+        <div id="masnory-container" class="cbp">
+            <div class="cbp-item identity">
+                <a class="cbp-caption cbp-lightbox" data-title="Easy Note<br>by Cosmin Capitanu" href="~/Content/assan/img/mas-1.jpg">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/mas-1.jpg" alt="">
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>*@
-    <div class="container">
-        <div class="row">
-            <div class="reservation-row section">
-                <div class="reservation-photo">
-                    <img class="col-md-6 col-sm-12 col-xs-12  wow fadeInUp" alt="about photo" src="~/Content/frontpage/img/placeholder10.jpg" data-wow-delay=".4s">
-                </div>
-                <div class="col-md-6 text-center pull-left">
-                    <h2 class="main-heading">
-                        <span>party service</span>
-                        <span class="main-heading-decor">
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                        </span>
-                    </h2>
-                    <h3>Exercitation ullamco laboris</h3>
-                    <p>
-                        Sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud  nisi ut aliquip ex ea commodo
-                        consequat.
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
-            </div>
-            <div class="reservation-row section section-no-top">
-                <div class="col-md-6 text-center pull-left">
-                    <h2 class="main-heading">
-                        <span>Private Dining</span>
-                        <span class="main-heading-decor">
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                            </span>
-                        </span>
-                    </h2>
-                    <h3>
-                        Excepteur sint occaecat cupidatat non
-                        proident
-                    </h3>
-                    <p>
-                        Sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                    </p>
-                </div>
-                <div class="reservation-photo">
-                    <img class="col-md-6 col-sm-12 col-xs-12 wow fadeInUp" alt="about photo" src="~/Content/frontpage/img/placeholder8.jpg" data-wow-delay=".4s">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="blog section" id="news">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="main-heading ">
-                    News <span>lorem dolorem</span>
-                    <span class="main-heading-decor">
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                    </span>
-                </h2>
-            </div>
-            <ul>
-                <li class="col-md-3 col-sm-6 col-xs-6 wow fadeInUp text-center" data-wow-delay=".2s">
-                    <a href="#" class="" data-toggle="modal" data-target="#news-01">
-                        <img src="~/Content/frontpage/img/placeholder7.jpg" alt="placehoder">
-                        <h3> appreciated repeatedly  by Michelin Guide</h3>
-                        <span class="main-sub-heading-decor text-center">
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                        </span>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <span class="blog-item-date">22.11.2016</span>
-                    </a>
-                </li>
-                <li class="col-md-3 col-sm-6 col-xs-6 wow fadeInUp text-center" data-wow-delay=".4s">
-                    <a href="#" class="" data-toggle="modal" data-target="#news-01">
-                        <img src="~/Content/frontpage/img/placeholder9.jpg" alt="placehoder">
-                        <h3>Our biggest asset lies in quality & freshness of products</h3>
-                        <span class="main-sub-heading-decor text-center">
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                        </span>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <span class="blog-item-date">22.11.2016</span>
-                    </a>
-                </li>
-                <li class="col-md-3 col-sm-6 col-xs-6 wow fadeInUp text-center" data-wow-delay=".6s">
-                    <a href="#" class="" data-toggle="modal" data-target="#news-01">
-                        <img src="~/Content/frontpage/img/placeholder4.jpg" alt="placehoder">
-                        <h3>Restaurant menu includes vegetarian and few vegan meals</h3>
-                        <span class="main-sub-heading-decor text-center">
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                        </span>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <span class="blog-item-date">22.11.2016</span>
-                    </a>
-                </li>
-                <li class="col-md-3 col-sm-6 col-xs-6 wow fadeInUp text-center" data-wow-delay=".8s">
-                    <a href="#" class="" data-toggle="modal" data-target="#news-01">
-                        <img src="~/Content/frontpage/img/placeholder6.jpg" alt="placehoder">
-                        <h3>moreover there’s different soup and dessert every day</h3>
-                        <span class="main-sub-heading-decor text-center">
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                            <span class="">
-                                <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="10" height="10">
-                            </span>
-                        </span>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <span class="blog-item-date">22.11.2016</span>
-                    </a>
-                </li>
-            </ul>
-            <!-- BLOG MODAL -->
-            <div id="news-01" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content shadow">
-                        <a class="close" data-dismiss="modal"><span class="ti-close"></span></a>
-                        <div class="modal-body">
-                            <div class="post-entry post-entry-modal">
-                                <h2>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</h2>
-                                <span class="post-entry-meta">
-                                    <span class="post-entry-time pull-right">
-                                        6 min read
-                                        <span class="post-entry-category">22.11.2016</span>
-                                    </span>
-                                </span>
-                                <span class="post-entry-cover" style="background-image:url(~/Content/frontpage/img/home4.jpg); "></span>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                </p>
-                                <p>
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">Easy Note</div>
+                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <!-- / BLOG MODAL -->
+            <div class="cbp-item web-design">
+                <a class="cbp-caption cbp-lightbox" data-title="The Gang Blue<br>by Cosmin Capitanu"
+                   href="~/Content/assan/img/img-1.jpg">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/img-1.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">The Gang Blue</div>
+                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="cbp-item graphic identity">
+                <a class="cbp-caption cbp-lightbox" data-title="Tiger<br>by Cosmin Capitanu"
+                   href="~/Content/assan/img/img-2.jpg">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/img-2.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">Tiger</div>
+                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="cbp-item graphic">
+                <a class="cbp-caption cbp-lightbox" data-title="Flat Roman Typeface Ui<br>by Cosmin Capitanu"
+                   href="~/Content/assan/img/mas-2.jpg">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/mas-2.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">Flat Roman Typeface Ui</div>
+                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="cbp-item identity">
+                <a class="cbp-caption cbp-lightbox" data-title="Seemple* Music for iPad<br>by Tiberiu Neamu"
+                   href="~/Content/assan/img/mas-2.jpg">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/mas-1.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">Seemple* Music for iPad</div>
+                                <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="cbp-item graphic">
+                <a class="cbp-caption cbp-lightbox" data-title="Remind~Me More<br>by Tiberiu Neamu" href="~/Content/assan/img/img-3.jpg">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/img-3.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">Remind~Me More</div>
+                                <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="cbp-item web-design">
+                <a class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu" href="~/Content/assan/img/img-4.jpg">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/img-4.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">Workout Buddy</div>
+                                <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="cbp-item identity">
+                <a class="cbp-caption cbp-lightbox" data-title="Volume Knob<br>by Paul Flavius Nechita" href="http://vimeo.com/156783#">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/img-5.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">Volume Knob</div>
+                                <div class="cbp-l-caption-desc">by Paul Flavius Nechita</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="cbp-item identity">
+                <a class="cbp-caption cbp-lightbox" data-title="Ski * Buddy<br>by Tiberiu Neamu" href="~/Content/assan/img/mas-2.jpg">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/mas-1.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">Ski * Buddy</div>
+                                <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="cbp-item web-design graphic">
+                <a class="cbp-caption cbp-lightbox" data-title="Virtualization Icon<br>by Paul Flavius Nechita"
+                   href="https://www.youtube.com/watch?v=dChhzNGHgnA">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/img-6.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">Virtualization Icon</div>
+                                <div class="cbp-l-caption-desc">by Paul Flavius Nechita</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="cbp-item web-design graphic">
+                <a class="cbp-caption cbp-lightbox" data-title="World Clock Widget<br>by Paul Flavius Nechita"
+                   href="~/Content/assan/img/img-7.jpg">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/img-7.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">World Clock Widget</div>
+                                <div class="cbp-l-caption-desc">by Paul Flavius Nechita</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="cbp-item web-design graphic">
+                <a class="cbp-caption cbp-lightbox" data-title="Sickpuppy<br>by Cosmin Capitanu" href="~/Content/assan/img/img-8.jpg">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="~/Content/assan/img/img-8.jpg" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <div class="cbp-l-caption-title">Sickpuppy</div>
+                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+    </div><!--.cube masonry-->
+</div>
+<div class="divide50"></div>
+<div class="text-center">
+    <a href="@Url.Action("Gallery", "Home")" class="btn btn-theme-dark btn-lg">Check Our Gallery</a>
+</div>
 
-<section class="locations section" id="locations">
+<div class="divide40"></div>
+
+<div class="our-team-v-2">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="main-heading inverse">
-                    Locations<span> lorem dolorem</span>
-                    <span class="main-heading-decor">
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                    </span>
-                </h2>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 wow fadeInDown locations-item" data-wow-delay="0.2s">
-                <img src="~/Content/frontpage/img/location1.jpg" alt="location cover">
-                <h3 class="locations-title">
-                    Saint Peter street 42
-                    <span>Italy, Rome</span>
-                </h3>
-
-                <ul>
-                    <li>
-                        <span class="locations-day">Monday-Friday</span>
-                        <span class="locations-hours">9:00 - 00:00</span>
-                    </li>
-                    <li>
-                        <span class="locations-day">Saturday</span>
-                        <span class="locations-hours">12:00 - 2:00</span>
-                    </li>
-                    <li>
-                        <span class="locations-day">Sunday</span>
-                        <span class="locations-hours">Closed</span>
-                    </li>
-                </ul>
-                <ul>
-                    <li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
-                    <li><span class="ti-email icon"></span>mail@examle.com</li>
-                </ul>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 wow fadeInDown locations-item" data-wow-delay="0.4s">
-                <img src="~/Content/frontpage/img/location2.jpg" alt="location cover">
-                <h3 class="locations-title">
-                    Saint Peter street 42
-                    <span>Italy, Rome</span>
-                </h3>
-
-                <ul>
-                    <li>
-                        <span class="locations-day">Monday-Friday</span>
-                        <span class="locations-hours">9:00 - 00:00</span>
-                    </li>
-                    <li>
-                        <span class="locations-day">Saturday</span>
-                        <span class="locations-hours">12:00 - 2:00</span>
-                    </li>
-                    <li>
-                        <span class="locations-day">Sunday</span>
-                        <span class="locations-hours">Closed</span>
-                    </li>
-                </ul>
-                <ul>
-                    <li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
-                    <li><span class="ti-email icon"></span>mail@examle.com</li>
-                </ul>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 wow fadeInDown locations-item" data-wow-delay="0.6s">
-                <img src="~/Content/frontpage/img/location1.jpg" alt="location cover">
-                <h3 class="locations-title">
-                    Saint Peter street 42
-                    <span>Italy, Rome</span>
-                </h3>
-
-                <ul>
-                    <li>
-                        <span class="locations-day">Monday-Friday</span>
-                        <span class="locations-hours">9:00 - 00:00</span>
-                    </li>
-                    <li>
-                        <span class="locations-day">Saturday</span>
-                        <span class="locations-hours">12:00 - 2:00</span>
-                    </li>
-                    <li>
-                        <span class="locations-day">Sunday</span>
-                        <span class="locations-hours">Closed</span>
-                    </li>
-                </ul>
-                <ul>
-                    <li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
-                    <li><span class="ti-email icon"></span>mail@examle.com</li>
-                </ul>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 wow fadeInDown locations-item" data-wow-delay="0.8s">
-                <img src="~/Content/frontpage/img/location2.jpg" alt="location cover">
-                <h3 class="locations-title">
-                    Saint Peter street 42
-                    <span>Italy, Rome</span>
-                </h3>
-
-                <ul>
-                    <li>
-                        <span class="locations-day">Monday-Friday</span>
-                        <span class="locations-hours">9:00 - 00:00</span>
-                    </li>
-                    <li>
-                        <span class="locations-day">Saturday</span>
-                        <span class="locations-hours">12:00 - 2:00</span>
-                    </li>
-                    <li>
-                        <span class="locations-day">Sunday</span>
-                        <span class="locations-hours">Closed</span>
-                    </li>
-                </ul>
-                <ul>
-                    <li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
-                    <li><span class="ti-email icon"></span>mail@examle.com</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="contact" class="contact contact-with-map section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="main-heading">
-                    Contact<span> lorem dolorem</span>
-                    <span class="main-heading-decor">
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".2s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".4s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                        <span class="">
-                            <img class="wow fadeInUp js-rotate" data-wow-delay=".6s" src="~/Content/frontpage/img/asterix.svg" alt="decor" width="20" height="20">
-                        </span>
-                    </span>
-                </h2>
-            </div>
-            <div class="col-md-8 col-md-push-2">
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
-                        </div>
-                        <button type="button" id="submit" name="submit" class="btn btn-primary btn-lg text-center">Submit your message</button>
-                    </form>
+                <div class="center-heading">
+                    <h2>Merachel <strong>Tutor</strong></h2>
+                    <span class="center-line"></span>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-3 text-center">
+                <div class="person-v2">
+                    <img src="~/Content/assan/img/team-5.jpg" class="img-responsive" alt="">
+                    <div class="person-desc-v2">
+                        <h3>Steve Smith</h3>
+                        <em>Creative Designer</em>
+                        <ul class="list-inline top-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <!--                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div><!--person col end-->
+            <div class="col-sm-3 text-center">
+                <div class="person-v2">
+                    <img src="~/Content/assan/img/team-6.jpg" class="img-responsive" alt="">
+                    <div class="person-desc-v2">
+                        <h3>Steve Smith</h3>
+                        <em>Creative Designer</em>
+                        <ul class="list-inline top-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <!--                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div><!--person col end-->
+            <div class="col-sm-3 text-center">
+                <div class="person-v2">
+                    <img src="~/Content/assan/img/team-7.jpg" class="img-responsive" alt="">
+                    <div class="person-desc-v2">
+                        <h3>Steve Smith</h3>
+                        <em>Creative Designer</em>
+                        <ul class="list-inline top-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <!--                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div><!--person col end-->
+            <div class="col-sm-3 text-center">
+                <div class="person-v2">
+                    <img src="~/Content/assan/img/team-8.jpg" class="img-responsive" alt="">
+                    <div class="person-desc-v2">
+                        <h3>Steve Smith</h3>
+                        <em>Creative Designer</em>
+                        <ul class="list-inline top-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <!--                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div><!--person col end-->
+        </div>
     </div>
-    <div class="google-maps">
-        <div id="map-canvas"></div>
+</div><!--our team v-2-->
+<div class="divide70"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="center-heading">
+                <h2><strong>latest</strong> news</h2>
+                <span class="center-line"></span>
+            </div>
+        </div>
     </div>
-</section>
+    <div class="row">
+        <div class="col-sm-4 margin30">
+            <div>
+                <a href="#">
+                    <div class="item-img-wrap">
+                        <img src="~/Content/assan/img/img-8.jpg" class="img-responsive" alt="workimg">
+                        <div class="item-img-overlay">
+                            <span></span>
+                        </div>
+                    </div>
+                </a><!--news link-->
+                <div class="news-desc">
+                    <span>Sports</span>
+                    <h4><a href="#">Lorem ipsum dollor Sit amet</a></h4>
+                    <span>By <a href="#">Author</a> on 24 july 2014</span> <span><a href="#">Read more...</a></span>
+                </div><!--news desc-->
+            </div>
+        </div><!--news col-->
+        <div class="col-sm-4 margin30">
+            <div>
+                <a href="#">
+                    <div class="item-img-wrap">
+                        <img src="~/Content/assan/img/img-3.jpg" class="img-responsive" alt="workimg">
+                        <div class="item-img-overlay">
+                            <span></span>
+                        </div>
+                    </div>
+                </a><!--news link-->
+                <div class="news-desc">
+                    <span>Sports</span>
+                    <h4><a href="#">Lorem ipsum dollor Sit amet</a></h4>
+                    <span>By <a href="#">Author</a> on 24 july 2014</span> <span><a href="#">Read more...</a></span>
+                </div><!--news desc-->
+            </div>
+        </div><!--news col-->
+        <div class="col-sm-4 margin30">
+            <div>
+                <a href="#">
+                    <div class="item-img-wrap">
+                        <img src="~/Content/assan/img/img-6.jpg" class="img-responsive" alt="workimg">
+                        <div class="item-img-overlay">
+                            <span></span>
+                        </div>
+                    </div>
+                </a><!--news link-->
+                <div class="news-desc">
+                    <span>Sports</span>
+                    <h4><a href="#">Lorem ipsum dollor Sit amet</a></h4>
+                    <span>By <a href="#">Author</a> on 24 july 2014</span> <span><a href="#">Read more...</a></span>
+                </div><!--news desc-->
+            </div>
+        </div><!--news col-->
+    </div>
+</div><!--latest news-->
+
+@section scripts {
+    @Scripts.Render("~/plugins/videoResponsible")
+
+    <script type="text/javascript" src="~/Scripts/merachel/main/home.js?v=@Model.JavaScriptAndCssVersion"></script>
+}

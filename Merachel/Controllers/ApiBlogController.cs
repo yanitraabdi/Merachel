@@ -16,11 +16,11 @@ namespace Merachel.Controllers
         BlogServices oSvc = new BlogServices();
 
         [HttpGet, Route("")]
-        public IHttpActionResult GetBlogs(string title = "", int? status = null, int? categoryId = null, DateTime? startDate = null, DateTime? endDate = null)
+        public IHttpActionResult GetBlogs(string title = "", int? status = null, int? categoryId = null, DateTime? startDate = null, DateTime? endDate = null, int? blogid = null, int? limit = null)
         {
             try
             {
-                var result = oSvc.GetBlogs(title, status, categoryId, startDate, endDate);
+                var result = oSvc.GetBlogs(title, status, categoryId, startDate, endDate, blogid, limit);
                 return Ok(result);
             }
             catch (Exception ex)

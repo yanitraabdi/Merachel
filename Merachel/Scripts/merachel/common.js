@@ -356,6 +356,35 @@ var send = {
         return value;
     }
 
+    merachel.Utility.getDateFormat = function ()
+    {
+        var jsDate = new Date();
+        var jsMonth = jsDate.getMonth() + 1 < 10 ? "0" + (jsDate.getMonth() + 1) : jsDate.getMonth() + 1;
+        var jsDay = jsDate.getDate() < 10 ? "0" + jsDate.getDate() : jsDate.getDate();
+        var jsFormat = '_' + [jsDate.getDate(), , jsDate.getFullYear()].join("") + [jsDate.getHours(), jsDate.getMinutes(), jsDate.getMilliseconds()].join("");
+        return jsFormat;
+    }
+
+    merachel.Utility.getFileName = function (id) {
+        var fullPath = $('#' + id).val();
+        var filename = null;
+        if (fullPath) {
+            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+            filename = fullPath.substring(startIndex);
+            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+                filename = filename.substring(1);
+            }
+        }
+        return filename;
+    }
+
+    merachel.Utility.GuidGenerator = function () {
+        var S4 = function () {
+            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        };
+        return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+    }
+
     /* Desc: To set default autofill value from the "autofill" cookie to the control in the given container  
      * Param:
      *      containerId (mandatory) : id of div/form (any container) which holds autofilled controls

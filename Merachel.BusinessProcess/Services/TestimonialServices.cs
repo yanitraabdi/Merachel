@@ -16,7 +16,7 @@ namespace Merachel.BusinessProcess
 {
     public class TestimonialServices : GeneralServices
     {
-        public ICollection<TestimonialModel> GetTestimonials(string testimonialuser, int? status, string testimonialcontent)
+        public ICollection<TestimonialModel> GetTestimonials(string testimonialuser, int? status, string testimonialcontent, int? testimonialid, int? limit)
         {
             using (var conn = db.Database.Connection)
             {
@@ -24,7 +24,9 @@ namespace Merachel.BusinessProcess
                 {
                     status = status,
                     testimonialcontent = testimonialcontent,
-                    testimonialuser = testimonialuser
+                    testimonialuser = testimonialuser,
+                    testimonialid = testimonialid,
+                    limit = limit
                 },
                     commandType: CommandType.StoredProcedure))
                 {
@@ -43,7 +45,7 @@ namespace Merachel.BusinessProcess
                 param[0] = new SqlParameter("@data", SqlDbType.Xml);
                 param[0].Value = xml;
                 param[1] = new SqlParameter("@userid", SqlDbType.Int);
-                param[1].Value = SessionInfo.User.UserId;
+                param[1].Value = "0";
 
                 var insert = context.Database.SqlQuery<TestimonialModel>("s_post_testimonial @data, @userid", param);
 

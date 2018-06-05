@@ -218,7 +218,7 @@ var BlogCategories = {
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.blogcategoryid,
+            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.BlogCategoryID,
             type: 'PUT',
             dataType: "json",
             contentType: "application/json",
@@ -237,7 +237,7 @@ var BlogCategories = {
         })
     },
     Delete: function () {
-        var l = Ladda.create(document.querySelector('#btSubmit'));
+        var l = Ladda.create(document.querySelector('#btDelete'));
         $.ajax({
             url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.blogcategoryid,
             type: 'DELETE',

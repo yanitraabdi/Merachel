@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Merachel.Controllers
 {
-    [CustomAuthorize]
+    //[CustomAuthorize]
     public class AdminBlogController : BaseController
     {
         private ActionResult CustomView(string pageName)

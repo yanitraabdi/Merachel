@@ -51,6 +51,7 @@ namespace Merachel.Libraries
                 try
                 {
                     SessionInfo = JsonConvert.DeserializeObject<AccountModel>(userStateString);
+                    SessionInfo.User.UserId = 4;
                     return SessionInfo;
                 }
                 catch (System.Exception)

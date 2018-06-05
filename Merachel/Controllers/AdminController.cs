@@ -17,8 +17,7 @@ namespace Merachel.Controllers
             config.MenuName = pageName;
             return View(config);
         }
-
-        [CustomAuthorize]
+        
         public ActionResult Index()
         {
             return CustomView("Dashboard");

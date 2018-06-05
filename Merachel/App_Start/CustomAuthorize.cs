@@ -31,20 +31,20 @@ namespace Merachel
             SessionConfiguration oConfig = new SessionConfiguration();
             AccountModel oSession = oConfig.GetSessionInfo();
 
-            RoleInfoModel oRole = (from obj in oSession.UserRoles where obj.Sequence == 1 select obj).FirstOrDefault();
+            //RoleInfoModel oRole = (from obj in oSession.UserRoles where obj.Sequence == 1 select obj).FirstOrDefault();
 
-            foreach (var role in allowedroles)
-            {
-                if (oRole.RoleName.Equals(role, StringComparison.OrdinalIgnoreCase))
-                {
-                    authorize = true;
-                    break;
-                }
-                else
-                {
-                    authorize = false;
-                }
-            }
+            //foreach (var role in allowedroles)
+            //{
+            //    if (oRole.RoleName.Equals(role, StringComparison.OrdinalIgnoreCase))
+            //    {
+            //        authorize = true;
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        authorize = false;
+            //    }
+            //}
 
             return authorize;
         }
@@ -75,14 +75,20 @@ namespace Merachel
         {
             bool authorize = false;
 
-            foreach (var role in allowedroles)
+            var user = context.User.UserId; // checking active users with allowed roles.  
+            if (user > 0)
             {
-                var user = context.UserRoles.Where(m => m.RoleName == role); // checking active users with allowed roles.  
-                if (user.Count() > 0)
-                {
-                    authorize = true; /* return true if Entity has current user(active) with specific role */
-                }
+                authorize = true; /* return true if Entity has current user(active) with specific role */
             }
+
+            //foreach (var role in allowedroles)
+            //{
+            //    var user = context.UserRoles.Where(m => m.RoleName == role); // checking active users with allowed roles.  
+            //    if (user.Count() > 0)
+            //    {
+            //        authorize = true; /* return true if Entity has current user(active) with specific role */
+            //    }
+            //}
             return authorize;
         }
     }

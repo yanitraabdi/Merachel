@@ -16,11 +16,11 @@ namespace Merachel.Controllers
         TestimonialServices oSvc = new TestimonialServices();
 
         [HttpGet, Route("")]
-        public IHttpActionResult GetTestimonials(string testimonialuser = "", int? status = null, string testimonialcontent = "")
+        public IHttpActionResult GetTestimonials(string testimonialuser = "", int? status = null, string testimonialcontent = "", int? testimonialid = null, int? limit = null)
         {
             try
             {
-                var result = oSvc.GetTestimonials(testimonialuser, status, testimonialcontent);
+                var result = oSvc.GetTestimonials(testimonialuser, status, testimonialcontent, testimonialid, limit);
                 return Ok(result);
             }
             catch (Exception ex)
