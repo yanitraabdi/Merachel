@@ -66,14 +66,6 @@
                                     <input type="text" class="form-control" id="tbSearchTestimonial">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <form action=""
-                                          class="dropzone"
-                                          id="uploadDropzone">
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                         <div class="row">
                             <div class="hr-line-dashed"></div>
@@ -115,7 +107,7 @@
 </div>
 
 <div id="panelTransaction" class="wrapper wrapper-content animated fadeInRight">
-    <div id="formTransaction">
+    <form action="#" id="formTransaction">
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
@@ -150,22 +142,23 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                <div class="col-sm-12">
-                                    <label class="input pointer">
-                                        <span class="btn-u btn-u-orange rounded fileinput-button">
-                                            <i class="fa fa-upload"></i>
-                                            <span>Upload</span>
-                                            <input id="fileupload" type="file" name="files[]" />
-                                        </span>
-                                    </label>
-                                    <label class="input">
-                                        <div class="progress progress-u progress-xs">
-                                            <div id="progressbar" class="progress-bar progress-bar-blue" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                                <span class="sr-only">0% complete</span>
-                                            </div>
-                                        </div>
-                                    </label>
+                                <div class="form-group">
+                                    <label>Photo</label>
                                 </div>
+                                <label class="input pointer">
+                                    <span class="btn btn-default rounded fileinput-button">
+                                        <i class="fa fa-upload"></i>
+                                        <span>Upload</span>
+                                        <input id="fileupload" type="file" name="files[]" />
+                                    </span>
+                                </label>
+                                <label class="input">
+                                    <div class="progress progress-u progress-xs">
+                                        <div id="progressbar" class="progress-bar progress-bar-blue" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                            <span class="sr-only">0% complete</span>
+                                        </div>
+                                    </div>
+                                </label>
                                 <div class="col-sm-12">
                                     <div id="pnlUploadAttachment" class="panel-body no-padding" data-mcs-theme="minimal-dark">
 
@@ -179,7 +172,7 @@
                                 <div class="text-center">
                                     <button id="btSubmit" class="btn btn-w-m btn-success" type="button"><i class="fa fa-floppy-o"></i> Submit</button>
                                     <button class="btn btn-w-m btn-default back" type="button"><i class="fa fa-times"></i> Dismiss</button>
-                                    <button class="btn btn-w-m btn-danger delete" type="button"><i class="fa fa-trash"></i> Delete</button>
+                                    <button id="btDelete" class="btn btn-w-m btn-danger delete" type="button"><i class="fa fa-trash"></i> Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +180,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <div id="panelConfirmed" class="wrapper wrapper-content animated fadeInRight">

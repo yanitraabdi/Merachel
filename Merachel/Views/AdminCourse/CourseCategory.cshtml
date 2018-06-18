@@ -63,12 +63,6 @@
                                     <input type="text" class="form-control" id="tbSearchName">
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Description</label>
-                                    <input type="text" class="form-control" id="tbSearchDescription">
-                                </div>
-                            </div>
                         </div>
                         <div class="row">
                             <div class="hr-line-dashed"></div>
@@ -95,8 +89,8 @@
                         <table class="table table-striped table-bordered table-hover dataTables-example" id="tblSummaryData" width="100%">
                             <thead>
                                 <tr>
-                                    <th>Full Name</th>
-                                    <th>Testimonial</th>
+                                    <th>Course Category Name</th>
+                                    <th>Description</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -119,6 +113,19 @@
                     </div>
                     <div class="ibox-content">
                         <div class="row">
+                            <div class="col-sm-12">
+                                <label>Status</label>
+                                <div class="form-group">
+                                    <div class="radio radio-primary radio-inline">
+                                        <input type="radio" id="rbStatusActive" value="1" name="radioInline" checked="">
+                                        <label for="rbStatusActive"> Active </label>
+                                    </div>
+                                    <div class="radio radio-primary radio-inline">
+                                        <input type="radio" id="rbStatusInactive" value="0" name="radioInline">
+                                        <label for="rbStatusInactive"> Inactive </label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Category Name</label>
@@ -136,9 +143,9 @@
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="text-center">
-                                    <button class="btn btn-w-m btn-success" type="submit"><i class="fa fa-floppy-o"></i> Submit</button>
+                                    <button id="btSubmit" class="btn btn-w-m btn-success" type="submit"><i class="fa fa-floppy-o"></i> Submit</button>
                                     <button class="btn btn-w-m btn-default back" type="button"><i class="fa fa-times"></i> Dismiss</button>
-                                    <button class="btn btn-w-m btn-danger delete" type="button"><i class="fa fa-trash"></i> Delete</button>
+                                    <button id="btDelete" class="btn btn-w-m btn-danger delete" type="button"><i class="fa fa-trash"></i> Delete</button>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,5 @@
 ﻿using Merachel.BusinessProcess;
 using Merachel.Models;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +9,17 @@ using System.Web.Http;
 
 namespace Merachel.Controllers
 {
-    [RoutePrefix("api/v1/event")]
-    public class ApiEventController : ApiBaseController
+    [RoutePrefix("api/v1/course")]
+    public class ApiCourseController : ApiBaseController
     {
-        EventServices oSvc = new EventServices();
+        CourseServices oSvc = new CourseServices();
 
         [HttpGet, Route("")]
-        public IHttpActionResult GetEvent(int? status = null, string eventname = "", string eventdescription = "", string eventlocation = "", string eventhost = "", int? eventid = null)
+        public IHttpActionResult GetCourses(int? courseid = null, int? status = null, int? coursecategoryid = null, string coursecategorydescription = "")
         {
             try
             {
-                var result = oSvc.GetEvent(eventname, eventlocation, eventdescription,eventhost, eventid, status);
+                var result = oSvc.GetCourse(courseid, status, coursecategoryid, coursecategorydescription);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -32,11 +31,11 @@ namespace Merachel.Controllers
         }
 
         [HttpPost, Route("")]
-        public IHttpActionResult PostEvent(EventModel data)
+        public IHttpActionResult PostCourse(CourseModel data)
         {
             try
             {
-                var result = oSvc.PostEvent(data);
+                var result = oSvc.PostCourse(data);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -47,14 +46,14 @@ namespace Merachel.Controllers
         }
 
         [HttpPut, Route("{id}")]
-        public IHttpActionResult PutEvent(int? id, EventModel data)
+        public IHttpActionResult PutCourse(int? id, CourseModel data)
         {
             try
             {
                 if (!id.HasValue)
                     return BadRequest();
 
-                var result = oSvc.PutEvent(id.Value, data);
+                var result = oSvc.PutCourse(id.Value, data);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -65,7 +64,7 @@ namespace Merachel.Controllers
         }
 
         [HttpDelete, Route("{id:int}")]
-        public IHttpActionResult DeleteEvent(int? id)
+        public IHttpActionResult DeleteCourse(int? id)
         {
             try
             {
@@ -75,12 +74,12 @@ namespace Merachel.Controllers
                 List<int?> ids = new List<int?>();
                 ids.Add(id.Value);
 
-                var result = oSvc.DeleteEvent(ids);
+                var result = oSvc.DeleteCourse(ids);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                EventModel result = new EventModel()
+                CourseModel result = new CourseModel()
                 {
                     //Exception = _exception.Set(ExceptionType.CATCH, ex)
                 };

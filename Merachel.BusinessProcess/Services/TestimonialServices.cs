@@ -69,7 +69,7 @@ namespace Merachel.BusinessProcess
                 param[1] = new SqlParameter("@data", SqlDbType.Xml);
                 param[1].Value = xml;
                 param[2] = new SqlParameter("@userid", SqlDbType.Int);
-                param[2].Value = SessionInfo.User.UserId;
+                param[2].Value = 0;
 
                 context.Database.ExecuteSqlCommand(
                     "[dbo].[s_put_testimonial] @testimonialid, @data, @userid",
@@ -79,16 +79,19 @@ namespace Merachel.BusinessProcess
             }
         }
 
-        public bool DeleteTestimonial(List<int?> id)
+        public bool DeleteTestimonial(List<int?> ids)
         {
             using (var conn = new SQLContext().Database.Connection)
             {
-                SqlParameter[] param = new SqlParameter[2];
-                param[0] = new SqlParameter("@testimonialid", SqlDbType.Int);
-                param[0].Value = id;
-                param[1] = new SqlParameter("@userId", SqlDbType.Int);
-                param[1].Value = SessionInfo.User.UserId;
-                var context = new SQLContext().Database.ExecuteSqlCommand("s_delete_testimonial @testimonialid, @userId", param);
+                foreach(var id in ids)
+                {
+                    SqlParameter[] param = new SqlParameter[2];
+                    param[0] = new SqlParameter("@testimonialid", SqlDbType.Int);
+                    param[0].Value = id.Value;
+                    param[1] = new SqlParameter("@userId", SqlDbType.Int);
+                    param[1].Value = 0;
+                    var context = new SQLContext().Database.ExecuteSqlCommand("s_delete_testimonial @testimonialid, @userId", param);
+                }
 
                 return true;
 

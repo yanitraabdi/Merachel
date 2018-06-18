@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
     Tables.Init();
-    Select2.Init();
+    //Select2.Init();
 
     $('#panelTransaction').hide();
     $('#panelConfirmed').hide();
@@ -26,6 +26,10 @@ $(document).ready(function () {
     $("#formTransaction").submit(function (e) {
         Form.Submit();
         e.preventDefault();
+    });
+
+    $("#btSubmit").unbind().click(function (e) {
+        Form.Submit();
     });
 
     $('.back').unbind().click(function () {

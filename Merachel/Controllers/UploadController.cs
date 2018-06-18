@@ -11,7 +11,7 @@ namespace Merachel.Controllers
 {
     [Route("{action=Index}")]
     [RoutePrefix("Upload")]
-    public class UploadController : Controller
+    public class UploadController : BaseController
     {
         [HttpPost]
         [Route("UploadFiles")]

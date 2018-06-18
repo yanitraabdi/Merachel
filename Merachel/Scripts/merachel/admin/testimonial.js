@@ -4,7 +4,7 @@ var attachments;
 
 $(document).ready(function () {
     Tables.Init();
-    Select2.Init();
+    //Select2.Init();
 
     $('#panelTransaction').hide();
     $('#panelConfirmed').hide();
@@ -26,6 +26,10 @@ $(document).ready(function () {
     $("#formTransaction").submit(function (e) {
         Form.Submit();
         e.preventDefault();
+    });
+
+    $("#btSubmit").unbind().click(function (e) {
+        Form.Submit();
     });
 
     $('.back').unbind().click(function () {
@@ -53,7 +57,7 @@ $(document).ready(function () {
     $('#fileupload').fileupload({
         maxFileSize: 4000,
         dataType: 'json',
-        url: merachel.Configuration.merachelUrl + '/Upload/UploadTestimonial',
+        url: merachel.Configuration.merachelUrl + '/Shared/UploadTestimonial',
         autoUpload: true,
         maxNumberOfFiles: 1,
         done: function (e, data) {
@@ -61,19 +65,12 @@ $(document).ready(function () {
                 id: merachel.Utility.GuidGenerator(),
                 FileName: data.result.name,
                 FileOriginalName: data.result.name,
-                FilePath: merachel.Configuration.merachelUrl + '/Upload/' + data.result.name,
+                FilePath: merachel.Configuration.merachelUrl + '/Upload/Testimonial/' + data.result.name,
                 FileSize: data.result.size,
                 Description: ''
             };
-            console.log(attachments);
+
             $('#pnlUploadAttachment').append(Form.Attachment(attachments));
-            //$('#hdAttachment' + attachments.id).val(JSON.stringify(attachments));
-
-            //setTimeout(function () {
-            //    $('.progress .progress-bar').css('width', '0%');
-            //}, 1000);
-
-            //$('#pnlListAttachment-error').hide();
         }
     }).bind('fileuploadprogressall', function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -126,27 +123,27 @@ var Tables = {
                 BeforeSendAjaxBehaviour();
             }
         })
-        .done(function (data, textStatus, jqXHR) {
-            if (data.length > 0) {
-                $('.panel-search-info').hide('slow');
-                $('.panel-search-result').show('slow');
-            }
-            else {
-                $('.panel-search-info').show('slow');
-                $('.panel-search-result').hide('slow');
-            }
-            var table = $('#tblSummaryData').DataTable();
-            table.clear().rows.add(data).draw();
+            .done(function (data, textStatus, jqXHR) {
+                if (data.length > 0) {
+                    $('.panel-search-info').hide('slow');
+                    $('.panel-search-result').show('slow');
+                }
+                else {
+                    $('.panel-search-info').show('slow');
+                    $('.panel-search-result').hide('slow');
+                }
+                var table = $('#tblSummaryData').DataTable();
+                table.clear().rows.add(data).draw();
 
-            $(window).resize(function () {
-                $("#tblSummaryData").DataTable().columns.adjust().draw();
+                $(window).resize(function () {
+                    $("#tblSummaryData").DataTable().columns.adjust().draw();
+                });
+
+                AfterSendAjaxBehaviour();
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(null, errorThrown);
             });
-
-            AfterSendAjaxBehaviour();
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(null, errorThrown);
-        });
     }
 }
 
@@ -166,9 +163,13 @@ var Form = {
             $('#spTitle').text('Create');
 
             merachel.Utility.ClearForm("formTransaction");
+
             $('#rbStatusActive').prop('checked', true);
             $('.select2').attr('style', 'width:100%;');
-            $('#btDelete').hide('slow');
+
+            $("#pnlUploadAttachment").html("");
+
+            $('#btDelete').hide();
 
             Current.IsNew = true;
         },
@@ -179,8 +180,23 @@ var Form = {
 
             $('#tbTestimonialName').val(Current.Selected.TestimonialUser);
             $('#tbTestimonialDescription').val(Current.Selected.TestimonialContent);
+
+            $('#tbTestimonialDescription').val(Current.Selected.TestimonialContent);
             (Current.Selected.Status == 1) ? $('#rbStatusActive').prop('checked', true) : $('#rbStatusInactive').prop('checked', true)
             $('.select2').attr('style', 'width:100%;');
+
+            if (Current.Selected.TestimonialImageName !== null) {
+                attachments = {
+                    id: merachel.Utility.GuidGenerator(),
+                    FileName: Current.Selected.TestimonialImageName,
+                    FileOriginalName: Current.Selected.TestimonialImageName,
+                    FilePath: Current.Selected.TestimonialImagePath,
+                    Description: ''
+                };
+
+                $("#pnlUploadAttachment").html("");
+                $('#pnlUploadAttachment').append(Form.Attachment(attachments));
+            }
 
             $('#btDelete').show();
 
@@ -207,19 +223,15 @@ var Form = {
     Delete: function () {
         Testimonials.Delete();
     },
-    Back: function () {
-        $('#panelTransaction').hide('slow');
-        $('#panelSummary').show('slow');
-    },
     Attachment: function (data) {
         return '<div id="pnlAttachment-' + data.id + '" class="comment"> ' +
-                    '<img src="' + data.FilePath + '" alt="" class="img-error"> ' +
-                    '<div class="overflow-h"> ' +
-                        '<strong><a id="${id}" href=' + data.FilePath + ' target="_blank">' + data.FileOriginalName + '</a><small class="pull-right pointer" onclick="removeAttachment(\'' + data.id + '\');"><i class="fa fa-times"></i></small></strong> ' +
-                        '<p>Size: ' + data.FileSize + '</p> ' +
-                    '</div> ' +
-                    '<input type="hidden" id="hdAttachment' + data.id + '" class="attachment-hidden-data" /> ' +
-                '</div>';
+            '<img src="' + data.FilePath + '" alt="" class="img-error" style="width: 250px; height: 250px;"> ' +
+            '<div class="overflow-h" style="display: inline-block; vertical-align: top;"> ' +
+            '<strong><a id="${id}" href=' + data.FilePath + ' target="_blank" style="display: none">' + data.FileOriginalName + '</a><span class="pull-right pointer" onclick="removeAttachment(\'' + data.id + '\');" style="cursor: pointer;"><i class="fa fa-times"></i></span></strong> ' +
+            //'<p>Size: ' + data.FileSize + '</p> ' +
+            '</div> ' +
+            '<input type="hidden" id="hdAttachment' + data.id + '" class="attachment-hidden-data" /> ' +
+            '</div>';
     }
 }
 
@@ -242,16 +254,16 @@ var Testimonials = {
             AfterSendAjaxBehaviour(l);
             Form.Confirm();
         })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(l, errorThrown);
-        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(l, errorThrown);
+            })
     },
     Put: function () {
         var params = Data.PostParams()
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/testimonial/' + Current.Selected.testimonialId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/testimonial/' + Current.Selected.TestimonialID,
             type: 'PUT',
             dataType: "json",
             contentType: "application/json",
@@ -265,14 +277,14 @@ var Testimonials = {
             Form.Confirm();
             Current.Selected = null;
         })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(l, errorThrown);
-        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(l, errorThrown);
+            })
     },
     Delete: function () {
-        var l = Ladda.create(document.querySelector('#btSubmit'));
+        var l = Ladda.create(document.querySelector('#btDelete'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/testimonial/' + Current.Selected.testimonialId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/testimonial/' + Current.Selected.TestimonialID,
             type: 'DELETE',
             dataType: "json",
             contentType: "application/json",
@@ -284,9 +296,9 @@ var Testimonials = {
             AfterSendAjaxBehaviour(l);
             Form.Confirm();
         })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(l, errorThrown);
-        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(l, errorThrown);
+            })
     }
 }
 
@@ -296,8 +308,8 @@ var Data = {
             TestimonialUser: $('#tbTestimonialName').val(),
             TestimonialContent: $('#tbTestimonialDescription').val(),
             TestimonialImageName: attachments.FileName,
-            TestimonialImagePath: "Testimonial",
-            status: $('#chIsActive').is(':checked') ? 1 : 0
+            TestimonialImagePath: attachments.FilePath,
+            Status: $('#rbStatusActive').is(':checked') ? 1 : 0
         };
 
         return params;

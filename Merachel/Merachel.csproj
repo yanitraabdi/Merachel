@@ -207,7 +207,8 @@
     <Compile Include="Controllers\ApiBlogCategoryController.cs" />
     <Compile Include="Controllers\ApiBlogController.cs" />
     <Compile Include="Controllers\ApiCollectionController.cs" />
-    <Compile Include="Controllers\ApiCourseContoller.cs" />
+    <Compile Include="Controllers\ApiCourseCategoryController.cs" />
+    <Compile Include="Controllers\ApiCourseController.cs" />
     <Compile Include="Controllers\ApiEventController.cs" />
     <Compile Include="Controllers\ApiLookupController.cs" />
     <Compile Include="Controllers\ApiTestimonialController.cs" />

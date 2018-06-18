@@ -2,7 +2,6 @@
 
 $(document).ready(function () {
     Tables.Init();
-    Select2.Init();
 
     $('#panelTransaction').hide();
     $('#panelConfirmed').hide();
@@ -26,6 +25,10 @@ $(document).ready(function () {
     $("#formTransaction").submit(function (e) {
         Form.Submit();
         e.preventDefault();
+    });
+
+    $("#btSubmit").unbind().click(function (e) {
+        Form.Submit();
     });
 
     $('.back').unbind().click(function () {
@@ -55,8 +58,8 @@ var Tables = {
             "data": [],
             "scrollX": true,
             "columns": [
-                { data: "TestimonialUser" },
-                { data: "TestimonialContent" },
+                { data: "CourseCategoryName" },
+                { data: "CourseCategoryDescription" },
                 { data: "Status" }
             ]
         });
@@ -76,13 +79,12 @@ var Tables = {
     },
     Refresh: function () {
         var params = {
-            employeename: $('#tbSearchName').val(),
-            employeedescription: $('#tbSearchTestimonial').val(),
+            CategoryName: $('#tbSearchName').val(),
             status: ($('#rbSearchStatusActive').is(':checked') ? 1 : ($('#rbSearchStatusInactive').is(':checked') ? 0 : null))
         };
 
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/testimonial',
+            url: merachel.Configuration.merachelUrl + '/api/v1/coursecategory',
             data: params,
             type: 'GET',
             beforeSend: function (xhr) {
@@ -108,32 +110,6 @@ var Tables = {
     }
 }
 
-var Select2 = {
-    Init: function () {
-
-    },
-    Refresh: {
-        ViolationGroup: function (data) {
-            merachel.Utility.Select2Ajax({
-                id: 'slViolationGroup',
-                placeholderName: 'Select Violation Group',
-                data: data,
-                onSelect: function () {
-                    $('#slViolationCategory').val(null).trigger('change');
-                    $('#slViolationType').val(null).trigger('change');
-
-                    $("#slViolationCategory").select2().empty();
-                    $("#slViolationType").select2().empty();
-
-                    var idx = $('#slViolationGroup').val();
-                    var data = Enumerable.from(Data.Collection.ViolationCategory.items).where(i => i.parentId == idx).select().toArray();
-                    Select2.Refresh.ViolationCategory(data);
-                }
-            });
-        }
-    }
-}
-
 var Filter = {
     Reset: function () {
         $('#tbSearchName').val('');
@@ -150,7 +126,7 @@ var Form = {
             $('#spTitle').text('Create');
 
             merachel.Utility.ClearForm("formTransaction");
-            $('#chIsActive').prop('checked', true);
+            $('#rbStatusActive').prop('checked', true);
             $('.select2').attr('style', 'width:100%;');
             $('#btDelete').hide('slow');
 
@@ -161,10 +137,9 @@ var Form = {
             $('#panelTransaction').show('slow');
             $('#spTitle').text('Edit');
 
-            console.log(Current.Selected);
-
-            $('#tbCategoryName').val(Current.Selected.BlogCategoryName);
-            (Current.Selected.status == 1) ? $('#chIsActive').prop('checked', true) : $('#chIsActive').prop('checked', false)
+            $('#tbCategoryName').val(Current.Selected.CourseCategoryName);
+            $('#tbCategoryDescription').val(Current.Selected.CourseCategoryDescription);
+            (Current.Selected.Status == 1) ? $('#rbStatusActive').prop('checked', true) : $('#rbStatusInactive').prop('checked', true)
             $('.select2').attr('style', 'width:100%;');
 
             $('#btDelete').show();
@@ -191,11 +166,7 @@ var Form = {
     },
     Delete: function () {
         BlogCategories.Delete();
-    },
-    Back: function () {
-        $('#panelTransaction').hide('slow');
-        $('#panelSummary').show('slow');
-    },
+    }
 }
 
 var BlogCategories = {
@@ -204,7 +175,7 @@ var BlogCategories = {
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories',
+            url: merachel.Configuration.merachelUrl + '/api/v1/coursecategory',
             type: 'POST',
             dataType: "json",
             contentType: "application/json",
@@ -226,7 +197,7 @@ var BlogCategories = {
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/coursecategory/' + Current.Selected.CourseCategoryID,
             type: 'PUT',
             dataType: "json",
             contentType: "application/json",
@@ -245,9 +216,9 @@ var BlogCategories = {
         })
     },
     Delete: function () {
-        var l = Ladda.create(document.querySelector('#btSubmit'));
+        var l = Ladda.create(document.querySelector('#btDelete'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/coursecategory/' + Current.Selected.CourseCategoryID,
             type: 'DELETE',
             dataType: "json",
             contentType: "application/json",
@@ -266,83 +237,12 @@ var BlogCategories = {
 }
 
 var Data = {
-    Init: function () {
-        merachel.Utility.DataAjax({
-            uri: '/api/v1/shared/blogcategories',
-            done: function (data) {
-                Data.Collection.BlogCategory = data;
-                Select2.Refresh.BlogCategory(data.items);
-            }
-        });
-    },
-    Collection: {
-        templateId: [],
-        templateCode: [],
-        description: [],
-        ViolationGroup: [],
-        ViolationCategory: [],
-        ViolationType: [],
-        //Submit: {
-        //    New: {
-        //        code: $('#tbAddTemplateCode').val(),
-        //        description: $('#tbAddDescription').val(),
-        //        status: 1,
-        //        exception: {
-        //            errorCode: 0,
-        //            errorDesc: null
-        //        },
-        //        createdBy: merachel.Configuration.sessionInfo.user.userId,
-        //        utcCreatedDate: utcDate
-        //    },
-        //    Update: {
-        //        code: $('#tbAddTemplateCode').val(),
-        //        description: $('#tbAddDescription').val(),
-        //        status: ($("#chIsActive").prop('checked') == true ? 1 : 0),
-        //        exception: {
-        //            errorCode: 0,
-        //            errorDesc: null
-        //        },
-        //        modifiedBy: merachel.Configuration.sessionInfo.user.userId,
-        //        utcModifiedDate: utcDate
-        //    }
-        //}
-    },
     PostParams: function () {
         var params = {
-            code: $('#tbNewTemplateCode').val(),
-            description: $('#tbNewTemplateDesc').val(),
-            contentHeader: $('#tbNewTemplateHeader').val(),
-            contents: $('#tbNewTemplateContent').val(),
-            type: $('#slTemplateType').val(),
-            status: $('#chIsActive').is(':checked') ? 1 : 0,
-            LstTemplateDetail: []
+            CourseCategoryName: $('#tbCategoryName').val(),
+            CourseCategoryDescription: $('#tbCategoryDescription').val(),
+            Status: $('#rbStatusActive').is(':checked') ? 1 : 0
         };
-
-        $('#tblTemplateDetail tr').each(function () {
-            var i = 1;
-
-            var tblTemplateDetailId = $(this).find('input.vTemplateDetailId').val()
-            var tblViolationGroup = $(this).find('select.vViolationGroup').val();
-            var tblViolationCategory = $(this).find('select.vViolationCategory').val();
-            var tblViolationType = $(this).find('select.vViolationType').val();
-
-            //this is for your header row
-            if (tblViolationGroup !== undefined && tblViolationCategory !== undefined && tblViolationType !== undefined) {
-
-                var ItemTemplateDetail = {
-                    No: i,
-                    submitCaseTemplateDetailId: tblTemplateDetailId,
-                    ViolationGroupId: tblViolationGroup,
-                    ViolationCategoryId: tblViolationCategory,
-                    ViolationTypeId: tblViolationType
-                }
-
-                params.LstTemplateDetail.push(ItemTemplateDetail);
-
-                i++;
-            }
-
-        });
 
         return params;
     }

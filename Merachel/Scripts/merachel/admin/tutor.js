@@ -25,6 +25,10 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    $("#btSubmit").unbind().click(function (e) {
+        Form.Submit();
+    });
+
     $('.back').unbind().click(function () {
         Form.Back();
     });
@@ -43,7 +47,7 @@ $(document).ready(function () {
     $('#fileupload').fileupload({
         maxFileSize: 2500,
         dataType: 'json',
-        url: merachel.Configuration.merachelUrl + '/Upload/UploadTutor',
+        url: merachel.Configuration.merachelUrl + '/Shared/UploadTutor',
         autoUpload: true,
         maxNumberOfFiles: 1,
         done: function (e, data) {
@@ -51,19 +55,11 @@ $(document).ready(function () {
                 id: merachel.Utility.GuidGenerator(),
                 FileName: data.result.name,
                 FileOriginalName: data.result.name,
-                FilePath: merachel.Configuration.merachelUrl + '/Upload/' + data.result.name,
+                FilePath: merachel.Configuration.merachelUrl + '/Upload/Tutor/' + data.result.name,
                 FileSize: data.result.size,
                 Description: ''
             };
-            console.log(attachments);
             $('#pnlUploadAttachment').append(Form.Attachment(attachments));
-            //$('#hdAttachment' + attachments.id).val(JSON.stringify(attachments));
-
-            //setTimeout(function () {
-            //    $('.progress .progress-bar').css('width', '0%');
-            //}, 1000);
-
-            //$('#pnlListAttachment-error').hide();
         }
     }).bind('fileuploadprogressall', function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -156,7 +152,9 @@ var Form = {
             merachel.Utility.ClearForm("formTransaction");
             $('#rbStatusActive').prop('checked', true);
             $('.select2').attr('style', 'width:100%;');
-            $('.delete').hide();            
+            $('#btDelete').hide();
+
+            $("#pnlUploadAttachment").html("");
 
             Current.IsNew = true;
         },
@@ -164,15 +162,26 @@ var Form = {
             $('#panelSummary').hide('slow');
             $('#panelTransaction').show('slow');
             $('#spTitle').text('Edit');
-            $('.delete').show();
-
-            console.log(Current.Selected);
 
             $('#tbTutorName').val(Current.Selected.EmployeeName);
             $('#tbTutorSpecial').val(Current.Selected.EmployeeSpecial);
             $('#tbNewTemplateContent').val(Current.Selected.EmployeeDescription);
             (Current.Selected.status == 1) ? $('#chIsActive').prop('checked', true) : $('#chIsActive').prop('checked', false)
             $('.select2').attr('style', 'width:100%;');
+            $('#btDelete').show();
+
+            if (Current.Selected.TestimonialImageName !== null) {
+                attachments = {
+                    id: merachel.Utility.GuidGenerator(),
+                    FileName: Current.Selected.EmployeeFileName,
+                    FileOriginalName: Current.Selected.EmployeeFileName,
+                    FilePath: Current.Selected.EmployeeFilePath,
+                    Description: ''
+                };
+
+                $("#pnlUploadAttachment").html("");
+                $('#pnlUploadAttachment').append(Form.Attachment(attachments));
+            }
 
             Current.IsNew = false;
         }
@@ -197,19 +206,15 @@ var Form = {
     Delete: function () {
         Tutors.Delete();
     },
-    Back: function () {
-        $('#panelTransaction').hide('slow');
-        $('#panelSummary').show('slow');
-    },
     Attachment: function (data) {
         return '<div id="pnlAttachment-' + data.id + '" class="comment"> ' +
-                    '<img src="' + data.FilePath + '" alt="" class="img-error"> ' +
-                    '<div class="overflow-h"> ' +
-                        '<strong><a id="${id}" href=' + data.FilePath + ' target="_blank">' + data.FileOriginalName + '</a><small class="pull-right pointer" onclick="removeAttachment(\'' + data.id + '\');"><i class="fa fa-times"></i></small></strong> ' +
-                        '<p>Size: ' + data.FileSize + '</p> ' +
-                    '</div> ' +
-                    '<input type="hidden" id="hdAttachment' + data.id + '" class="attachment-hidden-data" /> ' +
-                '</div>';
+            '<img src="' + data.FilePath + '" alt="" class="img-error" style="width: 250px; height: 250px;"> ' +
+            '<div class="overflow-h" style="display: inline-block; vertical-align: top;"> ' +
+            '<strong><a id="${id}" href=' + data.FilePath + ' target="_blank" style="display: none">' + data.FileOriginalName + '</a><span class="pull-right pointer" onclick="removeAttachment(\'' + data.id + '\');" style="cursor: pointer;"><i class="fa fa-times"></i></span></strong> ' +
+            //'<p>Size: ' + data.FileSize + '</p> ' +
+            '</div> ' +
+            '<input type="hidden" id="hdAttachment' + data.id + '" class="attachment-hidden-data" /> ' +
+            '</div>';
     }
 }
 
@@ -241,7 +246,7 @@ var Tutors = {
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/tutor/' + Current.Selected.employeeId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/tutor/' + Current.Selected.EmployeeID,
             type: 'PUT',
             dataType: "json",
             contentType: "application/json",
@@ -260,9 +265,9 @@ var Tutors = {
         })
     },
     Delete: function () {
-        var l = Ladda.create(document.querySelector('#btSubmit'));
+        var l = Ladda.create(document.querySelector('#btDelete'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/tutor/' + Current.Selected.employeeId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/tutor/' + Current.Selected.EmployeeID,
             type: 'DELETE',
             dataType: "json",
             contentType: "application/json",
@@ -283,12 +288,12 @@ var Tutors = {
 var Data = {
     PostParams: function () {
         var params = {
-            employeename: $('#tbTutorName').val(),
-            employeespecial: $('#tbTutorSpecial').val(),
-            employeedescription: $('#tbNewTemplateContent').val(),
-            status: $('#chIsActive').is(':checked') ? 1 : 0,
-            employeefilename: attachments.FileName,
-            employeefilepath: "Tutor"
+            EmployeeName: $('#tbTutorName').val(),
+            EmployeeSpecial: $('#tbTutorSpecial').val(),
+            EmployeeDescription: $('#tbNewTemplateContent').val(),
+            Status: $('#rbStatusActive').is(':checked') ? 1 : 0,
+            EmployeeFileName: attachments.FileName,
+            EmployeeFilePath: attachments.FilePath
         };
 
         return params;

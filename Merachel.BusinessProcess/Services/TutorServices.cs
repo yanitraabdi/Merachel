@@ -44,7 +44,7 @@ namespace Merachel.BusinessProcess
                 param[0] = new SqlParameter("@data", SqlDbType.Xml);
                 param[0].Value = xml;
                 param[1] = new SqlParameter("@userid", SqlDbType.Int);
-                param[1].Value = SessionInfo.User.UserId;
+                param[1].Value = 0;
 
                 var insert = context.Database.SqlQuery<TutorModel>("s_post_tutor @data, @userid", param);
 
@@ -68,7 +68,7 @@ namespace Merachel.BusinessProcess
                 param[1] = new SqlParameter("@data", SqlDbType.Xml);
                 param[1].Value = xml;
                 param[2] = new SqlParameter("@userid", SqlDbType.Int);
-                param[2].Value = SessionInfo.User.UserId;
+                param[2].Value = 0;
 
                 context.Database.ExecuteSqlCommand(
                     "[dbo].[s_put_tutor] @tutorid, @data, @userid",
@@ -78,16 +78,19 @@ namespace Merachel.BusinessProcess
             }
         }
 
-        public bool DeleteTutor(List<int?> id)
+        public bool DeleteTutor(List<int?> ids)
         {
             using (var conn = new SQLContext().Database.Connection)
             {
-                SqlParameter[] param = new SqlParameter[2];
-                param[0] = new SqlParameter("@tutorid", SqlDbType.Int);
-                param[0].Value = id;
-                param[1] = new SqlParameter("@userId", SqlDbType.Int);
-                param[1].Value = SessionInfo.User.UserId;
-                var context = new SQLContext().Database.ExecuteSqlCommand("s_delete_tutor @tutorid, @userId", param);
+                foreach(var id in ids)
+                {
+                    SqlParameter[] param = new SqlParameter[2];
+                    param[0] = new SqlParameter("@tutorid", SqlDbType.Int);
+                    param[0].Value = id.Value;
+                    param[1] = new SqlParameter("@userId", SqlDbType.Int);
+                    param[1].Value = 0;
+                    var context = new SQLContext().Database.ExecuteSqlCommand("s_delete_tutor @tutorid, @userId", param);
+                }
 
                 return true;
 

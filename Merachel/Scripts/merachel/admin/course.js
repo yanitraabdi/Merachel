@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
     Tables.Init();
-    Select2.Init();
+    //Select2.Init();
 
     $('#panelTransaction').hide();
     $('#panelConfirmed').hide();
@@ -54,19 +54,12 @@ $(document).ready(function () {
                 id: merachel.Utility.GuidGenerator(),
                 FileName: data.result.name,
                 FileOriginalName: data.result.name,
-                FilePath: merachel.Configuration.merachelUrl + '/Upload/' + data.result.name,
+                FilePath: merachel.Configuration.merachelUrl + '/Upload/Course/' + data.result.name,
                 FileSize: data.result.size,
                 Description: ''
             };
-            console.log(attachments);
+
             $('#pnlUploadAttachment').append(Form.Attachment(attachments));
-            //$('#hdAttachment' + attachments.id).val(JSON.stringify(attachments));
-
-            //setTimeout(function () {
-            //    $('.progress .progress-bar').css('width', '0%');
-            //}, 1000);
-
-            //$('#pnlListAttachment-error').hide();
         }
     }).bind('fileuploadprogressall', function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -112,7 +105,7 @@ var Tables = {
         };
 
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/testimonial',
+            url: merachel.Configuration.merachelUrl + '/api/v1/course',
             data: params,
             type: 'GET',
             beforeSend: function (xhr) {

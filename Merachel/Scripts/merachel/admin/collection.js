@@ -1,4 +1,5 @@
 ﻿Current = {};
+var attachments;
 var UploadedFiles = [];
 
 $(document).ready(function () {
@@ -29,6 +30,10 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    $("#btSubmit").unbind().click(function (e) {
+        Form.Submit();
+    });
+
     $('.back').unbind().click(function () {
         Form.Back();
     });
@@ -47,7 +52,7 @@ $(document).ready(function () {
     $('#fileupload').fileupload({
         maxFileSize: 2500,
         dataType: 'json',
-        url: merachel.Configuration.merachelUrl + '/Upload/UploadCollection',
+        url: merachel.Configuration.merachelUrl + '/Shared/UploadCollection',
         autoUpload: true,
         maxNumberOfFiles: 10,
         done: function (e, data) {
@@ -60,16 +65,7 @@ $(document).ready(function () {
                 Description: ''
             };
             UploadedFiles.push(attachments);
-            console.log(UploadedFiles);
             $('#pnlUploadAttachment').append(Form.Attachment(attachments));
-
-            //$('#hdAttachment' + attachments.id).val(JSON.stringify(attachments));
-
-            //setTimeout(function () {
-            //    $('.progress .progress-bar').css('width', '0%');
-            //}, 1000);
-
-            //$('#pnlListAttachment-error').hide();
         }
     }).bind('fileuploadprogressall', function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -175,7 +171,7 @@ var Form = {
             console.log(Current.Selected);
 
             $('#tbCategoryName').val(Current.Selected.BlogCategoryName);
-            (Current.Selected.status == 1) ? $('#rbStatusActive').prop('checked', true) : $('#rbStatusActive').prop('checked', false)
+            (Current.Selected.Status == 1) ? $('#rbStatusActive').prop('checked', true) : $('#rbStatusInactive').prop('checked', true)
             $('.select2').attr('style', 'width:100%;');
 
             $('#btDelete').show();
@@ -203,19 +199,15 @@ var Form = {
     Delete: function () {
         Collections.Delete();
     },
-    Back: function () {
-        $('#panelTransaction').hide('slow');
-        $('#panelSummary').show('slow');
-    },
     Attachment: function (data) {
-        return '<div id="pnlAttachment-' + data.id + '" class="comment"> ' +
-                    '<img src="' + data.FilePath + '" alt="" class="img-error" width="360px"> ' +
-                    '<div class="overflow-h"> ' +
-                        '<strong><a id="${id}" href=' + data.FilePath + ' target="_blank">' + data.FileOriginalName + '</a><small class="pull-right pointer" onclick="removeAttachment(\'' + data.id + '\');"><i class="fa fa-times"></i></small></strong> ' +
-                        '<p>Size: ' + data.FileSize + '</p> ' +
-                    '</div> ' +
-                    '<input type="hidden" id="hdAttachment' + data.id + '" class="attachment-hidden-data" /> ' +
-                '</div>';
+        return '<div id="pnlAttachment-' + data.id + '" class="comment"style="margin-bottom:10px;"> ' +
+            '<img src="' + data.FilePath + '" alt="" class="img-error" style="max-width: 300px; "> ' +
+            '<div class="overflow-h" style="display: inline-block; vertical-align: top;"> ' +
+            '<strong><a id="${id}" href=' + data.FilePath + ' target="_blank" style="display: none">' + data.FileOriginalName + '</a><span class="pull-right pointer" onclick="removeAttachment(\'' + data.id + '\');" style="cursor: pointer;"><i class="fa fa-times"></i></span></strong> ' +
+            //'<p>Size: ' + data.FileSize + '</p> ' +
+            '</div> ' +
+            '<input type="hidden" id="hdAttachment' + data.id + '" class="attachment-hidden-data" /> ' +
+            '</div>';
     }
 }
 
@@ -247,7 +239,7 @@ var Collections = {
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/collections/' + Current.Selected.collectionId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/collections/' + Current.Selected.CollectionId,
             type: 'PUT',
             dataType: "json",
             contentType: "application/json",
@@ -268,7 +260,7 @@ var Collections = {
     Delete: function () {
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/collections/' + Current.Selected.collectionId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/collections/' + Current.Selected.CollectionId,
             type: 'DELETE',
             dataType: "json",
             contentType: "application/json",

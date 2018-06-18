@@ -74,7 +74,7 @@ namespace Merachel.BusinessProcess
                 param[0] = new SqlParameter("@lookupid", SqlDbType.Int);
                 param[0].Value = ids;
                 param[1] = new SqlParameter("@userId", SqlDbType.Int);
-                param[1].Value = SessionInfo.User.UserId;
+                param[1].Value = 0;
 
 
                 var context = new SQLContext().Database.ExecuteSqlCommand("s_delete_lookups @lookupId, @userId", param);
@@ -93,7 +93,7 @@ namespace Merachel.BusinessProcess
                 param[0] = new SqlParameter("@data", SqlDbType.Xml);
                 param[0].Value = xml;
                 param[1] = new SqlParameter("@userid", SqlDbType.Int);
-                param[1].Value = SessionInfo.User.UserId;
+                param[1].Value = 0;
 
                 var insert = context.Database.SqlQuery<LookupModel>("s_post_lookups @data, @userid", param);
 
@@ -115,7 +115,7 @@ namespace Merachel.BusinessProcess
                 param[0] = new SqlParameter("@data", SqlDbType.Xml);
                 param[0].Value = xml;
                 param[1] = new SqlParameter("@userid", SqlDbType.Int);
-                param[1].Value = SessionInfo.User.UserId;
+                param[1].Value = 0;
 
                 context.Database.ExecuteSqlCommand(
                    "s_put_lookups @data, @userid",
