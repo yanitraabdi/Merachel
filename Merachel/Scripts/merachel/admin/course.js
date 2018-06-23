@@ -36,6 +36,18 @@ $(document).ready(function () {
         Form.Delete();
     });
 
+    $("#btSubmit").unbind().click(function (e) {
+        Form.Submit();
+    });
+
+    $('#btnModal').unbind().click(function (e) {
+        e.preventDefault();
+    });
+
+    $("#btSubmitPrice").unbind().click(function (e) {
+        Grid.Submit();
+    });
+
     $('#tbSearchCategoryName').keypress(function (e) {
         if (e.which == 13) {
             Tables.Refresh();
@@ -173,9 +185,9 @@ var Form = {
             $('#spTitle').text('Create');
 
             merachel.Utility.ClearForm("formTransaction");
-            $('#chIsActive').prop('checked', true);
+            $('#rbStatusActive').prop('checked', true);
             $('.select2').attr('style', 'width:100%;');
-            $('#btDelete').hide('slow');
+            $('#btDelete').hide();
 
             Current.IsNew = true;
         },
@@ -187,7 +199,7 @@ var Form = {
             console.log(Current.Selected);
 
             $('#tbCategoryName').val(Current.Selected.BlogCategoryName);
-            (Current.Selected.status == 1) ? $('#chIsActive').prop('checked', true) : $('#chIsActive').prop('checked', false)
+            (Current.Selected.Status == 1) ? $('#rbStatusActive').prop('checked', true) : $('#rbStatusInactive').prop('checked', true)
             $('.select2').attr('style', 'width:100%;');
 
             $('#btDelete').show();
@@ -197,9 +209,9 @@ var Form = {
     },
     Submit: function () {
         if (Current.IsNew) {
-            BlogCategories.Post();
+            Courses.Post();
         } else {
-            BlogCategories.Put();
+            Courses.Put();
         }
     },
     Back: function () {
@@ -213,31 +225,36 @@ var Form = {
         $('.panel-search-result').hide('slow');
     },
     Delete: function () {
-        BlogCategories.Delete();
-    },
-    Back: function () {
-        $('#panelTransaction').hide('slow');
-        $('#panelSummary').show('slow');
+        Courses.Delete();
     },
     Attachment: function (data) {
-        return '<div id="pnlAttachment-' + data.id + '" class="comment"> ' +
-                    '<img src="' + data.FilePath + '" alt="" class="img-error"> ' +
-                    '<div class="overflow-h"> ' +
-                        '<strong><a id="${id}" href=' + data.FilePath + ' target="_blank">' + data.FileOriginalName + '</a><small class="pull-right pointer" onclick="removeAttachment(\'' + data.id + '\');"><i class="fa fa-times"></i></small></strong> ' +
-                        '<p>Size: ' + data.FileSize + '</p> ' +
-                    '</div> ' +
-                    '<input type="hidden" id="hdAttachment' + data.id + '" class="attachment-hidden-data" /> ' +
-                '</div>';
+        return '<div id="pnlAttachment-' + data.id + '" class="comment"style="margin-bottom:10px;"> ' +
+            '<img src="' + data.FilePath + '" alt="" class="img-error" style="max-width: 300px; "> ' +
+            '<div class="overflow-h" style="display: inline-block; vertical-align: top;"> ' +
+            '<strong><a id="${id}" href=' + data.FilePath + ' target="_blank" style="display: none">' + data.FileOriginalName + '</a><span class="pull-right pointer" onclick="removeAttachment(\'' + data.id + '\');" style="cursor: pointer;"><i class="fa fa-times"></i></span></strong> ' +
+            //'<p>Size: ' + data.FileSize + '</p> ' +
+            '</div> ' +
+            '<input type="hidden" id="hdAttachment' + data.id + '" class="attachment-hidden-data" /> ' +
+            '</div>';
     }
 }
 
-var BlogCategories = {
+var Grid = {
+    Add: function () {
+
+    },
+    Submit: function () {
+
+    },
+}
+
+var Courses = {
     Post: function () {
         var params = Data.PostParams();
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories',
+            url: merachel.Configuration.merachelUrl + '/api/v1/courses',
             type: 'POST',
             dataType: "json",
             contentType: "application/json",
@@ -259,7 +276,7 @@ var BlogCategories = {
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/courses/' + Current.Selected.CourseID,
             type: 'PUT',
             dataType: "json",
             contentType: "application/json",
@@ -280,7 +297,7 @@ var BlogCategories = {
     Delete: function () {
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/courses/' + Current.Selected.CourseID,
             type: 'DELETE',
             dataType: "json",
             contentType: "application/json",
@@ -299,56 +316,15 @@ var BlogCategories = {
 }
 
 var Data = {
-    Init: function () {
-        merachel.Utility.DataAjax({
-            uri: '/api/v1/shared/blogcategories',
-            done: function (data) {
-                Data.Collection.BlogCategory = data;
-                Select2.Refresh.BlogCategory(data.items);
-            }
-        });
-    },
-    Collection: {
-        templateId: [],
-        templateCode: [],
-        description: [],
-        ViolationGroup: [],
-        ViolationCategory: [],
-        ViolationType: [],
-        //Submit: {
-        //    New: {
-        //        code: $('#tbAddTemplateCode').val(),
-        //        description: $('#tbAddDescription').val(),
-        //        status: 1,
-        //        exception: {
-        //            errorCode: 0,
-        //            errorDesc: null
-        //        },
-        //        createdBy: merachel.Configuration.sessionInfo.user.userId,
-        //        utcCreatedDate: utcDate
-        //    },
-        //    Update: {
-        //        code: $('#tbAddTemplateCode').val(),
-        //        description: $('#tbAddDescription').val(),
-        //        status: ($("#chIsActive").prop('checked') == true ? 1 : 0),
-        //        exception: {
-        //            errorCode: 0,
-        //            errorDesc: null
-        //        },
-        //        modifiedBy: merachel.Configuration.sessionInfo.user.userId,
-        //        utcModifiedDate: utcDate
-        //    }
-        //}
-    },
     PostParams: function () {
         var params = {
             CourseCode: $('#tbNewTemplateCode').val(),
             CourseName: $('#tbNewTemplateDesc').val(),
             CoursePicturePatch: $('#tbNewTemplateHeader').val(),
             CoursePictureName: $('#tbNewTemplateContent').val(),
-            type: $('#slTemplateType').val(),
-            status: $('#chIsActive').is(':checked') ? 1 : 0,
-            LstTemplateDetail: []
+            CourseCategoryID: $('#slTemplateType').val(),
+            Status: $('#chIsActive').is(':checked') ? 1 : 0,
+            ListPrice: []
         };
 
         return params;

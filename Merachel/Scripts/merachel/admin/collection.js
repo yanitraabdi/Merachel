@@ -159,7 +159,7 @@ var Form = {
             merachel.Utility.ClearForm("formTransaction");
             $('#rbStatusActive').prop('checked', true);
             $('.select2').attr('style', 'width:100%;');
-            $('#btDelete').hide('slow');
+            $('#btDelete').hide();
 
             Current.IsNew = true;
         },

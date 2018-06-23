@@ -141,10 +141,11 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Course Price</label>
+                                    <button class="btn btn-xs btn-primary" data-toggle="modal" data-target=".modalPrice" id="btnModal">Add New Price</button>
                                 </div>
                                 <div class="ibox float-e-margins">
                                     <div class="ibox-content">
-                                        <table class="table table-striped table-bordered table-hover dataTables-example" id="tblCoursePrice" width="100%">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
                                                     <th>Name</th>
@@ -181,9 +182,9 @@
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="text-center">
-                                    <button class="btn btn-w-m btn-success" type="submit"><i class="fa fa-floppy-o"></i> Submit</button>
+                                    <button id="btSubmit" class="btn btn-w-m btn-success" type="submit"><i class="fa fa-floppy-o"></i> Submit</button>
                                     <button class="btn btn-w-m btn-default back" type="button"><i class="fa fa-times"></i> Dismiss</button>
-                                    <button class="btn btn-w-m btn-danger delete" type="button"><i class="fa fa-trash"></i> Delete</button>
+                                    <button id="btDelete" class="btn btn-w-m btn-danger delete" type="button"><i class="fa fa-trash"></i> Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -221,15 +222,57 @@
     </div>
 </div>
 
+<div class="modal fade modalPrice" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel2">Add Course Price</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Course Name</label>
+                            <input type="text" class="form-control" id="tbCoursePriceName">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea cols="1" rows="3" id="tbCoursePriceDescription" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="text" class="form-control" id="tbCoursePrice">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btnSubmitPrice">Save changes</button>
+            </div>
+
+        </div>
+            </div>
+</div>
+
 @section Styles {
     @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
     @Styles.Render("~/plugins/awesomeCheckboxStyles")
-    @Styles.Render("~/plugins/jasnyBootstrapStyles")
+    @Styles.Render("~/Scripts/plugins/jquery-ui/jqueryuiStyles")
 }
 
 @section scripts {
     @Scripts.Render("~/plugins/dataTables")
-    @Scripts.Render("~/plugins/jasnyBootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/plugins/jqueryupload")
 
     <script type="text/javascript" src="~/Scripts/merachel/admin/course.js?v=@Model.JavaScriptAndCssVersion"></script>
 }
