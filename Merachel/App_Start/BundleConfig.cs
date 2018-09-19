@@ -18,6 +18,11 @@ namespace Merachel
                       "~/Content/frontpage/css/ie8-fix.css",
                       "~/Content/frontpage/css/text-rotator.css"));
 
+            bundles.Add(new StyleBundle("~/Content/newfrontpage-css").Include(
+                      "~/Content/bootstrap.min.css",
+                      "~/Content/assan/font-awesome/css/font-awesome.min.css",
+                      "~/Content/newstyle.css"));
+
             // Jquery for front page
             bundles.Add(new ScriptBundle("~/bundles/frontpage-js").Include(
                       "~/Content/frontpage/js/main.js",
@@ -36,9 +41,14 @@ namespace Merachel
                       "~/Content/frontpage/js/jquery.appear.js",
                       "~/Content/frontpage/js/wow.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/newfrontpage-js").Include(
+                      "~/Scripts/jquery-3.1.1.min.js",
+                      "~/Scripts/umd/popper.min.js",
+                      "~/Scripts/bootstrap.min.js"));
+
             // CSS style (bootstrap/inspinia)
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.min.css",
+                      "~/Content/frontpage/css/bootstrap.min.css",
                       "~/Content/animate.css",
                       "~/Content/style.css"));
 
@@ -105,6 +115,7 @@ namespace Merachel
 
             // Bootstrap
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/popper.min.js",
                       "~/Scripts/bootstrap.min.js"));
 
             // Inspinia script

@@ -59,9 +59,10 @@ var Tables = {
             "data": [],
             "scrollX": true,
             "columns": [
-                { data: "Event" },
-                { data: "TestimonialContent" },
-                { data: "Status" }
+                { data: "EventName" },
+                { data: "EventLocation" },
+                { data: "EventHost" },
+                { data: "Status" },
             ]
         });
 
@@ -86,57 +87,31 @@ var Tables = {
         };
 
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/testimonial',
+            url: merachel.Configuration.merachelUrl + '/api/v1/event',
             data: params,
             type: 'GET',
             beforeSend: function (xhr) {
                 BeforeSendAjaxBehaviour();
             }
         })
-        .done(function (data, textStatus, jqXHR) {
-            if (data.length > 0) {
-                $('.panel-search-info').hide('slow');
-                $('.panel-search-result').show('slow');
-            }
-            else {
-                $('.panel-search-info').show('slow');
-                $('.panel-search-result').hide('slow');
-            }
-            var table = $('#tblSummaryData').DataTable();
-            table.clear().rows.add(data).draw();
-            AfterSendAjaxBehaviour();
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(null, errorThrown);
-        });
-    }
-}
-
-var Select2 = {
-    Init: function () {
-
-    },
-    Refresh: {
-        ViolationGroup: function (data) {
-            merachel.Utility.Select2Ajax({
-                id: 'slViolationGroup',
-                placeholderName: 'Select Violation Group',
-                data: data,
-                onSelect: function () {
-                    $('#slViolationCategory').val(null).trigger('change');
-                    $('#slViolationType').val(null).trigger('change');
-
-                    $("#slViolationCategory").select2().empty();
-                    $("#slViolationType").select2().empty();
-
-                    var idx = $('#slViolationGroup').val();
-                    var data = Enumerable.from(Data.Collection.ViolationCategory.items).where(i => i.parentId == idx).select().toArray();
-                    Select2.Refresh.ViolationCategory(data);
+            .done(function (data, textStatus, jqXHR) {
+                if (data.length > 0) {
+                    $('.panel-search-info').hide('slow');
+                    $('.panel-search-result').show('slow');
                 }
+                else {
+                    $('.panel-search-info').show('slow');
+                    $('.panel-search-result').hide('slow');
+                }
+                var table = $('#tblSummaryData').DataTable();
+                table.clear().rows.add(data).draw();
+                AfterSendAjaxBehaviour();
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(null, errorThrown);
             });
-        }
     }
-}
+};
 
 var Filter = {
     Reset: function () {
@@ -144,7 +119,7 @@ var Filter = {
         $('#tbSearchTestimonial').val('');
         $('#rbSearchStatusAll').prop('checked', true);
     }
-}
+};
 
 var Form = {
     Init: {
@@ -178,9 +153,9 @@ var Form = {
     },
     Submit: function () {
         if (Current.IsNew) {
-            BlogCategories.Post();
+            Event.Post();
         } else {
-            BlogCategories.Put();
+            Event.Put();
         }
     },
     Back: function () {
@@ -194,21 +169,17 @@ var Form = {
         $('.panel-search-result').hide('slow');
     },
     Delete: function () {
-        BlogCategories.Delete();
-    },
-    Back: function () {
-        $('#panelTransaction').hide('slow');
-        $('#panelSummary').show('slow');
-    },
-}
+        Event.Delete();
+    }
+};
 
-var BlogCategories = {
+var Event = {
     Post: function () {
         var params = Data.PostParams();
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories',
+            url: merachel.Configuration.merachelUrl + '/api/v1/event',
             type: 'POST',
             dataType: "json",
             contentType: "application/json",
@@ -221,16 +192,16 @@ var BlogCategories = {
             AfterSendAjaxBehaviour(l);
             Form.Confirm();
         })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(l, errorThrown);
-        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(l, errorThrown);
+            })
     },
     Put: function () {
         var params = Data.PostParams()
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/event/' + Current.Selected.roleId,
             type: 'PUT',
             dataType: "json",
             contentType: "application/json",
@@ -244,14 +215,14 @@ var BlogCategories = {
             Form.Confirm();
             Current.Selected = null;
         })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(l, errorThrown);
-        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(l, errorThrown);
+            })
     },
     Delete: function () {
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
-            url: merachel.Configuration.merachelUrl + '/api/v1/blogcategories/' + Current.Selected.roleId,
+            url: merachel.Configuration.merachelUrl + '/api/v1/event/' + Current.Selected.roleId,
             type: 'DELETE',
             dataType: "json",
             contentType: "application/json",
@@ -263,11 +234,11 @@ var BlogCategories = {
             AfterSendAjaxBehaviour(l);
             Form.Confirm();
         })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(l, errorThrown);
-        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(l, errorThrown);
+            })
     }
-}
+};
 
 var Data = {
     Init: function () {
@@ -350,4 +321,4 @@ var Data = {
 
         return params;
     }
-}
+};

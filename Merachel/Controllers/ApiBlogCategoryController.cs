@@ -31,6 +31,22 @@ namespace Merachel.Controllers
 
         }
 
+        [HttpGet, Route("select")]
+        public IHttpActionResult GetSelectBlogCategories(int? status = null, string categoryName = "")
+        {
+            try
+            {
+                var result = oSvc.GetBlogCategories(status, categoryName);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                ExceptionModel oExc = oException.Set(ex);
+                return Ok(oExc);
+            }
+
+        }
+
         [HttpPost, Route("")]
         public IHttpActionResult PostBlogCategory(BlogCategoryModel data)
         {

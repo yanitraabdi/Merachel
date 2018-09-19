@@ -5,225 +5,106 @@
     <meta name="keywords" content="Merachel, Course, Fashion Course, Sewing Course, Kursus Menjahit, Kursus Fashion">
     <meta name="description" content="Merachel Course">
     <meta name="author" content="Meriza Rachelin">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Merachel Fashion - @ViewBag.Title</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:500,600,300%7COpen+Sans:400,300,700" rel="stylesheet" type="text/css">
-    @Styles.Render("~/Content/assan-css")
+    @Styles.Render("~/Content/newfrontpage-css")
 
 </head>
 <body>
-    <!-- TOP NAVBAR -->
-    <div class="top-bar-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 hidden-xs">
-                    <div class="top-bar-socials">
-                        <a href="#" class="social-icon-sm si-dark si-gray-round si-colored-facebook">
-                            <i class="fa fa-facebook"></i>
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#" class="social-icon-sm si-dark si-gray-round si-colored-instagram">
-                            <i class="fa fa-instagram"></i>
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-icon-sm si-dark si-gray-round si-colored-google-plus">
-                            <i class="fa fa-google-plus"></i>
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-                        <a href="#" class="social-icon-sm si-dark si-gray-round si-colored-linkedin">
-                            <i class="fa fa-linkedin"></i>
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="social-icon-sm si-dark si-gray-round si-colored-google-plus">
-                            <i class="fa fa-youtube"></i>
-                            <i class="fa fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-8 text-right">
-                    <ul class="list-inline top-dark-right">
-                        <li class="hidden-sm hidden-xs"><i class="fa fa-envelope"></i> info@merachel.com</li>
-                        <li class="hidden-sm hidden-xs"><i class="fa fa-phone"></i> +01 1800 453 7678</li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-    </div><!--top-bar-dark end here-->
-    <!--navigation -->
-    <!-- Static navbar -->
-    <div class="navbar navbar-default navbar-static-top yamm sticky" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+    <header>
+        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light border-bottom">
+            <div class="container">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">Merachel</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="@Url.Action("Index", "Home" )"><img src="~/Content/images/logo.png" alt="ASSAN"></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown ">
-                        <a href="@Url.Action("Event", "Home", new { id = "1" } )">Event </a>
-                    </li>
-                    <!--menu home li end here-->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle " data-toggle="dropdown">Our Programs <i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown-menu multi-level" role="menu">
-                            <li>
-                                <a tabindex="-1" href="@Url.Action("Course", "Home", new { id = "1" } )">Kids </a>
-                            </li>
-                            <li>
-                                <a tabindex="-1" href="@Url.Action("Course", "Home", new { id = "1" } )">Teen </a>
-                            </li>
-                            <li>
-                                <a tabindex="-1" href="@Url.Action("Course", "Home", new { id = "1" } )">Adult </a>
-                            </li>
-                            <li>
-                                <a tabindex="-1" href="@Url.Action("Course", "Home", new { id = "1" } )">Special </a>
-                            </li>
-                            <li>
-                                <a tabindex="-1" href="@Url.Action("Course", "Home", new { id = "1" } )">Others </a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li class="dropdown ">
-                        <a href="@Url.Action("Index", "Blog")">Blog </a>
-                    </li>
-                    <li class="dropdown ">
-                        <a href="@Url.Action("Gallery", "Home")">Gallery </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="@Url.Action("Why", "Home")">Why Us ?</a></li>
-                            <li><a href="@Url.Action("Tutor", "Home")">Tutor</a></li>
-                            <li><a href="@Url.Action("About", "Home")">About</a></li>
-                            <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--container-->
-    </div><!--navbar-default-->
-
-    @RenderBody()
-
-    <div class="divide60"></div>
-    <footer id="footer">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-3 col-sm-6 margin30">
-                    <div class="footer-col">
-                        <h3>About assan</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
-                        </p>
-                        <ul class="list-inline footer-social">
-                            <li>
-                                <a href="#" class="social-icon si-dark si-gray-round si-colored-facebook">
-                                    <i class="fa fa-facebook"></i>
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="social-icon si-dark si-gray-round si-colored-twitter">
-                                    <i class="fa fa-twitter"></i>
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="social-icon si-dark si-gray-round si-colored-google-plus">
-                                    <i class="fa fa-google-plus"></i>
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="social-icon si-dark si-gray-round si-colored-pinterest">
-                                    <i class="fa fa-pinterest"></i>
-                                    <i class="fa fa-pinterest"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="social-icon si-dark si-gray-round si-colored-linkedin">
-                                    <i class="fa fa-linkedin"></i>
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!--footer col-->
-                <div class="col-md-3 col-sm-6 margin30">
-                    <div class="footer-col">
-                        <h3>Contact</h3>
-
-                        <ul class="list-unstyled contact">
-                            <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> vaisahali, jaipur, 302012</p></li>
-                            <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="#">Support@designmylife.com</a></p></li>
-                            <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> +91 1800 2345 2132</p></li>
-                            <li> <p><strong><i class="fa fa-print"></i> Fax</strong> 1800 2345 2132</p></li>
-                            <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> assan.856</p></li>
-
-                        </ul>
-                    </div>
-                </div><!--footer col-->
-                <div class="col-md-3 col-sm-6 margin30">
-                    <div class="footer-col">
-                        <h3>Featured Work</h3>
-                        <ul class="list-inline f2-work">
-                            <li><a href="portfolio-single.html"><img src="~/Content/assan/img/img-1.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="~/Content/assan/img/img-2.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="~/Content/assan/img/img-3.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="~/Content/assan/img/img-4.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="~/Content/assan/img/img-5.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="~/Content/assan/img/img-6.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="~/Content/assan/img/img-7.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="~/Content/assan/img/img-8.jpg" class="img-responsive" alt=""></a></li>
-                            <li><a href="portfolio-single.html"><img src="~/Content/assan/img/img-9.jpg" class="img-responsive" alt=""></a></li>
-                        </ul>
-                    </div>
-                </div><!--footer col-->
-                <div class="col-md-3 col-sm-6 margin30">
-                    <div class="footer-col">
-                        <h3>Newsletter</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam,
-                        </p>
-                        <form role="form" class="subscribe-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Enter email to subscribe">
-                                <span class="input-group-btn">
-                                    <button class="btn  btn-theme-dark btn-lg" type="submit">Ok</button>
-                                </span>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Event", "Home")">Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Course", "Home")">Our Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Blog")">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Gallery", "Home")">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Tutor", "Home")">Tutor</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                About
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="@Url.Action("Why", "Home")">Why Us</a>
+                                <a class="dropdown-item" href="@Url.Action("About", "Home")">About</a>
+                                <a class="dropdown-item" href="@Url.Action("Contact", "Home")">Contact</a>
                             </div>
-                        </form>
-                    </div>
-                </div><!--footer col-->
-
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="footer-btm">
-                        <span>&copy;2017. Theme by Design_mylife</span>
+                        </li>
+                    </ul>
+                    <div class="form-inline mt-2 mt-md-0">
+                        <span><i class="fa fa-instagram" aria-hidden="true"></i> merachel</span>
+                        <span><i class="fa fa-facebook-square" aria-hidden="true"></i> facebook</span>
                     </div>
                 </div>
             </div>
+        </nav>
+    </header>
+
+    <main role="main">
+
+        @RenderBody()
+
+        <!-- FOOTER -->
+        <div class="container">
+            <footer class="pt-4 my-md-5 pt-md-5 border-top">
+                <div class="row">
+                    <div class="col-12 col-md">
+                        <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+                        <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>Features</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Cool stuff</a></li>
+                            <li><a class="text-muted" href="#">Random feature</a></li>
+                            <li><a class="text-muted" href="#">Team feature</a></li>
+                            <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                            <li><a class="text-muted" href="#">Another one</a></li>
+                            <li><a class="text-muted" href="#">Last time</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>Resources</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Resource</a></li>
+                            <li><a class="text-muted" href="#">Resource name</a></li>
+                            <li><a class="text-muted" href="#">Another resource</a></li>
+                            <li><a class="text-muted" href="#">Final resource</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>About</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Team</a></li>
+                            <li><a class="text-muted" href="#">Locations</a></li>
+                            <li><a class="text-muted" href="#">Privacy</a></li>
+                            <li><a class="text-muted" href="#">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </footer><!--default footer end here-->
+    </main>
 
     <input type="hidden" value="@ViewBag.Configuration" id="hdConfig" />
 
-    @Scripts.Render("~/bundles/assan-jquery")
-    @Scripts.Render("~/bundles/assan-js")
-
-    <script src="~/Content/assan/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-    <script src="~/Content/assan/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="~/Content/assan/js/revolution-custom.js"></script>
+    @Scripts.Render("~/bundles/newfrontpage-js")
 
     @RenderSection("scripts", required: false)
 </body>

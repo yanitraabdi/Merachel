@@ -32,6 +32,22 @@ namespace Merachel.BusinessProcess
                 }
             }
         }
+        public ICollection<Select2Model> GetSelectBlogCategories()
+        {
+            using (var conn = db.Database.Connection)
+            {
+                using (var reader = conn.QueryMultiple("dbo.s_get_blog_category", new
+                {
+                    categoryName = categoryName,
+                    status = status,
+                },
+                    commandType: CommandType.StoredProcedure))
+                {
+                    var result = reader.Read<BlogCategoryModel>().ToList();
+                    return result;
+                }
+            }
+        }
 
         public BlogCategoryModel PostBlogCategory(BlogCategoryModel data)
         {

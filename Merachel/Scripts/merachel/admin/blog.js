@@ -91,27 +91,27 @@ var Tables = {
                 BeforeSendAjaxBehaviour();
             }
         })
-        .done(function (data, textStatus, jqXHR) {
+            .done(function (data, textStatus, jqXHR) {
 
-            $('#tblSummaryData').attr('style', 'width:100%;');
+                $('#tblSummaryData').attr('style', 'width:100%;');
 
-            if (data.length > 0) {
-                $('.panel-search-info').hide('slow');
-                $('.panel-search-result').show('slow');
-            }
-            else {
-                $('.panel-search-info').show('slow');
-                $('.panel-search-result').hide('slow');
-            }
-            var table = $('#tblSummaryData').DataTable();
-            table.clear().rows.add(data).draw();
-            AfterSendAjaxBehaviour();
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(null, errorThrown);
-        });
+                if (data.length > 0) {
+                    $('.panel-search-info').hide('slow');
+                    $('.panel-search-result').show('slow');
+                }
+                else {
+                    $('.panel-search-info').show('slow');
+                    $('.panel-search-result').hide('slow');
+                }
+                var table = $('#tblSummaryData').DataTable();
+                table.clear().rows.add(data).draw();
+                AfterSendAjaxBehaviour();
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(null, errorThrown);
+            });
     }
-}
+};
 
 var Select2 = {
     Init: function () {
@@ -130,7 +130,7 @@ var Select2 = {
             });
         }
     }
-}
+};
 
 var Filter = {
     Reset: function () {
@@ -138,7 +138,7 @@ var Filter = {
         $('#tbSearchTestimonial').val('');
         $('#rbSearchStatusAll').prop('checked', true);
     }
-}
+};
 
 var Form = {
     Init: {
@@ -190,7 +190,7 @@ var Form = {
     Delete: function () {
         Blogs.Delete();
     }
-}
+};
 
 var Blogs = {
     Post: function () {
@@ -211,12 +211,12 @@ var Blogs = {
             AfterSendAjaxBehaviour(l);
             Form.Confirm();
         })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(l, errorThrown);
-        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(l, errorThrown);
+            });
     },
     Put: function () {
-        var params = Data.PostParams()
+        var params = Data.PostParams();
 
         var l = Ladda.create(document.querySelector('#btSubmit'));
         $.ajax({
@@ -234,9 +234,9 @@ var Blogs = {
             Form.Confirm();
             Current.Selected = null;
         })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(l, errorThrown);
-        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(l, errorThrown);
+            });
     },
     Delete: function () {
         var l = Ladda.create(document.querySelector('#btSubmit'));
@@ -253,11 +253,11 @@ var Blogs = {
             AfterSendAjaxBehaviour(l);
             Form.Confirm();
         })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            AfterSendAjaxBehaviour(l, errorThrown);
-        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                AfterSendAjaxBehaviour(l, errorThrown);
+            });
     }
-}
+};
 
 var Data = {
     Init: function () {
@@ -315,7 +315,7 @@ var Data = {
         $('#tblTemplateDetail tr').each(function () {
             var i = 1;
 
-            var tblTemplateDetailId = $(this).find('input.vTemplateDetailId').val()
+            var tblTemplateDetailId = $(this).find('input.vTemplateDetailId').val();
             var tblViolationGroup = $(this).find('select.vViolationGroup').val();
             var tblViolationCategory = $(this).find('select.vViolationCategory').val();
             var tblViolationType = $(this).find('select.vViolationType').val();
@@ -329,7 +329,7 @@ var Data = {
                     ViolationGroupId: tblViolationGroup,
                     ViolationCategoryId: tblViolationCategory,
                     ViolationTypeId: tblViolationType
-                }
+                };
 
                 params.LstTemplateDetail.push(ItemTemplateDetail);
 
@@ -340,4 +340,4 @@ var Data = {
 
         return params;
     }
-}
+};

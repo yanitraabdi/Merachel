@@ -54,17 +54,16 @@
     <input type="hidden" value="@ViewBag.Configuration" id="hdConfig" />
 
     <!-- Section for main scripts render -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/plugins/slimScroll")
-    @Scripts.Render("~/plugins/select2")
-    @Scripts.Render("~/plugins/validate")
-    @Scripts.Render("~/plugins/ladda")
-    @Scripts.Render("~/plugins/dataPicker")
-    @Scripts.Render("~/bundles/inspinia")
-    @Scripts.Render("~/bundles/common")
+    @Scripts.Render("~/bundles/newfrontpage-js")
+@Scripts.Render("~/plugins/slimScroll")
+@Scripts.Render("~/plugins/select2")
+@Scripts.Render("~/plugins/validate")
+@Scripts.Render("~/plugins/ladda")
+@Scripts.Render("~/plugins/dataPicker")
+@Scripts.Render("~/bundles/inspinia")
+@Scripts.Render("~/bundles/common")
 
-    <!-- Handler for local scripts -->
-    @RenderSection("scripts", required: false)
+<!-- Handler for local scripts -->
+@RenderSection("scripts", required: false)
 </body>
 </html>

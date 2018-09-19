@@ -3,725 +3,277 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="fullwidthbanner">
-    <div class="tp-banner">
-        <ul>
-            <!-- SLIDE -->
-            <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Powerful Theme">
-                <!-- MAIN IMAGE -->
-                <img src="~/Content/assan/img/bg-3.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                <div class="caption title-2 sft"
-                     data-x="50"
-                     data-y="160"
-                     data-speed="1000"
-                     data-start="1000"
-                     data-easing="easeOutExpo">
-                    Powerful multipurpose <br>
-                    Business Template
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption text-left">
+                    <h1>Example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
                 </div>
-
-                <div class="caption text sfl"
-                     data-x="50"
-                     data-y="290"
-                     data-speed="1000"
-                     data-start="1800"
-                     data-easing="easeOutExpo">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.  <br>
-                    lectus. Cras porta nisl at tincidunt tincidunt.
-                </div>
-                <div class="caption sfb rev-buttons tp-resizeme"
-                     data-x="50"
-                     data-y="360"
-                     data-speed="500"
-                     data-start="1800"
-                     data-easing="Sine.easeOut">
-                    <a href="#" class="btn btn-theme-bg btn-lg">Purchase Now</a>
-                </div>
-
-                <div class="caption sfb rev-buttons tp-resizeme"
-                     data-x="250"
-                     data-y="360"
-                     data-speed="500"
-                     data-start="2100"
-                     data-easing="Sine.easeOut">
-                    <a href="#" class="btn border-white btn-lg">View features</a>
-                </div>
-
-            </li>
-            <!-- SLIDE -->
-            <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Unique Theme">
-                <!-- MAIN IMAGE -->
-                <img src="~/Content/assan/img/showcase-4.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-
-
-
-
-                <div class="caption text-center-top sft"
-                     data-x="center"
-                     data-y="210"
-                     data-speed="1000"
-                     data-start="1400"
-                     data-easing="easeOutExpo">
-                    Perfect for startup
-                </div>
-
-                <div class="caption text-center-btm sfr text-center"
-                     data-x="center"
-                     data-y="265"
-                     data-speed="1000"
-                     data-start="1600"
-                     data-easing="easeOutExpo">
-
-                    Assan is a creative multipurpose theme, you can use it for<br>  business, corporate, portfolio, shop events, personal and more...
-
-                </div>
-                <div class="caption sfb rev-buttons tp-resizeme"
-                     data-x="center"
-                     data-y="350"
-                     data-speed="500"
-                     data-start="1800"
-                     data-easing="Sine.easeOut">
-                    <a href="#" class="btn border-white btn-lg">View features</a>
-                </div>
-            </li>
-            <!-- SLIDE -->
-            <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Multipurpose">
-                <!-- MAIN IMAGE -->
-                <img src="~/Content/assan/img/bg-1.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                <!-- LAYER NR. 1 -->
-                <div class="caption left-tile-text sfr tp-resizeme"
-                     data-x="40"
-                     data-y="110"
-                     data-speed="600"
-                     data-start="1200"
-                     data-end="9400"
-                     data-endspeed="600">
-                    Unlimited layouts
-                </div>
-
-                <!-- LAYER NR. 2 -->
-                <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
-                     data-x="40"
-                     data-y="170"
-                     data-speed="600"
-                     data-start="1600"
-                     data-end="9400"
-                     data-endspeed="600">
-                    <i class="fa fa-check"></i>
-                </div>
-
-                <!-- LAYER NR. 3 -->
-                <div class="caption modern_big_redbg sfb medium tp-resizeme"
-                     data-x="90"
-                     data-y="170"
-                     data-speed="600"
-                     data-start="1600"
-                     data-end="9400"
-                     data-endspeed="600">
-                    Fully Responsive
-                </div>
-
-                <!-- LAYER NR. 4 -->
-                <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
-                     data-x="40"
-                     data-y="220"
-                     data-speed="600"
-                     data-start="1800"
-                     data-end="9400"
-                     data-endspeed="600">
-                    <i class="fa fa-check"></i>
-                </div>
-
-                <!-- LAYER NR. 5 -->
-                <div class="caption modern_big_redbg sfb medium tp-resizeme"
-                     data-x="90"
-                     data-y="220"
-                     data-speed="600"
-                     data-start="1800"
-                     data-end="9400"
-                     data-endspeed="600">
-                    210+ HTML5 Valid Pages
-                </div>
-
-                <!-- LAYER NR. 6 -->
-                <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
-                     data-x="40"
-                     data-y="270"
-                     data-speed="600"
-                     data-start="2000"
-                     data-end="9400"
-                     data-endspeed="600">
-                    <i class="fa fa-check"></i>
-                </div>
-
-                <!-- LAYER NR. 7 -->
-                <div class="caption modern_big_redbg sfb medium tp-resizeme"
-                     data-x="90"
-                     data-y="270"
-                     data-speed="600"
-                     data-start="2000"
-                     data-end="9400"
-                     data-endspeed="600">
-                    Slider revolution
-                </div>
-
-                <!-- LAYER NR. 8 -->
-                <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
-                     data-x="40"
-                     data-y="320"
-                     data-speed="600"
-                     data-start="2200"
-                     data-end="9400"
-                     data-endspeed="600">
-                    <i class="fa fa-check"></i>
-                </div>
-
-                <!-- LAYER NR. 9 -->
-                <div class="caption modern_big_redbg sfb medium tp-resizeme"
-                     data-x="90"
-                     data-y="320"
-                     data-speed="600"
-                     data-start="2200"
-                     data-end="9400"
-                     data-endspeed="600">
-                    Clean & Commented Code
-                </div>
-
-                <!-- LAYER NR. 10 -->
-                <div class="caption modern_big_redbg sfb medium tp-resizeme"
-                     data-x="40"
-                     data-y="370"
-                     data-speed="600"
-                     data-start="2400"
-                     data-end="9400"
-                     data-endspeed="600">
-                    And Much More...
-                </div>
-
-            </li>
-        </ul>
-    </div>
-</div><!--full width banner-->
-<!--revolution end-->
-
-<div class="red-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 margin30">
-                <div class="services-box wow animated fadeInDown">
-                    <div class="services-box-info">
-                        <iframe width="480" height="300" src="https://www.youtube.com/embed/fbf8hY60V98" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                </div><!--service box-->
             </div>
-            <div class="col-sm-6 ">
-                <h3 class="wow animated fadeInDownfadeInRight">Tentang Merachel</h3>
-                <div class="services-box wow animated fadeInUp">
-                    <div class="services-box no-padding">
-                        <p>
-                            Merachel menawarkan kepada anda jasa kursus dengan pelayanan terbaik dengan harga yang terjangkau untuk semua kalangan. Merachel juga menyediakan workshop - workshop yang memenuhi kebutuhan masyarakat akan ilmu mengenai dunia fashion terbaru.
-                        </p>
-                    </div>
-                    <p><a href="@Url.Action("Why", "Home")" class="btn btn-theme-dark btn-lg">Why Us ?</a></p>
-                </div><!--service box-->
+        </div>
+        <div class="carousel-item">
+            <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption text-right">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
             </div>
         </div>
     </div>
-</div><!--full wide 2 columns content end-->
-
-<div class="divide60"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <div class="center-heading">
-                <h2><strong>Our Course</strong></h2>
-                <p>Kata mereka tentang Merachel</p>
-                <span class="center-line"></span>
-
-            </div>
-        </div>
-    </div><!--center heading end-->
-    <div class="divide50"></div>
-    <div class="row">
-        <div class="col-md-3 col-sm-6 margin30">
-            <div class="colored-boxed green">
-                <i class="pe-7s-magic-wand"></i>
-                <h3>Kids</h3>
-                <span class="center-line"></span>
-                <p>
-                    Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
-                </p>
-            </div>
-        </div><!--colored boxed col end-->
-        <div class="col-md-3 col-sm-6 margin30">
-            <div class="colored-boxed dark">
-                <i class="pe-7s-phone"></i>
-                <h3>Teen</h3>
-                <span class="center-line"></span>
-                <p>
-                    Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
-                </p>
-            </div>
-        </div><!--colored boxed col end-->
-        <div class="col-md-3 col-sm-6 margin30">
-            <div class="colored-boxed blue">
-                <i class="pe-7s-like"></i>
-                <h3>Adult</h3>
-                <span class="center-line"></span>
-                <p>
-                    Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
-                </p>
-            </div>
-        </div><!--colored boxed col end-->
-        <div class="col-md-3 col-sm-6 margin30">
-            <div class="colored-boxed red">
-                <i class="pe-7s-folder"></i>
-                <h3>Special</h3>
-                <span class="center-line"></span>
-                <p>
-                    Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
-                </p>
-            </div>
-        </div><!--colored boxed col end-->
-    </div>
-</div><!--services container-->
-
-<div class="divide50"></div>
-<div class="text-center">
-    <a href="@Url.Action("Course", "Home")" class="btn btn-theme-dark btn-lg">Check Our Course</a>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
 
-<div class="divide80"></div>
-<div class="testimonials-v-2 wow animated fadeInUp" data-wow-duration="700ms" data-wow-delay="100ms" style="background:#f5f5f5">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="center-heading">
-                    <h2><strong>Testimonial</strong></h2>
-                    <p>Kata mereka tentang Merachel</p>
-                    <span class="center-line"></span>
 
-                </div>
-            </div>
-        </div><!--center heading end-->
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
 
-        <div class="row">
+<div class="container marketing">
 
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="testi-slide">
-                    <ul class="slides">
-                        <li>
-                            <img src="~/Content/assan/img/customer-1.jpg" alt="">
-                            <p>
-                                <i class="ion-quote"></i>
-                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
-                            </p>
-                            <h4 class="test-author">
-                                Rick man - <em>rock inc</em>
-                            </h4>
-                        </li><!--testi item-->
-                        <li>
-                            <img src="~/Content/assan/img/customer-2.jpg" alt="">
-                            <p>
-                                <i class="ion-quote"></i>
-                                Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years
-                            </p>
-                            <h4 class="test-author">
-                                Jellia - <em>Founder of tinka inc</em>
-                            </h4>
-                        </li><!--testi item-->
-                        <li>
-                            <img src="~/Content/assan/img/customer-3.jpg" alt="">
-                            <p>
-                                <i class="ion-quote"></i>
-                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.
-                            </p>
-                            <h4 class="test-author">
-                                Smith - <em>Ceo, company inc.</em>
-                            </h4>
-                        </li><!--testi item-->
-                    </ul>
-                </div><!--flex slider testimonials end here-->
-            </div>
-        </div><!--testi slider row end-->
-
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Tentang Merachel</h2>
+            <p class="lead">Merachel menawarkan kepada anda jasa kursus dengan pelayanan terbaik dengan harga yang terjangkau untuk semua kalangan. Merachel juga menyediakan workshop - workshop yang memenuhi kebutuhan masyarakat akan ilmu mengenai dunia fashion terbaru.</p>
+        </div>
+        <div class="col-md-5 embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fbf8hY60V98" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
     </div>
-</div><!--testimonials v-2 end-->
 
-<div class="divide80"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="center-heading">
-                <h2><strong>Gallery</strong></h2>
-                <span class="center-line"></span>
+    <hr class="featurette-divider">
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Pricing</h1>
+        <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+    </div>
+
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Free</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>10 users included</li>
+                    <li>2 GB of storage</li>
+                    <li>Email support</li>
+                    <li>Help center access</li>
+                </ul>
+                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
             </div>
         </div>
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Pro</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>20 users included</li>
+                    <li>10 GB of storage</li>
+                    <li>Priority email support</li>
+                    <li>Help center access</li>
+                </ul>
+                <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
+            </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Enterprise</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>30 users included</li>
+                    <li>15 GB of storage</li>
+                    <li>Phone and email support</li>
+                    <li>Help center access</li>
+                </ul>
+                <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /.container -->
+
+<div class="merachel-testimonial">
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Testimonial</h1>
+        <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+    </div>
+    <div id="carousel-testimonial" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-testimonial" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-testimonial" data-slide-to="1"></li>
+            <li data-target="#carousel-testimonial" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h1>Example headline.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Another example headline.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption text-right">
+                        <h1>One more for good measure.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carousel-testimonial" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-testimonial" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 </div>
-<div class="container">
-    <div class="cube-masonry">
 
-        <div id="filters-container" class="cbp-l-filters-alignCenter">
-            <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
-                All <div class="cbp-filter-counter"></div>
-            </div>
-            <div data-filter=".identity" class="cbp-filter-item">
-                Identity <div class="cbp-filter-counter"></div>
-            </div>
-            <div data-filter=".web-design" class="cbp-filter-item">
-                Web Design <div class="cbp-filter-counter"></div>
-            </div>
-            <div data-filter=".graphic" class="cbp-filter-item">
-                Graphic <div class="cbp-filter-counter"></div>
-            </div>
-            <div data-filter=".graphic, .identity" class="cbp-filter-item">
-                Web Design & Identity <div class="cbp-filter-counter"></div>
-            </div>
-        </div>
-
-        <div id="masnory-container" class="cbp">
-            <div class="cbp-item identity">
-                <a class="cbp-caption cbp-lightbox" data-title="Easy Note<br>by Cosmin Capitanu" href="~/Content/assan/img/mas-1.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/mas-1.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Easy Note</div>
-                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item web-design">
-                <a class="cbp-caption cbp-lightbox" data-title="The Gang Blue<br>by Cosmin Capitanu"
-                   href="~/Content/assan/img/img-1.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/img-1.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">The Gang Blue</div>
-                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item graphic identity">
-                <a class="cbp-caption cbp-lightbox" data-title="Tiger<br>by Cosmin Capitanu"
-                   href="~/Content/assan/img/img-2.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/img-2.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Tiger</div>
-                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item graphic">
-                <a class="cbp-caption cbp-lightbox" data-title="Flat Roman Typeface Ui<br>by Cosmin Capitanu"
-                   href="~/Content/assan/img/mas-2.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/mas-2.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Flat Roman Typeface Ui</div>
-                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item identity">
-                <a class="cbp-caption cbp-lightbox" data-title="Seemple* Music for iPad<br>by Tiberiu Neamu"
-                   href="~/Content/assan/img/mas-2.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/mas-1.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Seemple* Music for iPad</div>
-                                <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item graphic">
-                <a class="cbp-caption cbp-lightbox" data-title="Remind~Me More<br>by Tiberiu Neamu" href="~/Content/assan/img/img-3.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/img-3.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Remind~Me More</div>
-                                <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item web-design">
-                <a class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu" href="~/Content/assan/img/img-4.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/img-4.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Workout Buddy</div>
-                                <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item identity">
-                <a class="cbp-caption cbp-lightbox" data-title="Volume Knob<br>by Paul Flavius Nechita" href="http://vimeo.com/156783#">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/img-5.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Volume Knob</div>
-                                <div class="cbp-l-caption-desc">by Paul Flavius Nechita</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item identity">
-                <a class="cbp-caption cbp-lightbox" data-title="Ski * Buddy<br>by Tiberiu Neamu" href="~/Content/assan/img/mas-2.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/mas-1.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Ski * Buddy</div>
-                                <div class="cbp-l-caption-desc">by Tiberiu Neamu</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item web-design graphic">
-                <a class="cbp-caption cbp-lightbox" data-title="Virtualization Icon<br>by Paul Flavius Nechita"
-                   href="https://www.youtube.com/watch?v=dChhzNGHgnA">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/img-6.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Virtualization Icon</div>
-                                <div class="cbp-l-caption-desc">by Paul Flavius Nechita</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item web-design graphic">
-                <a class="cbp-caption cbp-lightbox" data-title="World Clock Widget<br>by Paul Flavius Nechita"
-                   href="~/Content/assan/img/img-7.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/img-7.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">World Clock Widget</div>
-                                <div class="cbp-l-caption-desc">by Paul Flavius Nechita</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item web-design graphic">
-                <a class="cbp-caption cbp-lightbox" data-title="Sickpuppy<br>by Cosmin Capitanu" href="~/Content/assan/img/img-8.jpg">
-                    <div class="cbp-caption-defaultWrap">
-                        <img src="~/Content/assan/img/img-8.jpg" alt="">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                        <div class="cbp-l-caption-alignCenter">
-                            <div class="cbp-l-caption-body">
-                                <div class="cbp-l-caption-title">Sickpuppy</div>
-                                <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div><!--.cube masonry-->
-</div>
-<div class="divide50"></div>
-<div class="text-center">
-    <a href="@Url.Action("Gallery", "Home")" class="btn btn-theme-dark btn-lg">Check Our Gallery</a>
-</div>
-
-<div class="divide40"></div>
-
-<div class="our-team-v-2">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="center-heading">
-                    <h2>Merachel <strong>Tutor</strong></h2>
-                    <span class="center-line"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3 text-center">
-                <div class="person-v2">
-                    <img src="~/Content/assan/img/team-5.jpg" class="img-responsive" alt="">
-                    <div class="person-desc-v2">
-                        <h3>Steve Smith</h3>
-                        <em>Creative Designer</em>
-                        <ul class="list-inline top-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <!--                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
-                        </ul>
-                    </div>
-                </div>
-            </div><!--person col end-->
-            <div class="col-sm-3 text-center">
-                <div class="person-v2">
-                    <img src="~/Content/assan/img/team-6.jpg" class="img-responsive" alt="">
-                    <div class="person-desc-v2">
-                        <h3>Steve Smith</h3>
-                        <em>Creative Designer</em>
-                        <ul class="list-inline top-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <!--                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
-                        </ul>
-                    </div>
-                </div>
-            </div><!--person col end-->
-            <div class="col-sm-3 text-center">
-                <div class="person-v2">
-                    <img src="~/Content/assan/img/team-7.jpg" class="img-responsive" alt="">
-                    <div class="person-desc-v2">
-                        <h3>Steve Smith</h3>
-                        <em>Creative Designer</em>
-                        <ul class="list-inline top-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <!--                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
-                        </ul>
-                    </div>
-                </div>
-            </div><!--person col end-->
-            <div class="col-sm-3 text-center">
-                <div class="person-v2">
-                    <img src="~/Content/assan/img/team-8.jpg" class="img-responsive" alt="">
-                    <div class="person-desc-v2">
-                        <h3>Steve Smith</h3>
-                        <em>Creative Designer</em>
-                        <ul class="list-inline top-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <!--                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
-                        </ul>
-                    </div>
-                </div>
-            </div><!--person col end-->
-        </div>
-    </div>
-</div><!--our team v-2-->
-<div class="divide70"></div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="center-heading">
-                <h2><strong>latest</strong> news</h2>
-                <span class="center-line"></span>
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-4">Gallery</h1>
+            <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-3 bg-dark text-white border-0">
+                <img class="card-img" src="https://images.unsplash.com/photo-1513890333407-6f85205e8ef2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2fbd35ff11c8732302df75b9978521bf&auto=format&fit=crop&w=1950&q=80" alt="Card image">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="card mb-3 bg-dark text-white border-0">
+                <img class="card-img" src="https://images.unsplash.com/photo-1513890333407-6f85205e8ef2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2fbd35ff11c8732302df75b9978521bf&auto=format&fit=crop&w=1950&q=80" alt="Card image">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
     </div>
+
+    <!-- /END THE FEATURETTES -->
+</div><!-- /.container -->
+
+<div class="merachel-testimonial">
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Tutor</h1>
+        <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1485352594518-f190eef71d94?ixlib=rb-0.3.5&s=dbddec5cbcce1c564c818abb2c8193e3&auto=format&fit=crop&w=1920&q=80" class="img-fluid" alt="Responsive image">
+</div>
+
+<div class="container">
     <div class="row">
-        <div class="col-sm-4 margin30">
-            <div>
-                <a href="#">
-                    <div class="item-img-wrap">
-                        <img src="~/Content/assan/img/img-8.jpg" class="img-responsive" alt="workimg">
-                        <div class="item-img-overlay">
-                            <span></span>
-                        </div>
-                    </div>
-                </a><!--news link-->
-                <div class="news-desc">
-                    <span>Sports</span>
-                    <h4><a href="#">Lorem ipsum dollor Sit amet</a></h4>
-                    <span>By <a href="#">Author</a> on 24 july 2014</span> <span><a href="#">Read more...</a></span>
-                </div><!--news desc-->
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-4">News</h1>
+            <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1513890333407-6f85205e8ef2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2fbd35ff11c8732302df75b9978521bf&auto=format&fit=crop&w=1950&q=80" alt="Card image">
+                <div class="card-body border">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
             </div>
-        </div><!--news col-->
-        <div class="col-sm-4 margin30">
-            <div>
-                <a href="#">
-                    <div class="item-img-wrap">
-                        <img src="~/Content/assan/img/img-3.jpg" class="img-responsive" alt="workimg">
-                        <div class="item-img-overlay">
-                            <span></span>
-                        </div>
-                    </div>
-                </a><!--news link-->
-                <div class="news-desc">
-                    <span>Sports</span>
-                    <h4><a href="#">Lorem ipsum dollor Sit amet</a></h4>
-                    <span>By <a href="#">Author</a> on 24 july 2014</span> <span><a href="#">Read more...</a></span>
-                </div><!--news desc-->
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1513890333407-6f85205e8ef2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2fbd35ff11c8732302df75b9978521bf&auto=format&fit=crop&w=1950&q=80" alt="Card image">
+                <div class="card-body border">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
             </div>
-        </div><!--news col-->
-        <div class="col-sm-4 margin30">
-            <div>
-                <a href="#">
-                    <div class="item-img-wrap">
-                        <img src="~/Content/assan/img/img-6.jpg" class="img-responsive" alt="workimg">
-                        <div class="item-img-overlay">
-                            <span></span>
-                        </div>
-                    </div>
-                </a><!--news link-->
-                <div class="news-desc">
-                    <span>Sports</span>
-                    <h4><a href="#">Lorem ipsum dollor Sit amet</a></h4>
-                    <span>By <a href="#">Author</a> on 24 july 2014</span> <span><a href="#">Read more...</a></span>
-                </div><!--news desc-->
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1513890333407-6f85205e8ef2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2fbd35ff11c8732302df75b9978521bf&auto=format&fit=crop&w=1950&q=80" alt="Card image">
+                <div class="card-body border">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
             </div>
-        </div><!--news col-->
+        </div>
+
+        <hr class="featurette-divider">
     </div>
-</div><!--latest news-->
+
+    <!-- /END THE FEATURETTES -->
+</div><!-- /.container -->
+
+<div class="">
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h2>Follow our Instagram</h2>
+        <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+    </div>
+</div>
 
 @section scripts {
-    @Scripts.Render("~/plugins/videoResponsible")
-
     <script type="text/javascript" src="~/Scripts/merachel/main/home.js?v=@Model.JavaScriptAndCssVersion"></script>
 }
