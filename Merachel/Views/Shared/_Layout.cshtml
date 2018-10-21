@@ -24,8 +24,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("Event", "Home")">Event</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Course", "Home")">Our Programs</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="course-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Our Programs
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="course-dropdown">
+                                <a class="dropdown-item" href="@Url.Action("Course", "Home", new { course = 1 })">Kids Program</a>
+                                <a class="dropdown-item" href="@Url.Action("Course", "Home", new { course = 2 })">Teen Program</a>
+                                <a class="dropdown-item" href="@Url.Action("Course", "Home", new { course = 3 })">Adult Program</a>
+                                <a class="dropdown-item" href="@Url.Action("Course", "Home", new { course = 5 })">Adult Program - Advanced Program</a>
+                                <a class="dropdown-item" href="@Url.Action("Course", "Home", new { course = 6 })">Holiday Program</a>
+                                <a class="dropdown-item" href="@Url.Action("Course", "Home", new { course = 7 })">Short Course</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("Index", "Blog")">Blogs</a>
@@ -42,14 +52,13 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="@Url.Action("Why", "Home")">Why Us</a>
-                                <a class="dropdown-item" href="@Url.Action("About", "Home")">About</a>
                                 <a class="dropdown-item" href="@Url.Action("Contact", "Home")">Contact</a>
                             </div>
                         </li>
                     </ul>
                     <div class="form-inline mt-2 mt-md-0">
-                        <span><i class="fa fa-instagram" aria-hidden="true"></i> merachel</span>
-                        <span><i class="fa fa-facebook-square" aria-hidden="true"></i> facebook</span>
+                        <a href="https://www.instagram.com/merachelfashioncourse/" target="_blank"><span class="mx-4"><i class="fa fa-instagram" aria-hidden="true"></i> merachel</span></a>
+                        <a href="https://www.facebook.com/merachelfashion/" target="_blank"><span><i class="fa fa-facebook-square" aria-hidden="true"></i> merachel</span></a>
                     </div>
                 </div>
             </div>
@@ -71,30 +80,28 @@
                     <div class="col-6 col-md">
                         <h5>Features</h5>
                         <ul class="list-unstyled text-small">
-                            <li><a class="text-muted" href="#">Cool stuff</a></li>
-                            <li><a class="text-muted" href="#">Random feature</a></li>
-                            <li><a class="text-muted" href="#">Team feature</a></li>
-                            <li><a class="text-muted" href="#">Stuff for developers</a></li>
-                            <li><a class="text-muted" href="#">Another one</a></li>
-                            <li><a class="text-muted" href="#">Last time</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Event", "Home")">Event</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Blog", "Home")">Blog</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Collection", "Home")">Galeri</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">
-                        <h5>Resources</h5>
+                        <h5>Program Kami</h5>
                         <ul class="list-unstyled text-small">
-                            <li><a class="text-muted" href="#">Resource</a></li>
-                            <li><a class="text-muted" href="#">Resource name</a></li>
-                            <li><a class="text-muted" href="#">Another resource</a></li>
-                            <li><a class="text-muted" href="#">Final resource</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Course", "Home", new { course = 1 })">Kids</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Course", "Home", new { course = 2 })">Teen</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Course", "Home", new { course = 3 })">Adult</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Course", "Home", new { course = 5 })">Adult - Advance</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Course", "Home", new { course = 6 })">Holiday</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Course", "Home", new { course = 7 })">Short Course</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">
                         <h5>About</h5>
                         <ul class="list-unstyled text-small">
-                            <li><a class="text-muted" href="#">Team</a></li>
-                            <li><a class="text-muted" href="#">Locations</a></li>
-                            <li><a class="text-muted" href="#">Privacy</a></li>
-                            <li><a class="text-muted" href="#">Terms</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Tutor", "Home")">Tutor</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Why", "Home")">Why Us</a></li>
+                            <li><a class="text-muted" href="@Url.Action("Contact", "Home")">Kontak</a></li>
                         </ul>
                     </div>
                 </div>

@@ -54,6 +54,16 @@ var send = {
             }
         }).datepicker("setDate", new Date());
     }
+    merachel.Utility.queryString = function () {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
     merachel.Utility.setStartDatePicker = function (idDateFrom, idDateTo, format) {
         if (format == null) {
             return $("#" + idDateFrom).datepicker({
@@ -1358,7 +1368,7 @@ var send = {
 
     merachel.Utility.formatMoney = function (numbers) {
         if (numbers != null && numbers != '' && numbers != undefined) {
-            return (numbers + '').replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+            return ('Rp ' + numbers + '').replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
         }
         else {
             return "";

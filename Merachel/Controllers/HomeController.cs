@@ -29,7 +29,7 @@ namespace Merachel.Controllers
             ViewBag.Message = "Your application description page.";
 
             InitConfiguration();
-            return View();
+            return CustomView("Event Detail Page");
         }
 
         [AllowAnonymous]
@@ -38,7 +38,7 @@ namespace Merachel.Controllers
             ViewBag.Message = "Your contact page.";
 
             InitConfiguration();
-            return View();
+            return CustomView("Event Detail Page");
         }
 
         [AllowAnonymous]
@@ -47,7 +47,7 @@ namespace Merachel.Controllers
             ViewBag.Message = "Your contact page.";
 
             InitConfiguration();
-            return View();
+            return CustomView("Gallery Page");
         }
 
         [AllowAnonymous]
@@ -56,7 +56,7 @@ namespace Merachel.Controllers
             ViewBag.Message = "Your contact page.";
 
             InitConfiguration();
-            return View();
+            return CustomView("Event Page");
         }
 
         [AllowAnonymous]
@@ -65,7 +65,7 @@ namespace Merachel.Controllers
             ViewBag.Message = "Your contact page.";
 
             InitConfiguration();
-            return View();
+            return CustomView("Course Page");
         }
 
         [AllowAnonymous]
@@ -74,7 +74,7 @@ namespace Merachel.Controllers
             ViewBag.Message = "Your contact page.";
 
             InitConfiguration();
-            return View();
+            return CustomView("Event Detail Page");
         }
 
         [AllowAnonymous]
@@ -83,7 +83,7 @@ namespace Merachel.Controllers
             ViewBag.Message = "Your contact page.";
 
             InitConfiguration();
-            return View();
+            return CustomView("Course Detail Page");
         }
 
         [AllowAnonymous]
@@ -98,10 +98,8 @@ namespace Merachel.Controllers
         [AllowAnonymous]
         public ActionResult Tutor()
         {
-            ViewBag.Message = "Your contact page.";
-
             InitConfiguration();
-            return View();
+            return CustomView("Tutor Page");
         }
     }
 }

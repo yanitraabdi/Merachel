@@ -7,39 +7,20 @@
 <div class="container marketing">
 
     <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">Galeri</h2>
-            <p class="lead">Merachel menawarkan kepada anda jasa kursus dengan pelayanan terbaik dengan harga yang terjangkau untuk semua kalangan. Merachel juga menyediakan workshop - workshop yang memenuhi kebutuhan masyarakat akan ilmu mengenai dunia fashion terbaru.</p>
+        <div class="col-md-12 text-center">
+            <h2 class="featurette-heading py-0">Galeri</h2>
+            
         </div>
     </div>
 
     <hr class="featurette-divider">
 
-    <div class="card-deck">
-        <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
+    <div class="card-columns" id="collection-list">
+        
     </div>
 
 </div><!-- /.container -->
+
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/merachel/main/collection.js?v=@Model.JavaScriptAndCssVersion"></script>
+}

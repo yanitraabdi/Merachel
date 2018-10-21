@@ -8,17 +8,23 @@ namespace Merachel.Controllers
 {
     public class BlogController : BaseController
     {
-        // GET: Blog
+        private ActionResult CustomView(string pageName)
+        {
+            InitConfiguration();
+            config.ModuleName = "Merachel Admin Blog";
+            config.MenuName = pageName;
+            return View(config);
+        }
         public ActionResult Index()
         {
             InitConfiguration();
-            return View();
+            return CustomView("Blog Page");
         }
 
         public ActionResult Detail()
         {
             InitConfiguration();
-            return View();
+            return CustomView("Blog Page");
         }
     }
 }

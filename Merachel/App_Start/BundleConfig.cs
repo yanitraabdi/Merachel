@@ -46,6 +46,7 @@ namespace Merachel
                       "~/Scripts/umd/popper.min.js",
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/plugins/validate/jquery.validate.min.js",
+                      "~/Scripts/plugins/fullcalendar/moment.min.js",
                       "~/Scripts/merachel/common.js"));
 
             // CSS style (bootstrap/inspinia)

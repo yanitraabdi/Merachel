@@ -8,76 +8,26 @@
 <div class="container marketing">
 
     <div class="row featurette">
+        <img src="~/Content/images/event-top.jpg" class="img-fluid my-4" />
         <div class="col-md-7">
-            <h2 class="featurette-heading">Event</h2>
-            <p class="lead">Merachel menawarkan kepada anda jasa kursus dengan pelayanan terbaik dengan harga yang terjangkau untuk semua kalangan. Merachel juga menyediakan workshop - workshop yang memenuhi kebutuhan masyarakat akan ilmu mengenai dunia fashion terbaru.</p>
+            <h1>Event</h1>
         </div>
     </div>
 
     <hr class="featurette-divider" />
 
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
-        <h1 class="display-4">Terbaru</h1>
-        <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
-    </div>
+    <div class="row mb-2">
+        <aside class="col-sm-4 blog-sidebar">
+            <div id="event-list" class="list-group">
 
-    <div class="card-deck">
-        <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
-        <h1 class="display-4">Terbaru</h1>
-        <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
-    </div>
-
-    <div class="card-deck">
-        <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
+        </aside>
+        <div id="event-detail" class="col-sm-8 blog-main">
         </div>
     </div>
 
 </div><!-- /.container -->
+
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/merachel/main/event.js?v=@Model.JavaScriptAndCssVersion"></script>
+}

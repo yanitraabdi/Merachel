@@ -16,11 +16,11 @@ namespace Merachel.Controllers
         CollectionServices oSvc = new CollectionServices();
 
         [HttpGet, Route("")]
-        public IHttpActionResult GetCollections(string title = "", int? status = null)
+        public IHttpActionResult GetCollections(string title = "", int? status = null, int? collectionid = null)
         {
             try
             {
-                var result = oSvc.GetCollection(title, status);
+                var result = oSvc.GetCollection(title, status, collectionid);
                 return Ok(result);
             }
             catch (Exception ex)

@@ -6,75 +6,26 @@
 
 <div class="container marketing">
 
-    <div class="row featurette">
+    <div class="row">
         <div class="col-md-7">
-            <h2 class="featurette-heading">Blog</h2>
-            <p class="lead">Merachel menawarkan kepada anda jasa kursus dengan pelayanan terbaik dengan harga yang terjangkau untuk semua kalangan. Merachel juga menyediakan workshop - workshop yang memenuhi kebutuhan masyarakat akan ilmu mengenai dunia fashion terbaru.</p>
+            <h2 class="featurette-heading mt-5">Blog</h2>
         </div>
     </div>
 
-    <hr class="featurette-divider">
+    <hr class="featurette-divider my-4">
 
     <div class="row mb-2">
-        <div class="col-md-6">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-primary">World</strong>
-                    <h3 class="mb-0">
-                        <a class="text-dark" href="#">Featured post</a>
-                    </h3>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#">Continue reading</a>
-                </div>
-                <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+        <aside class="col-sm-4 blog-sidebar">
+            <div id="blogcategory-list" class="list-group">
+                <a href="/Merachel/Blog" class="list-group-item list-group-item-action">Semua</a>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-success">Design</strong>
-                    <h3 class="mb-0">
-                        <a class="text-dark" href="#">Post title</a>
-                    </h3>
-                    <div class="mb-1 text-muted">Nov 11</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#">Continue reading</a>
-                </div>
-                <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
-            </div>
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-md-6">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-primary">World</strong>
-                    <h3 class="mb-0">
-                        <a class="text-dark" href="#">Featured post</a>
-                    </h3>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#">Continue reading</a>
-                </div>
-                <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-success">Design</strong>
-                    <h3 class="mb-0">
-                        <a class="text-dark" href="#">Post title</a>
-                    </h3>
-                    <div class="mb-1 text-muted">Nov 11</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#">Continue reading</a>
-                </div>
-                <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
-            </div>
+        </aside>
+        <div id="blog-list" class="col-sm-8 blog-main">
         </div>
     </div>
 
 </div><!-- /.container -->
+
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/merachel/main/blog.js?v=@Model.JavaScriptAndCssVersion"></script>
+}

@@ -16,7 +16,7 @@ namespace Merachel.BusinessProcess
 {
     public class CollectionServices : GeneralServices
     {
-        public ICollection<CollectionModel> GetCollection(string title = "", int? status = null)
+        public ICollection<CollectionModel> GetCollection(string title = "", int? status = null, int? collectionid = null)
         {
             using (var conn = db.Database.Connection)
             {
@@ -24,6 +24,7 @@ namespace Merachel.BusinessProcess
                 {
                     title = title,
                     status = status,
+                    collectionid = collectionid
                 },
                     commandType: CommandType.StoredProcedure))
                 {
