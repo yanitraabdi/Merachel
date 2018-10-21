@@ -44,7 +44,9 @@ namespace Merachel
             bundles.Add(new ScriptBundle("~/bundles/newfrontpage-js").Include(
                       "~/Scripts/jquery-3.1.1.min.js",
                       "~/Scripts/umd/popper.min.js",
-                      "~/Scripts/bootstrap.min.js"));
+                      "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/plugins/validate/jquery.validate.min.js",
+                      "~/Scripts/merachel/common.js"));
 
             // CSS style (bootstrap/inspinia)
             bundles.Add(new StyleBundle("~/Content/css").Include(

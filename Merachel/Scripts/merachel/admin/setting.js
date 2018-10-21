@@ -195,12 +195,8 @@ var Form = {
     },
     Delete: function () {
         BlogCategories.Delete();
-    },
-    Back: function () {
-        $('#panelTransaction').hide('slow');
-        $('#panelSummary').show('slow');
-    },
-}
+    }
+};
 
 var BlogCategories = {
     Post: function () {
